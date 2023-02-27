@@ -1,5 +1,5 @@
 import { Nav, Navbar, NavDropdown, Form, Image } from "react-bootstrap";
-import "./app.css";
+import "./app.scss";
 import { FaSearch, FaHome, FaUserFriends, FaBell, FaUserAlt } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { RiMessage3Fill } from "react-icons/ri";

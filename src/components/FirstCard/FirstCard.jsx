@@ -1,6 +1,6 @@
 import { Card, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./app.css";
+import "./app.scss";
 import { FaTelegramPlane } from "react-icons/fa";
 
 export const FirstCard = () => {
