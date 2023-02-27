@@ -8,7 +8,7 @@ export const Learning = () => {
         <img
           id="linkedinImg"
           src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-          alt=""
+          alt="linkedin"
         />
         <p className="learning ms-2 mb-2">LEARNING</p>
       </div>
