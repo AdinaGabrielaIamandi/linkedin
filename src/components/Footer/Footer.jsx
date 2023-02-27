@@ -6,6 +6,14 @@ export const Footer = () => {
   return (
     <Container fluid className="mt-4">
       <Row>
+        <img
+          className="mb-3"
+          id="logoFooter"
+          src="https://www.iter.it/wp-content/uploads/2019/12/linkedin-logo-png-transparent.png"
+          alt=""
+        />
+      </Row>
+      <Row>
         <Col>
           <div className="d-flex flex-column">
             <Link
@@ -138,6 +146,9 @@ export const Footer = () => {
             </select>
           </div>
         </Col>
+      </Row>
+      <Row>
+        <p className="footerQuestion">LinkedIn Corporation © 2023</p>
       </Row>
     </Container>
   );
