@@ -1,0 +1,22 @@
+h5 ,h6 {
+    font-weight: bold;
+}
+
+.ButtonRisorse{
+    border: none;
+    border-radius: 3px;
+}
+
+.TextRisorse{
+  padding-left: 1.5em;
+}
+
+.ButtonMostraRisorse{
+  height: 3em;
+    width: 100%;
+    border: none;
+  background-color: #ffffff;
+  &:hover{
+    background-color: #e2e1de46;
+  }
+}
