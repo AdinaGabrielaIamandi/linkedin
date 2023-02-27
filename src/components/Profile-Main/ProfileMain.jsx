@@ -6,6 +6,10 @@ import Attività from "./Attività/Attività";
 import Esperienza from "./Esperienza/Esperienza";
 import Informazioni from "./Informazioni/Informazioni";
 import Risorse from "./Risorse/Risorse";
+import { Footer } from "../Footer/Footer";
+import { Learning } from "../Learning/Learing";
+import { OtherCompanies } from "../Other-Companies/OtherCompanies";
+import { OtherPeople } from "../Other-People/OtherPeople";
 
 export const ProfileMain = () => {
   console.log("profile main");
@@ -23,7 +27,14 @@ export const ProfileMain = () => {
           {/* parte a sinistra */}
           <Interessi />
         </Col>
-        <Col className="col-xs-d-none col-md-2">{/* parte a destra */}</Col>
+        <Col md={3} className="d-none d-md-block">
+          <OtherCompanies />
+          <OtherPeople />
+          <Learning />
+        </Col>
+      </Row>
+      <Row>
+        <Footer />
       </Row>
     </Container>
   );

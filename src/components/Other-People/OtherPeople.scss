@@ -1,0 +1,25 @@
+div .portrait {
+  width: 3.5em;
+  height: 3.5em;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%;
+}
+div .job {
+  font-size: 0.9em;
+}
+div .cta {
+  border-radius: 30px;
+  background-color: white;
+  border: 1px solid #666666;
+  color: #666666;
+}
+div .cta:hover {
+  background-color: rgb(224, 224, 224);
+  border: 2px solid #666666;
+  color: #666666;
+}
+div .line {
+  color: #aaaaaa;
+}
