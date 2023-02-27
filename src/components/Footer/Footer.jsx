@@ -4,7 +4,7 @@ import "./Footer.css";
 
 export const Footer = () => {
   return (
-    <Container fluid className="mt-4">
+    <Container fluid className="mt-4 d-none d-md-block">
       <Row>
         <img
           className="mb-3"

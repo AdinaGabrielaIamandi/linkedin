@@ -11,7 +11,7 @@ export const ProfileMain = () => {
         <Col xs={12} md={9}>
           {/* parte a sinistra */}
         </Col>
-        <Col md={3} className="col-xs-d-none col-md-2">
+        <Col md={3} className="d-none d-md-block">
           <OtherCompanies />
           <OtherPeople />
           <Learning />
