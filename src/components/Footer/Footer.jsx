@@ -10,7 +10,7 @@ export const Footer = () => {
           className="mb-3"
           id="logoFooter"
           src="https://www.iter.it/wp-content/uploads/2019/12/linkedin-logo-png-transparent.png"
-          alt=""
+          alt="LogoFooter"
         />
       </Row>
       <Row>
