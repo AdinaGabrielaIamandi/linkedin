@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { Learning } from "../Learning/Learing";
 import { OtherCompanies } from "../Other-Companies/OtherCompanies";
 import { OtherPeople } from "../Other-People/OtherPeople";
 
@@ -12,6 +13,7 @@ export const ProfileMain = () => {
         <Col md={3} className="col-xs-d-none col-md-2">
           <OtherCompanies />
           <OtherPeople />
+          <Learning />
         </Col>
       </Row>
     </Container>

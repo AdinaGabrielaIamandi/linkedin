@@ -8,6 +8,7 @@ export const OtherPeople = () => {
       <div className="d-flex align-items-center mt-4">
         <div>
           <img
+            className="portrait"
             src="https://img.freepik.com/free-photo/cheerful-indian-businessman-smiling-closeup-portrait-jobs-career-campaign_53876-129416.jpg"
             alt=""
           />
