@@ -4,13 +4,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProfileMain } from "./components/Profile-Main/ProfileMain";
 
 function App() {
-  <BrowserRouter>
-    {/* navbar */}
-    <Routes>
-      <Route /> {/* profileMain */}
-    </Routes>
-    {/* footer */}
-  </BrowserRouter>;
+  return (
+    <>
+      <BrowserRouter>
+        {/* navbar */}
+        <Routes>
+          <Route path="/" element={<ProfileMain />} /> {/* profileMain */}
+        </Routes>
+        {/* footer */}
+      </BrowserRouter>
+      ;
+    </>
+  );
 }
 
 export default App;
