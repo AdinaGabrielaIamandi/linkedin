@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { Footer } from "../Footer/Footer";
 import { Learning } from "../Learning/Learing";
 import { OtherCompanies } from "../Other-Companies/OtherCompanies";
 import { OtherPeople } from "../Other-People/OtherPeople";
@@ -15,6 +16,9 @@ export const ProfileMain = () => {
           <OtherPeople />
           <Learning />
         </Col>
+      </Row>
+      <Row>
+        <Footer />
       </Row>
     </Container>
   );
