@@ -1,0 +1,22 @@
+h5, h6 {
+  font-weight: bold;
+}
+
+.ButtonRisorse {
+  border: none;
+  border-radius: 3px;
+}
+
+.TextRisorse {
+  padding-left: 1.5em;
+}
+
+.ButtonMostraRisorse {
+  height: 3em;
+  width: 100%;
+  border: none;
+  background-color: #ffffff;
+}
+.ButtonMostraRisorse:hover {
+  background-color: rgba(226, 225, 222, 0.2745098039);
+}/*# sourceMappingURL=Risorse.css.map */

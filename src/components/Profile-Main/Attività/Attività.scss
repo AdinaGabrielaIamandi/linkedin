@@ -1,0 +1,40 @@
+.ButtonAttività{
+    width: 10em;
+    font-weight: bold;
+    border-radius: 6em;
+}
+
+.ButtonFlex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 1em;
+}
+.ButtonAttività{
+    font-size: large;
+    &:hover{
+        background-color: #99bfe6;
+        color:#0a66c2;
+    }
+}
+
+.textAttività {
+    padding-left: 1.5em;
+}
+.picAttività{
+    border-radius: 15px;
+}
+
+.LikeCommenti{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    p{
+        &:hover{
+            border-bottom: 0.5px solid #0a66c2;
+            color: #0a66c2;
+        }
+    }
+}
