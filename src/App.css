@@ -1,1 +1,9 @@
+body {
+  background-color: #f3f2ee;
+}
 
+.allCards {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e9e8e5;
+}
