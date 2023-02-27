@@ -38,7 +38,7 @@ export const FirstCard = () => {
             </Link>
           </p>
         </Card.Text>
-        <div className="mb-3">
+        <div className="d-flex mb-3">
           <Button className="cta2 fw-bold me-2 ">
             <FaTelegramPlane /> Messaggio
           </Button>

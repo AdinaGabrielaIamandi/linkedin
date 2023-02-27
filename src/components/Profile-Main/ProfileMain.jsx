@@ -14,7 +14,7 @@ import { OtherPeople } from "../Other-People/OtherPeople";
 export const ProfileMain = () => {
   console.log("profile main");
   return (
-    <Container fluid>
+    <Container>
       <Row>
         <Col xs={12} md={9}>
           {" "}
