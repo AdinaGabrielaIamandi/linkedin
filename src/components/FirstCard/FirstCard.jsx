@@ -6,11 +6,12 @@ import { FaTelegramPlane } from "react-icons/fa";
 export const FirstCard = () => {
   return (
     <Card className="mb-2">
-      <Card.Img variant="top" src="http://placekitten.com/200/50" style={{ width: "100%" }} />
+      <Card.Img variant="top" src="http://placekitten.com/200/150" style={{ width: "100%", height: "180px" }} />
       <Card.Body>
         <Image
-          src="http://placekitten.com/130/130"
-          className="rounded-circle border border-4 border-white foto-profile"
+          src="http://placekitten.com/200/200"
+          className="rounded-circle border border-4 border-white foto-profile-first"
+          style={{ width: "150px", height: "150px" }}
         />
         <Card.Text className="mt-5">
           <div className="d-flex align-items-baseline m-0">

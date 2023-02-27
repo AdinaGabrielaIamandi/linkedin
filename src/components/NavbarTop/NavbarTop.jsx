@@ -1,5 +1,5 @@
 import { Nav, Navbar, NavDropdown, Form, Image } from "react-bootstrap";
-import "./app.scss";
+import "./navbar.scss";
 import { FaSearch, FaHome, FaUserFriends, FaBell, FaUserAlt } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { RiMessage3Fill } from "react-icons/ri";
@@ -10,7 +10,7 @@ export const NavbarTop = () => {
   return (
     <Navbar bg="white" expand="lg" className="d-flex justify-content-center p-0 mb-4">
       <div className="d-flex justify-content-start">
-        <Image src="./assets/logo.png" className="logo" alt="linkedin logo" />
+        <Image src="./assets/logo.png" className="logoNav" alt="linkedin logo" />
         <Form className="ms-2 search d-flex d-md-none d-lg-flex">
           <Form.Control type="search" placeholder={`🔍 Cerca`} className="me-5" aria-label="Search" />
         </Form>

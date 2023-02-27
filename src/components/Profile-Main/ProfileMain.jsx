@@ -6,7 +6,6 @@ import Attività from "./Attività/Attività";
 import Esperienza from "./Esperienza/Esperienza";
 import Informazioni from "./Informazioni/Informazioni";
 import Risorse from "./Risorse/Risorse";
-import { Footer } from "../Footer/Footer";
 import { Learning } from "../Learning/Learing";
 import { OtherCompanies } from "../Other-Companies/OtherCompanies";
 import { OtherPeople } from "../Other-People/OtherPeople";
@@ -15,9 +14,8 @@ export const ProfileMain = () => {
   console.log("profile main");
   return (
     <Container>
-      <Row>
-        <Col xs={12} md={9}>
-          {" "}
+      <Row className="justify-content-center">
+        <Col xs={12} md={7}>
           <FirstCard />
           <SecondCard />
           <Risorse />
@@ -32,9 +30,6 @@ export const ProfileMain = () => {
           <OtherPeople />
           <Learning />
         </Col>
-      </Row>
-      <Row>
-        <Footer />
       </Row>
     </Container>
   );
