@@ -22,8 +22,6 @@ export const ProfileMain = () => {
   useEffect(() => {
     dispatch(getProfileAction(params.id));
   }, []);
-  console.log("params", params);
-  console.log("profile fetch", seeProfile);
 
   return (
     <Container>

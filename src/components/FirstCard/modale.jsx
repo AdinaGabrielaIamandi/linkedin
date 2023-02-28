@@ -1,14 +1,22 @@
 import { BsFillInfoSquareFill } from "react-icons/bs";
 import { HiPlus } from "react-icons/hi";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import "./firstCard.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { putFirstPageAction, PUT_PROFILE } from "../../redux/action";
 
 const Modale = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const dispatch = useDispatch();
+  const edit = useSelector((state) => state.editProfile);
+
+  /*   useEffect(() => {
+    dispatch(putFirstPageAction(props.id));
+  }, []); */
+
+  console.log("edit profile", edit);
 
   return (
     <>
@@ -20,7 +28,11 @@ const Modale = () => {
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nome*</Form.Label>
-            <Form.Control type="text" autoFocus />
+            <Form.Control
+              type="text"
+              autoFocus
+              onChange={(e) => dispatch({ type: PUT_PROFILE, payload: e.target.value })}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -103,7 +115,11 @@ const Modale = () => {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button style={{ borderRadius: "5em", width: "5em" }} variant="primary" onClick={handleClose}>
+        <Button
+          style={{ borderRadius: "5em", width: "5em" }}
+          variant="primary"
+          onClick={() => dispatch(putFirstPageAction())}
+        >
           Salva
         </Button>
       </Modal.Footer>

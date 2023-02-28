@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import "./firstCard.scss";
 import { HiOutlinePencil } from "react-icons/hi";
 import Cover from "../../images/cover-foto.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modale from "./Modale";
+import { putFirstPageAction } from "../../redux/action";
+import { useDispatch, useSelector } from "react-redux";
 
 export const FirstCard = (props) => {
   const [show, setShow] = useState(false);
@@ -27,7 +29,7 @@ export const FirstCard = (props) => {
             </div>
           </div>
           <Modal size="lg" show={show} onHide={handleClose} aria-labelledby="example-modal-sizes-title-lg">
-            <Modale />
+            <Modale id={props.id} />
           </Modal>
           <div className="d-flex align-items-baseline mt-3">
             <h4 className="m-0 text-black">
