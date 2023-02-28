@@ -27,6 +27,12 @@
 
 .picAttività {
   border-radius: 15px;
+  width: 4em;
+  height: 4em;
+}
+
+.nameAttivitap {
+  font-size: 0.8em;
 }
 
 .LikeCommenti {

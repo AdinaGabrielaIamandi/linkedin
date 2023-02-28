@@ -1,0 +1,42 @@
+.logoNav {
+  width: 35px;
+  height: 35px;
+}
+
+.search {
+  height: 35px;
+}
+
+.my-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons-navbar {
+  font-size: 1.3em;
+  color: rgb(96, 96, 96);
+}
+.icons-navbar:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.text-icons {
+  font-size: 0.8em;
+  padding: 0;
+  color: rgb(96, 96, 96);
+}
+.text-icons:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.premium {
+  color: #bb7309;
+  font-size: 0.8em;
+}
+.premium:hover {
+  cursor: pointer;
+  color: black;
+}/*# sourceMappingURL=navbar.css.map */
