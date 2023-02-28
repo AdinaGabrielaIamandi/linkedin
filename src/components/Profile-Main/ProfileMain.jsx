@@ -19,6 +19,7 @@ export const ProfileMain = () => {
   const dispatch = useDispatch();
   const seeProfile = useSelector((state) => state.profile);
   const params = useParams();
+
   useEffect(() => {
     dispatch(getProfileAction(params.id));
   }, []);
