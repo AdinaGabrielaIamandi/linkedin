@@ -56,7 +56,7 @@ const Interessi = () => {
   else columWeight = 6;
 
   return (
-    <Container className="allCards ">
+    <Container className="allCards p-4">
       <h5>Interessi</h5>
       <ul className="d-flex">
         {Object.keys(dataInteressi).map((element) => {
