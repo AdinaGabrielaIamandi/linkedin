@@ -13,15 +13,17 @@ import { OtherPeople } from "../Other-People/OtherPeople";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileAction } from "../../redux/action";
+import { useParams } from "react-router-dom";
 
-export const ProfileMain = (props) => {
+export const ProfileMain = () => {
   const dispatch = useDispatch();
   const seeProfile = useSelector((state) => state.profile);
-  console.log(seeProfile);
-
+  const params = useParams();
   useEffect(() => {
-    dispatch(getProfileAction());
+    dispatch(getProfileAction(params.id));
   }, []);
+  console.log("params", params);
+  console.log("profile fetch", seeProfile);
 
   return (
     <Container>

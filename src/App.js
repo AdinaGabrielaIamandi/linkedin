@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <NavbarTop />
       <Routes>
-        <Route path="/" element={<ProfileMain />} />
+        <Route path="/profile/:id" element={<ProfileMain />} />
       </Routes>
       <Footer />
     </BrowserRouter>

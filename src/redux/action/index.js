@@ -1,25 +1,21 @@
 // qui verranno inserite tutte le azioni da esportare
-
 export const GET_PROFILE = "GET_PROFILE";
 
-export const getProfileAction = () => {
+export const getProfileAction = (id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/me",
-        {
-          method: "GET",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4",
-          },
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + id, {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
         }
-      );
+      });
       if (res.ok) {
         let profile = await res.json();
         dispatch({
           type: GET_PROFILE,
-          payload: profile,
+          payload: profile
         });
       }
     } catch (error) {
