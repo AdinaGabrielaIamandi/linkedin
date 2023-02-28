@@ -11,8 +11,32 @@ import { MdWork } from "react-icons/md";
 import { RiMessage3Fill } from "react-icons/ri";
 import { CgMenuGridR } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProfilesAction } from "../../redux/action";
 
 export const NavbarTop = () => {
+  const dispatch = useDispatch();
+  const allUsersList = useSelector((state) => state.allProfiles);
+  console.log(allUsersList);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    dispatch(getAllProfilesAction());
+    await console.log(event.target.firstName.value);
+    getIDByName(event.target.firstName.value);
+  };
+
+  const getIDByName = (input) => {
+    let internalStateProva;
+    console.log("allUsersLists", allUsersList);
+    console.log("input", input);
+    allUsersList.map((user, index, arr) => {
+      if (input.toString().toUpperCase() === user.name.toString().toUpperCase())
+        console.log(input, "===", user.name, "ID===", user._id);
+      internalStateProva = user._id;
+    });
+  };
+
   return (
     <Navbar
       bg="white"
@@ -25,12 +49,17 @@ export const NavbarTop = () => {
           className="logoNav"
           alt="linkedin logo"
         />
-        <Form className="ms-2 search d-flex d-md-none d-lg-flex">
+        <Form
+          className="ms-2 search d-flex d-md-none d-lg-flex"
+          onSubmit={handleSubmit}
+        >
           <Form.Control
             type="search"
             placeholder={`🔍 Cerca`}
             className="me-5"
             aria-label="Search"
+            id="firstName"
+            name="firstName"
           />
         </Form>
       </div>
