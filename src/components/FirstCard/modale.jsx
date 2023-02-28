@@ -29,7 +29,7 @@ const Modale = () => {
         <p style={{ fontSize: "0.7em" }}>*Indica che è obbligatorio</p>
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Nome*</Form.Label>                                                      
+            <Form.Label>Nome*</Form.Label>
             <Form.Control
               placeholder={profileInternal.name}
               type="text"
@@ -82,9 +82,11 @@ const Modale = () => {
           <p>
             <HiPlus /> Aggiungi una nuova posizione lavorativa
           </p>
-          <p>
-            <input type="checkbox" /> Mostra l'azienda attuale nella mia presentazione
-          </p>
+          <form className="d-flex align-items-center">
+            <input type="checkbox" id="check" hidden />
+            <label for="check" className="checkmark"></label>
+            <label>Mostra l’azienda attuale nella mia presentazione</label>
+          </form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Settore*</p>
             <Form.Control type="text" autoFocus />
