@@ -1,11 +1,27 @@
-.picEsperienza{
-    border-radius: 15px;
+.picEsperienza {
+  border-radius: 15px;
 }
 .textEsperienza {
-    padding-left: 1.5em;
+  padding-left: 1.5em;
 }
-.textFlex{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+.textFlex {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+ul {
+  margin-bottom: 0;
+  li {
+    margin-bottom: 0;
+  }
+}
+
+.pencil-add {
+  height: 40px;
+  width: 40px;
+  &:hover {
+    background-color: #ebebeb;
+    cursor: pointer;
+  }
 }
