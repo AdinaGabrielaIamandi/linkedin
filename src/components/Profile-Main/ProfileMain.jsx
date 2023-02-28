@@ -12,12 +12,11 @@ import { OtherCompanies } from "../Other-Companies/OtherCompanies";
 import { OtherPeople } from "../Other-People/OtherPeople";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProfileAction } from "../../redux/action";
+import { getExperienceAction, getProfileAction } from "../../redux/action";
 
 export const ProfileMain = (props) => {
   const dispatch = useDispatch();
   const seeProfile = useSelector((state) => state.profile);
-  console.log(seeProfile);
 
   useEffect(() => {
     dispatch(getProfileAction());
