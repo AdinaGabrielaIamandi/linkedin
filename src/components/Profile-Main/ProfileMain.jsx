@@ -1,6 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { FirstCard } from "../FirstCard/FirstCard";
-import { SecondCard } from "../SecondCard/SecondCard";
 import Interessi from "./Interessi/Interessi";
 import Attività from "./Attività/Attività";
 import Esperienza from "./Esperienza/Esperienza";
@@ -38,7 +37,6 @@ export const ProfileMain = () => {
             image={seeProfile.image}
             id={seeProfile._id}
           />
-          <SecondCard />
           <Risorse />
           <Informazioni />
           <Attività />

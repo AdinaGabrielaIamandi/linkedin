@@ -2,14 +2,14 @@ import { Card, Image, Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./firstCard.scss";
 import { HiOutlinePencil } from "react-icons/hi";
-import { useState } from "react";
 import Cover from "../../images/cover-foto.png";
+import { useState } from "react";
+import Modale from "./Modale";
 
 export const FirstCard = (props) => {
   const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   return (
     <Card className="mb-2">
@@ -26,19 +26,8 @@ export const FirstCard = (props) => {
               <HiOutlinePencil style={{ fontSize: "23px" }} onClick={handleShow} />
             </div>
           </div>
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={handleClose}>
-                Save Changes
-              </Button>
-            </Modal.Footer>
+          <Modal size="lg" show={show} onHide={handleClose} aria-labelledby="example-modal-sizes-title-lg">
+            <Modale />
           </Modal>
           <div className="d-flex align-items-baseline mt-3">
             <h4 className="m-0 text-black">

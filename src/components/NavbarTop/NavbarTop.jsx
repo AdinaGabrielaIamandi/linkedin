@@ -35,7 +35,7 @@ export const NavbarTop = () => {
   return (
     <Navbar bg="white" expand="lg" className="d-flex justify-content-center p-0 mb-4">
       <div className="d-flex justify-content-start">
-        <Image src="./assets/logo.png" className="logoNav" alt="linkedin logo" />
+        <Image src={Logo} className="logoNav" alt="linkedin logo" />
         <Form className="ms-2 search d-flex d-md-none d-lg-flex" onSubmit={handleSubmit}>
           <Form.Control
             type="search"
