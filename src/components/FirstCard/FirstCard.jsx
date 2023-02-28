@@ -1,7 +1,6 @@
 import { Card, Image, Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./firstCard.scss";
-import { FaTelegramPlane } from "react-icons/fa";
 import { HiOutlinePencil } from "react-icons/hi";
 import { useState } from "react";
 import Cover from "../../images/cover-foto.png";
@@ -63,6 +62,7 @@ export const FirstCard = (props) => {
         </Card.Text>
         <div className="d-flex mb-3">
           <Button className="cta2 fw-bold me-2 ">Disponibile per</Button>
+          <Button className="cta2 fw-bold me-2 ">Aggiungi sexione del profilo</Button>
           <Button className="cta fw-bold">Altro</Button>
         </div>
       </Card.Body>
