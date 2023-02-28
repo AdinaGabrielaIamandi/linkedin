@@ -124,6 +124,8 @@ export const addExperienceAction = () => {
         }
       );
       if (res.ok) {
+        let exp = await res.json();
+        console.log(exp);
       }
     } catch (error) {
       console.log(error);
