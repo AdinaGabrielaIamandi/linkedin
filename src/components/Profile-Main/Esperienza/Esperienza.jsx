@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getExperienceAction } from "../../../redux/action";
 import { useEffect } from "react";
 const Esperienza = () => {
+  // vado a leggere stato
   const seeExperience = useSelector((state) => state.experience);
   const dispatch = useDispatch();
   console.log(seeExperience);
