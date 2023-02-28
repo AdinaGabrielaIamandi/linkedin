@@ -1,6 +1,6 @@
 import { BsFillInfoSquareFill } from "react-icons/bs";
 import { HiPlus } from "react-icons/hi";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -12,7 +12,7 @@ const Modale = () => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
 
-  const profileInternal = { ...profile };
+  const [profileInternal, setProfileInternal] = useState(profile);
 
   /*   useEffect(() => {
     dispatch(putFirstPageAction(props.id));
@@ -35,7 +35,7 @@ const Modale = () => {
               type="text"
               autoFocus
               onChange={(e) => {
-                profileInternal.name = e.target.value;
+                setProfileInternal((prev) => ({ ...prev, name: e.target.value }));
               }}
             />
           </Form.Group>
