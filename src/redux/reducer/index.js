@@ -1,17 +1,14 @@
-import { GET_EXPERIENCE, GET_PROFILE, GET_ALL_PROFILES, PUT_PROFILE } from "../action";
+import {
+  GET_EXPERIENCE,
+  GET_PROFILE,
+  GET_ALL_PROFILES,
+  PUT_PROFILE,
+} from "../action";
 
 const initialState = {
   profile: [],
   experience: [],
   allProfiles: [],
-  editProfile: {
-    name: "",
-    surname: "",
-    email: "",
-    bio: "",
-    title: "",
-    area: ""
-  }
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -19,22 +16,22 @@ const mainReducer = (state = initialState, action) => {
     case GET_PROFILE:
       return {
         ...state,
-        profile: action.payload
+        profile: action.payload,
       };
     case GET_EXPERIENCE:
       return {
         ...state,
-        experience: action.payload
+        experience: action.payload,
       };
     case GET_ALL_PROFILES:
       return {
         ...state,
-        allProfiles: action.payload
+        allProfiles: action.payload,
       };
     case PUT_PROFILE:
       return {
         ...state,
-        editProfile: action.payload
+        profile: action.payload,
       };
     default:
       return state;
