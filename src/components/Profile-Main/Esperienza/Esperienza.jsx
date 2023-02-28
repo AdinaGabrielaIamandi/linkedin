@@ -76,7 +76,12 @@ const Esperienza = () => {
                   />
                 </div>
               </div>
-              <Modal show={show} onHide={handleClose}>
+              <Modal
+                size="lg"
+                show={show}
+                onHide={handleClose}
+                aria-labelledby="example-modal-sizes-title-lg"
+              >
                 <Modal.Header closeButton>
                   <Modal.Title>Aggiungi esperienza</Modal.Title>
                 </Modal.Header>
