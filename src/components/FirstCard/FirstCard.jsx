@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./app.scss";
 import { FaTelegramPlane } from "react-icons/fa";
 import { HiOutlinePencil } from "react-icons/hi";
+import Modale from "./modale";
 
 export const FirstCard = (props) => {
   return (
@@ -18,6 +19,7 @@ export const FirstCard = (props) => {
           <div className="d-flex align-items-baseline m-0">
             <div className="d-block">
               <HiOutlinePencil />
+              <Modale/>
             </div>
             <h4 className="m-0">
               {props.name} {props.surname}
