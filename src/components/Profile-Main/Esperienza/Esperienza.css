@@ -10,4 +10,20 @@
   display: flex;
   flex-direction: column;
   align-items: start;
+}
+
+ul {
+  margin-bottom: 0;
+}
+ul li {
+  margin-bottom: 0;
+}
+
+.pencil-add {
+  height: 40px;
+  width: 40px;
+}
+.pencil-add:hover {
+  background-color: #ebebeb;
+  cursor: pointer;
 }/*# sourceMappingURL=Esperienza.css.map */

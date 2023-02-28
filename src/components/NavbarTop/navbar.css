@@ -39,4 +39,8 @@
 .premium:hover {
   cursor: pointer;
   color: black;
+}
+
+.work {
+  font-size: 15px;
 }/*# sourceMappingURL=navbar.css.map */

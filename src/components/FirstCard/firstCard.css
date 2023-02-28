@@ -4,17 +4,13 @@
   transform: translateY(-70%);
 }
 
-.link {
-  &:hover {
-    border-bottom: 1px solid #0a66c2;
-  }
+.link:hover {
+  border-bottom: 1px solid #0a66c2;
 }
 
-.link2 {
-  &:hover {
-    color: #0a66c2 !important;
-    border-bottom: 1px solid #0a66c2;
-  }
+.link2:hover {
+  color: #0a66c2 !important;
+  border-bottom: 1px solid #0a66c2;
 }
 
 .cta {
@@ -23,6 +19,7 @@
   border: 1px solid #666666;
   color: #666666;
 }
+
 .cta:hover {
   background-color: rgb(224, 224, 224);
   border: 2px solid #666666;
@@ -40,10 +37,8 @@
 .pencil-add {
   height: 40px;
   width: 40px;
-  &:hover {
-    background-color: #ebebeb;
-    cursor: pointer;
-  }
 }
-
-
+.pencil-add:hover {
+  background-color: #ebebeb;
+  cursor: pointer;
+}/*# sourceMappingURL=firstCard.css.map */

@@ -7,6 +7,8 @@ import Modal from "react-bootstrap/Modal";
 import "./firstCard.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { putFirstPageAction, PUT_PROFILE } from "../../redux/action";
+import "./Modale.scss";
+
 
 const Modale = () => {
   const dispatch = useDispatch();
@@ -26,11 +28,11 @@ const Modale = () => {
         <Modal.Title id="example-modal-sizes-title-lg">Modifica introduzione</Modal.Title>
       </Modal.Header>
       <Modal.Body className="modale">
-        <p style={{ fontSize: "0.7em" }}>*Indica che è obbligatorio</p>
+        <p style={{ fontSize: "0.8em" }}>*Indica che è obbligatorio</p>
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nome*</Form.Label>
-            <Form.Control
+            <Form.Control className="ModalFormControl"
               placeholder={profileInternal.name}
               type="text"
               autoFocus
@@ -42,7 +44,7 @@ const Modale = () => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Cognome*</Form.Label>
-            <Form.Control
+            <Form.Control className="ModalFormControl"
               type="text"
               autoFocus
               onChange={(e) => {
@@ -53,53 +55,57 @@ const Modale = () => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nome aggiuntivo*</Form.Label>
-            <Form.Control type="text" autoFocus />
+            <Form.Control className="ModalFormControl" type="text" autoFocus />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
-          <p style={{ fontSize: "0.7em" }}>Pronuncia del nome</p>
-          <p style={{ fontSize: "0.7em" }}>
+          <p style={{ fontSize: "0.8em" }}>Pronuncia del nome</p>
+          <p style={{ fontSize: "0.8em", color:"#1f1f1f" }}>
             <BsFillInfoSquareFill /> Può essere aggiunta solo usando la nostra app per dispositivi mobili
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Inserisci i pronomi personalizzati</Form.Label>
-            <Form.Control type="text" autoFocus />
-            <p style={{ fontSize: "0.7em" }}>
+            <Form.Control className="ModalFormControl" type="text" autoFocus />
+            <p style={{ fontSize: "0.8em" }}>
               Indica i pronomi di genere che vuoi che gli altri usino per riferirsi a te.
             </p>
           </Form.Group>
           <p>
-            Scopri di più sui <span>pronomi di genere</span>
+            Scopri di più sui <span className="ModalSpan">pronomi di genere</span>
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Sommario*</Form.Label>
-            <Form.Control type="text" autoFocus />
+            <Form.Control className="ModalFormControl" type="text" autoFocus />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p style={{ fontSize: "1.3em", color: "black" }}>Posizione attuale</p>
-            <Form.Label>Posizione lavorativa*</Form.Label>
-            <Form.Control type="text" autoFocus />
+            <Form.Label style={{color:"#1f1f1f"}}>Posizione lavorativa*</Form.Label>
+            <Form.Select className="ModalFormControl"aria-label="Default select example" type="text" autoFocus>
+            <option value="3">Seleziona</option>
+          </Form.Select>
           </Form.Group>
           <p>
-            <HiPlus /> Aggiungi una nuova posizione lavorativa
+            <Button className="ModalButton"><HiPlus /> Aggiungi una nuova posizione lavorativa</Button>
           </p>
           <p>
             <input type="checkbox" /> Mostra l'azienda attuale nella mia presentazione
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Settore*</p>
-            <Form.Control type="text" autoFocus />
+            <Form.Control className="ModalFormControl" type="text" autoFocus />
           </Form.Group>
           <p>
-            Scopri di più sulle <span>opzioni relative al settore</span>
+            Scopri di più sulle <span className="ModalSpan" >opzioni relative al settore</span>
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p style={{ fontSize: "1.3em", color: "black" }}>Formazione</p>
             <p>Formazione*</p>
 
-            <Form.Control type="text" autoFocus />
+            <Form.Select className="ModalFormControl"aria-label="Default select example" type="text" autoFocus>
+            <option value="3">Seleziona</option>
+            </Form.Select>
           </Form.Group>
           <p>
-            <HiPlus /> Aggiungi una nuova posizione lavorativa
+            <Button className="ModalButton"><HiPlus /> Aggiungi un nuovo grado di formazione</Button>
           </p>
           <p>
             <input type="checkbox" /> Mostra la formazione nella mia presentazione
@@ -107,22 +113,22 @@ const Modale = () => {
           <p style={{ fontSize: "1.3em", color: "black" }}>Località</p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Paese/Area geografica*</p>
-            <Form.Control type="text" autoFocus />
+            <Form.Control className="ModalFormControl" type="text" autoFocus />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>CAP*</p>
-            <Form.Control type="text" autoFocus />
+            <Form.Control className="ModalFormControl" type="text" autoFocus />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Città*</p>
-            <Form.Control type="text" autoFocus />
+            <Form.Control className="ModalFormControl" type="text" autoFocus />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <p style={{ fontSize: "1.3em", color: "black" }}>Informazioni di contatto</p>
           <p>Aggiungi o modifica il tuo profilo URL, indirizzo email e altro</p>
-          <p>Modifica le informazioni di contatto</p>
+          <Button className="LastModalButton">Modifica le informazioni di contatto</Button>
         </Form>
       </Modal.Body>
       <Modal.Footer>
