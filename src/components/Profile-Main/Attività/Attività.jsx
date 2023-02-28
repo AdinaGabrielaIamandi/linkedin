@@ -10,7 +10,7 @@ const Attività = () => {
             Avvia un post
           </Button>
         </Col>
-        <p className="text-primary fw-bold mb-0">follower</p>
+        <p className="mb-0">34 follower</p>
         <p className="nameAttivitap">
           {" "}
           <span className="fw-bold">Saverio Caracappa</span> ha diffuso questo
@@ -23,11 +23,11 @@ const Attività = () => {
             alt="cat"
           />
         </div>
-        <Col className="LikeCommenti border-bottom my-4">
+        <Col className="LikeCommenti border-bottom mt-2">
           <p>like</p>
           <p>commenti</p>
         </Col>
-        <p className="nameAttivitap">
+        <p className="nameAttivitap mt-2">
           <span className="fw-bold">Saverio Caracappa</span> ha diffuso questo
           post • 1m
         </p>
@@ -38,7 +38,7 @@ const Attività = () => {
             alt="cat"
           />
         </div>
-        <Col className="LikeCommenti border-bottom my-4">
+        <Col className="LikeCommenti border-bottom mt-2">
           <p>like</p>
           <p>commenti</p>
         </Col>
