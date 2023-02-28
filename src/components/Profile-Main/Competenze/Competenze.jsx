@@ -51,7 +51,7 @@ const Competenze = () => {
   ];
 
   return (
-    <Container className="allCards">
+    <Container className="allCards p-4">
       <Row>
         <Col className="d-flex align-items-center">
           {numberToDisplay > DEFAULTNUMBER ? (
@@ -83,7 +83,10 @@ const Competenze = () => {
               <li>
                 {" "}
                 <BsFillPeopleFill className="imgIcon" />
-                <a href="">{element.Conferme.length + " Conferme"}</a>
+                <a href="">
+                  {element.Conferme.length + " Conferm"}
+                  {element.Conferme.length === 1 ? "a" : "e"}
+                </a>
               </li>
             </ul>
           );
