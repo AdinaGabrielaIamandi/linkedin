@@ -36,3 +36,12 @@
 .text {
   font-size: 0.9em;
 }
+
+.pencil-add {
+  height: 40px;
+  width: 40px;
+  &:hover {
+    background-color: #ebebeb;
+    cursor: pointer;
+  }
+}

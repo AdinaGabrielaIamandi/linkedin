@@ -1,10 +1,16 @@
-import { Card, Image, Button } from "react-bootstrap";
+import { Card, Image, Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./app.scss";
 import { FaTelegramPlane } from "react-icons/fa";
 import { HiOutlinePencil } from "react-icons/hi";
+import { useState } from "react";
 
 export const FirstCard = (props) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <Card className="mb-2">
       <Card.Img variant="top" src="http://placekitten.com/200/150" style={{ width: "100%", height: "180px" }} />
@@ -14,11 +20,27 @@ export const FirstCard = (props) => {
           className="rounded-circle border border-4 border-white foto-profile-first"
           style={{ width: "150px", height: "150px" }}
         />
-        <Card.Text className="mt-5">
-          <div className="d-flex align-items-baseline m-0">
-            <div className="d-block">
-              <HiOutlinePencil />
+        <Card.Text className="mt-3">
+          <div className="d-flex justify-content-end">
+            <div className="d-flex justify-content-center rounded-circle pencil-add align-items-center">
+              <HiOutlinePencil style={{ fontSize: "23px" }} onClick={handleShow} />
             </div>
+          </div>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleClose}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
+          <div className="d-flex align-items-baseline mt-3">
             <h4 className="m-0">
               {props.name} {props.surname}
             </h4>
