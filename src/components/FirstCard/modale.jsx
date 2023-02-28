@@ -29,7 +29,7 @@ const Modale = () => {
         <p style={{ fontSize: "0.7em" }}>*Indica che è obbligatorio</p>
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Nome*</Form.Label>
+            <Form.Label>Nome*</Form.Label>                                                      
             <Form.Control
               placeholder={profileInternal.name}
               type="text"

@@ -53,7 +53,7 @@ export const FirstCard = (props) => {
         </Card.Text>
         <div className="d-flex mb-3">
           <Button className="cta2 fw-bold me-2 ">Disponibile per</Button>
-          <Button className="cta2 fw-bold me-2 ">Aggiungi sexione del profilo</Button>
+          <Button className="cta2 cta3 fw-bold me-2 ">Aggiungi sessione del profilo</Button>
           <Button className="cta fw-bold">Altro</Button>
         </div>
       </Card.Body>
