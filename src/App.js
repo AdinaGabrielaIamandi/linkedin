@@ -11,6 +11,9 @@ function App() {
       <NavbarTop />
       <Routes>
         <Route path="/" element={<ProfileMain />} />
+        <Route path="/:dynamicId" element={<ProfileMain />} />
+
+        <Route path="/me" element={<ProfileMain />} />
       </Routes>
       <Footer />
     </BrowserRouter>
