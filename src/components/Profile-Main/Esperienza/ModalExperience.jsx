@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 
 export const ModalExperience = () => {
+  const [exp, setExp] = useState();
+  console.log(setExp);
   return (
     <Modal.Body className="modale">
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -21,6 +24,10 @@ export const ModalExperience = () => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Tipo di località</Form.Label>
+        <Form.Control type="text" autoFocus />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label>Competenze</Form.Label>
         <Form.Control type="text" autoFocus />
       </Form.Group>
       <div className="d-flex justify-content-around">
