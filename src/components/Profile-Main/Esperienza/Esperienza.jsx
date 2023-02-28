@@ -7,6 +7,7 @@ import { HiOutlinePencil } from "react-icons/hi";
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import "./Esperienza.scss";
+import { ModalExperience } from "./ModalExperience";
 
 const Esperienza = () => {
   const [show, setShow] = useState(false);
@@ -75,13 +76,19 @@ const Esperienza = () => {
                   />
                 </div>
               </div>
-              <Modal show={show} onHide={handleClose}>
+              <Modal
+                size="lg"
+                show={show}
+                onHide={handleClose}
+                aria-labelledby="example-modal-sizes-title-lg"
+              >
                 <Modal.Header closeButton>
-                  <Modal.Title>Modal heading</Modal.Title>
+                  <Modal.Title>Aggiungi esperienza</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <ModalExperience />
+                {/*               <Modal.Body>
                   Woohoo, you're reading this text in a modal!
-                </Modal.Body>
+                </Modal.Body> */}
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handleClose}>
                     Close
