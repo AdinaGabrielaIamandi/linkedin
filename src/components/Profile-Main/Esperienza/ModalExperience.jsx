@@ -23,6 +23,16 @@ export const ModalExperience = () => {
         <Form.Label>Tipo di località</Form.Label>
         <Form.Control type="text" autoFocus />
       </Form.Group>
+      <div className="d-flex justify-content-around">
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Label>Data di inizio</Form.Label>
+          <Form.Control type="date" autoFocus />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Label>Data fine</Form.Label>
+          <Form.Control type="date" autoFocus />
+        </Form.Group>
+      </div>
     </Modal.Body>
   );
 };
