@@ -7,6 +7,7 @@ import { HiOutlinePencil } from "react-icons/hi";
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import "./Esperienza.scss";
+import { ModalExperience } from "./ModalExperience";
 
 const Esperienza = () => {
   const [show, setShow] = useState(false);
@@ -79,9 +80,7 @@ const Esperienza = () => {
                 <Modal.Header closeButton>
                   <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                  Woohoo, you're reading this text in a modal!
-                </Modal.Body>
+                <ModalExperience />
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handleClose}>
                     Close
