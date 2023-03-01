@@ -1,0 +1,45 @@
+.modale {
+  overflow-y: auto;
+  height: 700px;
+}
+
+.ModalFormControl {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+}
+.ModalFormControl:hover {
+  border: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+.ModalButton {
+  color: #0a66c2;
+  background-color: white;
+  border: none;
+  font-weight: 600;
+}
+.ModalButton:hover {
+  color: #0a66c2;
+  border-radius: 12px;
+  background-color: rgba(196, 215, 233, 0.7411764706);
+}
+
+.ModalSpan {
+  color: #0a66c2;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ModalSpan:hover {
+  text-decoration: underline;
+}
+
+.LastModalButton {
+  color: #0a66c2;
+  background-color: white;
+  border: none;
+  font-weight: 600;
+}
+.LastModalButton:hover {
+  color: #0a66c2;
+  border-radius: 12px;
+  background-color: rgba(196, 215, 233, 0.7411764706);
+  text-decoration: underline;
+}/*# sourceMappingURL=Modale.css.map */
