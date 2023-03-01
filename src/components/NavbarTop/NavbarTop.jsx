@@ -109,7 +109,6 @@ export const NavbarTop = () => {
                 </NavDropdown.Item>
               </div>
             </div>
-
             <NavDropdown.Item href="#action7" className="text-decoration-none bg-transparent">
               <Button className="cta2 cta3 fw-bold w-100">Visualizza profilo</Button>
             </NavDropdown.Item>

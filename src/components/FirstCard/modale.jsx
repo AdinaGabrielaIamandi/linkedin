@@ -1,12 +1,12 @@
 import { BsFillInfoSquareFill } from "react-icons/bs";
 import { HiPlus } from "react-icons/hi";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import "./firstCard.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { putFirstPageAction, PUT_PROFILE } from "../../redux/action";
+import { putFirstPageAction } from "../../redux/action";
 
 const Modale = () => {
   const dispatch = useDispatch();
