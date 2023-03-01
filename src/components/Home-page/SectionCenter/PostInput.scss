@@ -1,0 +1,74 @@
+div {
+  #portraitInput {
+    width: 48px;
+    height: 48px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .iconsUnderInput {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  #inputPost {
+    height: 50px;
+    border-radius: 50px;
+  }
+
+  .iconFields {
+    font-size: 1.5em;
+    color: #3697ff;
+  }
+
+  .textIcon {
+    color: #666666;
+    font-size: 0.9em;
+  }
+
+  .green {
+    color: #5f9a41;
+  }
+
+  .orange {
+    color: #c37d17;
+  }
+
+  .red {
+    color: #e16744;
+  }
+}
+
+.ctaInput {
+  border-radius: 25px;
+  font-size: 0.8em;
+  border: 1px solid #858585;
+  background-color: white;
+  color: #666666;
+
+  .buttonIcon {
+    font-size: 1.3em;
+  }
+}
+
+.iconFooterInputModal {
+  width: 1.6em;
+  height: 1.6em;
+  color: #666666;
+}
+
+.all {
+  font-size: 0.9em;
+  color: #757575;
+}
+
+.pubblicaCta {
+  border-radius: 20px;
+  background-color: #0b65c2;
+}
+
+.borderToDiv {
+  border-left: 1px solid rgb(208, 208, 208);
+}
