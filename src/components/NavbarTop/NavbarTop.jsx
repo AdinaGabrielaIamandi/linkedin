@@ -1,6 +1,6 @@
 import { Nav, Navbar, NavDropdown, Form, Image, Button } from "react-bootstrap";
 import "./navbar.scss";
-import { FaSearch, FaHome, FaUserFriends, FaBell, FaUserAlt } from "react-icons/fa";
+import { FaSearch, FaHome, FaUserFriends, FaBell } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import { RiMessage3Fill } from "react-icons/ri";
 import { CgMenuGridR } from "react-icons/cg";
@@ -43,7 +43,7 @@ export const NavbarTop = () => {
 
   return (
     <Navbar bg="white" expand="lg" className="d-flex justify-content-center p-0 mb-4 flex-sm-nowrap">
-      <div className="d-flex justify-content-start align-items-center me-5">
+      <div className="d-flex justify-content-start align-items-center me-lg-5">
         <AiOutlineArrowLeft className="icons-navbar d-flex d-md-none" />
         <Image src={Logo} className="logoNav d-none d-md-flex" alt="linkedin logo" />
         <Form className="ms-1 search d-flex d-md-none d-lg-flex" onSubmit={handleSubmit}>
@@ -58,7 +58,7 @@ export const NavbarTop = () => {
         </Form>
       </div>
       <Nav
-        className="d-flex flex-row justify-content-between align-items-center ms-5 me-4"
+        className="d-flex flex-row justify-content-between align-items-center ms-md-5 me-md-4"
         style={{ maxHeight: "100px" }}
       >
         <div className="d-none d-md-flex flex-column d-lg-none align-items-center justify-content-center">
@@ -101,42 +101,45 @@ export const NavbarTop = () => {
             <div className="d-flex ms-3 mt-1 align-items-center">
               <Image src={meUser.image} className="rounded-circle" style={{ width: "50px", height: "50px" }} />
               <div>
-                <NavDropdown.Item href="#action5" className="text-decoration-none">
+                <NavDropdown.Item href="#action5" className="text-decoration-none bg-transparent">
                   {meUser.name} {meUser.surname}
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action6" className="text-decoration-none">
+                <NavDropdown.Item href="#action6" className="text-decoration-none bg-transparent">
                   {meUser.title}
                 </NavDropdown.Item>
               </div>
             </div>
 
-            <NavDropdown.Item href="#action7" className="text-decoration-none">
+            <NavDropdown.Item href="#action7" className="text-decoration-none bg-transparent">
               <Button className="cta2 cta3 fw-bold w-100">Visualizza profilo</Button>
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <p className="fw-bold text-black ms-3 mb-0 titolo-nav">Account</p>
-            <NavDropdown.Item href="#action8" className="text-decoration-none link3 fw-bold sottotitoli-nav">
+            <NavDropdown.Item
+              href="#action8"
+              className="text-decoration-none link3 fw-bold sottotitoli-nav bg-transparent"
+            >
               Prova Premium gratis
             </NavDropdown.Item>
-            <NavDropdown.Item href="#action9" className="sottotitoli-nav">
+            <NavDropdown.Item href="#action9" className="sottotitoli-nav bg-transparent">
               Impostazioni e privacy
             </NavDropdown.Item>
-            <NavDropdown.Item href="#action10" className="sottotitoli-nav">
+            <NavDropdown.Item href="#action10" className="sottotitoli-nav bg-transparent">
               Guida
             </NavDropdown.Item>
-            <NavDropdown.Item href="#action11" className="sottotitoli-nav">
+            <NavDropdown.Item href="#action11" className="sottotitoli-nav bg-transparent">
               Lingua
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <p className="fw-bold text-black ms-3 mb-0 titolo-nav">Gestisci</p>
-            <NavDropdown.Item href="#action12" className="sottotitoli-nav">
+            <NavDropdown.Item href="#action12" className="sottotitoli-nav bg-transparent">
               Post e attività
             </NavDropdown.Item>
-            <NavDropdown.Item href="#action13" className="sottotitoli-nav">
+            <NavDropdown.Item href="#action13" className="sottotitoli-nav bg-transparent">
               Account per la pubbli...
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action14" className="sottotitoli-nav">
+            <NavDropdown.Item href="#action14" className="sottotitoli-nav bg-transparent">
               Esci
             </NavDropdown.Item>
           </NavDropdown>
@@ -148,7 +151,7 @@ export const NavbarTop = () => {
         <Link to="/" className="premium text-decoration-underline d-none d-md-flex">
           Prova Premium gratis
         </Link>
-        <Nav.Link href="#action14" className="d-flex d-md-none">
+        <Nav.Link href="#action14" className="d-flex d-md-none m-0">
           <IoMdSettings className="icons-navbar" />
         </Nav.Link>
       </Nav>

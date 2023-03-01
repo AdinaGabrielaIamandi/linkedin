@@ -46,7 +46,7 @@ const Modale = () => {
               type="text"
               autoFocus
               onChange={(e) => {
-                profileInternal.surname = e.target.value;
+                setProfileInternal((prev) => ({ ...prev, surname: e.target.value }));
               }}
             />
           </Form.Group>
@@ -71,12 +71,24 @@ const Modale = () => {
             Scopri di più sui <span>pronomi di genere</span>
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Sommario*</Form.Label>
+            <Form.Label
+              onChange={(e) => {
+                setProfileInternal((prev) => ({ ...prev, bio: e.target.value }));
+              }}
+            >
+              Sommario*
+            </Form.Label>
             <Form.Control type="text" autoFocus />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p style={{ fontSize: "1.3em", color: "black" }}>Posizione attuale</p>
-            <Form.Label>Posizione lavorativa*</Form.Label>
+            <Form.Label
+              onChange={(e) => {
+                setProfileInternal((prev) => ({ ...prev, title: e.target.value }));
+              }}
+            >
+              Posizione lavorativa*
+            </Form.Label>
             <Form.Control type="text" autoFocus />
           </Form.Group>
           <p>
@@ -119,7 +131,13 @@ const Modale = () => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Città*</p>
-            <Form.Control type="text" autoFocus />
+            <Form.Control
+              type="text"
+              autoFocus
+              onChange={(e) => {
+                setProfileInternal((prev) => ({ ...prev, area: e.target.value }));
+              }}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <p style={{ fontSize: "1.3em", color: "black" }}>Informazioni di contatto</p>

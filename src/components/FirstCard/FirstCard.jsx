@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import "./firstCard.scss";
 import { HiOutlinePencil } from "react-icons/hi";
 import Cover from "../../images/cover-foto.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Modale from "./Modale";
-import { putFirstPageAction } from "../../redux/action";
-import { useDispatch, useSelector } from "react-redux";
 
 export const FirstCard = (props) => {
   const [show, setShow] = useState(false);
