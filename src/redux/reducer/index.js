@@ -3,6 +3,8 @@ import {
   GET_PROFILE,
   GET_ALL_PROFILES,
   PUT_PROFILE,
+  ADD_EXPERIENCE,
+  PUT_EXPERIENCE,
 } from "../action";
 
 const initialState = {
@@ -33,6 +35,22 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         profile: action.payload,
       };
+    case ADD_EXPERIENCE:
+      return {
+        ...state,
+        experience: state.experience.concat(action.payload),
+      };
+
+    /*case PUT_EXPERIENCE:
+      let index = state.experience.findIndex(
+        (exp) => action.payload_id === exp._id
+      );
+
+      return {
+        ...state,
+        experience: (state.experience[index] = action.payload),
+      };*/
+
     default:
       return state;
   }

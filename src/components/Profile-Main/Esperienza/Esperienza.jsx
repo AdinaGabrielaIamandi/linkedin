@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { getExperienceAction } from "../../../redux/action";
 import { useEffect } from "react";
-import { AiOutlinePlus } from "react-icons/ai";
+
 import { HiOutlinePencil } from "react-icons/hi";
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
@@ -10,10 +10,14 @@ import "./Esperienza.scss";
 import { ModalExperience } from "./ModalExperience";
 
 const Esperienza = () => {
-  const [show, setShow] = useState(false);
+  const TUTTOLOSTORE = useSelector((state) => state);
+  console.log("STORE", TUTTOLOSTORE);
 
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+  };
   // vado a leggere stato
   const experiences = useSelector((state) => state.experience);
   const dispatch = useDispatch();
@@ -31,15 +35,10 @@ const Esperienza = () => {
         </Col>
         <Col xs={2}>
           <div className="d-flex justify-content-end">
-            <div className="d-flex justify-content-center rounded-circle pencil-add align-items-center">
-              <AiOutlinePlus
-                style={{ fontSize: "23px" }}
-                onClick={handleShow}
-              />
-            </div>
+            <div className="d-flex justify-content-center rounded-circle pencil-add align-items-center"></div>
           </div>
         </Col>
-
+        <ModalExperience id="ADDEXP" />
         {experiences.map((exp, i) => (
           <>
             <Col key={i} xs={10} className="d-flex ">
@@ -69,28 +68,10 @@ const Esperienza = () => {
               </div>
             </Col>
             <Col xs={2}>
-              <div className="d-flex justify-content-end ">
-                <div className="d-flex justify-content-center rounded-circle pencil-add align-items-center">
-                  <HiOutlinePencil
-                    style={{ fontSize: "23px" }}
-                    onClick={handleShow}
-                  />
-                </div>
-              </div>
-              <Modal
-                size="lg"
-                show={show}
-                onHide={handleClose}
-                aria-labelledby="example-modal-sizes-title-lg"
-              >
-                <Modal.Header closeButton>
-                  <Modal.Title>Aggiungi esperienza</Modal.Title>
-                </Modal.Header>
-                <ModalExperience />
-                {/*               <Modal.Body>
+              <ModalExperience id={exp._id} />
+              {/*               <Modal.Body>
                   Woohoo, you're reading this text in a modal!
                 </Modal.Body> */}
-              </Modal>
             </Col>
           </>
         ))}
