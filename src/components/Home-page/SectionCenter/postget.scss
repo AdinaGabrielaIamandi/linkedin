@@ -1,0 +1,49 @@
+.header-post {
+  cursor: pointer;
+}
+
+.nome-utente {
+  font-size: 1em;
+  line-height: 1;
+  &:hover {
+    text-decoration: underline;
+    color: #3983ce;
+  }
+}
+
+.lavoro-utente {
+  font-size: 0.75em;
+}
+
+.data-post {
+  font-size: 0.75em;
+  line-height: 1;
+}
+
+.icon-world {
+  font-size: 1.2em;
+}
+
+.likes {
+  font-size: 0.8em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.num-like {
+  &:hover {
+    color: #3983ce !important;
+    text-decoration: underline;
+  }
+}
+
+.bottone-hover {
+  padding-top: 10px;
+  padding-left: 8px;
+  padding-bottom: 10px;
+  padding-right: 8px;
+  &:hover {
+    background-color: #ebebeb !important;
+  }
+}
