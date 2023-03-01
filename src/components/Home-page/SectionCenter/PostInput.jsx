@@ -11,6 +11,7 @@ export const PostInput = () => {
       <div className="d-flex ">
         <div>
           <img
+            id="portraitInput"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Mona_Lisa-restored.jpg/1200px-Mona_Lisa-restored.jpg"
             alt=""
           />
