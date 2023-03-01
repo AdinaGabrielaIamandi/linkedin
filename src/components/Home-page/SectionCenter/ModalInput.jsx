@@ -1,9 +1,14 @@
 import { Form, Button, Modal } from "react-bootstrap";
 import { BiWorld } from "react-icons/bi";
 import { RxTriangleDown } from "react-icons/rx";
+import { FaRegSmile } from "react-icons/fa";
+import { AiFillPicture } from "react-icons/ai";
+import { BsFillPlayBtnFill } from "react-icons/bs";
+import { HiDocumentText } from "react-icons/hi";
+import { SlOptions } from "react-icons/sl";
 import "./PostInput.scss";
 
-export const ModalInput = () => {
+export const ModalInput = (props) => {
   return (
     <>
       <Modal.Header closeButton>
@@ -40,6 +45,22 @@ export const ModalInput = () => {
             />
           </Form.Group>
         </Form>
+        <div>
+          <FaRegSmile style={{ width: "1.8em" }} />
+        </div>
+        <div className="d-flex justify-content-between">
+          <div>
+            <AiFillPicture className="iconFooterInputModal" />
+            <BsFillPlayBtnFill className="iconFooterInputModal" />
+            <HiDocumentText className="iconFooterInputModal" />
+            <SlOptions className="iconFooterInputModal" />
+          </div>
+          <div>
+            <Button variant="primary" onClick={props.handleClose}>
+              Save Changes
+            </Button>
+          </div>
+        </div>
       </Modal.Body>
     </>
   );

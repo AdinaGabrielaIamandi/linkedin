@@ -7,7 +7,7 @@ import { RiArticleFill } from "react-icons/ri";
 import { ModalInput } from "./ModalInput";
 import { useState } from "react";
 
-export const PostInput = () => {
+export const PostInput = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -15,14 +15,6 @@ export const PostInput = () => {
     <>
       <Modal show={show} onHide={handleClose}>
         <ModalInput />
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
       <Card className="p-3">
         <div className="d-flex ">
