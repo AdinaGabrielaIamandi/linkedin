@@ -41,7 +41,6 @@ const Modale = () => {
               }}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Cognome*</Form.Label>
             <Form.Control
@@ -53,12 +52,10 @@ const Modale = () => {
               }}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nome aggiuntivo*</Form.Label>
             <Form.Control className="ModalFormControl" type="text" autoFocus />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <p style={{ fontSize: "0.8em" }}>Pronuncia del nome</p>
           <p style={{ fontSize: "0.8em", color: "#1f1f1f" }}>
             <BsFillInfoSquareFill /> Può essere aggiunta solo usando la nostra app per dispositivi mobili
@@ -75,7 +72,14 @@ const Modale = () => {
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Sommario*</Form.Label>
-            <Form.Control className="ModalFormControl" type="text" autoFocus />
+            <Form.Control
+              className="ModalFormControl"
+              type="text"
+              autoFocus
+              onChange={(e) => {
+                setProfileInternal((prev) => ({ ...prev, bio: e.target.value }));
+              }}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p style={{ fontSize: "1.3em", color: "black" }}>Posizione attuale</p>
@@ -83,25 +87,6 @@ const Modale = () => {
             <Form.Select className="ModalFormControl" aria-label="Default select example" type="text" autoFocus>
               <option value="3">Seleziona</option>
             </Form.Select>
-            <Form.Label
-              onChange={(e) => {
-                setProfileInternal((prev) => ({ ...prev, bio: e.target.value }));
-              }}
-            >
-              Sommario*
-            </Form.Label>
-            <Form.Control type="text" autoFocus />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <p style={{ fontSize: "1.3em", color: "black" }}>Posizione attuale</p>
-            <Form.Label
-              onChange={(e) => {
-                setProfileInternal((prev) => ({ ...prev, title: e.target.value }));
-              }}
-            >
-              Posizione lavorativa*
-            </Form.Label>
-            <Form.Control type="text" autoFocus />
           </Form.Group>
           <p>
             <Button className="ModalButton">
@@ -115,7 +100,14 @@ const Modale = () => {
           </form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Settore*</p>
-            <Form.Control className="ModalFormControl" type="text" autoFocus />
+            <Form.Control
+              className="ModalFormControl"
+              type="text"
+              autoFocus
+              onChange={(e) => {
+                setProfileInternal((prev) => ({ ...prev, title: e.target.value }));
+              }}
+            />
           </Form.Group>
           <p>
             Scopri di più sulle <span className="ModalSpan">opzioni relative al settore</span>
@@ -141,12 +133,10 @@ const Modale = () => {
             <p>Paese/Area geografica*</p>
             <Form.Control className="ModalFormControl" type="text" autoFocus />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>CAP*</p>
             <Form.Control className="ModalFormControl" type="text" autoFocus />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Città*</p>
             <Form.Control
@@ -158,7 +148,6 @@ const Modale = () => {
               }}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <p style={{ fontSize: "1.3em", color: "black" }}>Informazioni di contatto</p>
           <p>Aggiungi o modifica il tuo profilo URL, indirizzo email e altro</p>
           <Button className="LastModalButton">Modifica le informazioni di contatto</Button>

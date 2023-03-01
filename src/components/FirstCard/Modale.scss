@@ -4,9 +4,9 @@
 }
 
 .ModalFormControl {
-    border: 1px solid rgba(0, 0, 0, 0.600);
+  border: 1px solid rgba(0, 0, 0, 0.6);
   &:hover {
-    border: 2px solid rgba(0, 0, 0, 0.600);
+    border: 2px solid rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -26,20 +26,20 @@
   color: #0a66c2;
   font-weight: 600;
   cursor: pointer;
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
 }
 
-.LastModalButton{
+.LastModalButton {
+  color: #0a66c2;
+  background-color: white;
+  border: none;
+  font-weight: 600;
+  &:hover {
     color: #0a66c2;
-    background-color: white;
-    border: none;
-    font-weight: 600;
-    &:hover {
-      color: #0a66c2;
-      border-radius: 12px;
-      background-color: #c4d7e9bd;
-      text-decoration: underline;
-    }
+    border-radius: 12px;
+    background-color: #c4d7e9bd;
+    text-decoration: underline;
+  }
 }
