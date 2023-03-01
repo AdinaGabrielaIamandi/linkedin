@@ -71,7 +71,7 @@ const Interessi = () => {
   else columWeight = 6;
 
   return (
-    <Container className="allCards p-4">
+    <Container className="allCards p-4 mt-2">
       <Row>
         <Col className="d-flex align-items-center">
           {numberToDisplay > DEFAULTNUMBER ? (
@@ -151,7 +151,7 @@ const Interessi = () => {
         </Row>
         {numberToDisplay <= DEFAULTNUMBER ? (
           <Row
-            className="changeHoverColor"
+            className="changeHoverColor mt-2"
             onClick={() => {
               setNumberToDisplay(MAXIMUM);
             }}

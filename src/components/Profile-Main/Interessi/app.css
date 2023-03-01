@@ -1,0 +1,75 @@
+ul {
+  padding: 0;
+  list-style-type: none;
+  border-bottom: 1px solid #e9e8e5;
+}
+ul li {
+  cursor: pointer;
+  color: grey;
+  margin-right: 18px;
+  font-weight: 600;
+}
+
+.greenLink {
+  color: rgb(1, 214, 1);
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgb(1, 214, 1);
+}
+
+img {
+  height: 35px;
+}
+
+p {
+  color: grey;
+}
+
+p.follower {
+  font-size: 0.8em;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  background-color: white;
+  border: 1px solid #666666;
+  color: #666666;
+}
+
+.cta:hover {
+  background-color: rgb(224, 224, 224);
+  border: 2px solid #666666;
+  color: #666666;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.division {
+  border-bottom: 1px solid grey;
+  padding-bottom: 30px;
+  padding-top: 20px;
+}
+
+.changeHoverColor:hover {
+  background-color: rgb(224, 224, 224);
+}
+
+.iconTitle {
+  margin-right: 10px;
+  color: grey;
+  height: 3em;
+  width: 3em;
+  cursor: pointer;
+}
+
+.iconTitle:hover {
+  background-color: rgb(224, 224, 224);
+}/*# sourceMappingURL=app.css.map */

@@ -49,7 +49,7 @@ const Esperienza = () => {
                 alt="immagine non trovata"
               />
               <div className="textFlex mx-3">
-                <h6>{exp.role}</h6>
+                <h6 className="mb-1">{exp.role}</h6>
                 <ul className="d-flex">
                   <li>{exp.company}</li>
                 </ul>

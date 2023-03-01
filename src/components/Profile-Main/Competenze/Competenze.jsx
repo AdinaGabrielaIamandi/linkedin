@@ -69,9 +69,8 @@ const Competenze = () => {
       {dataCompetenze.map((element, index) => {
         if (index < numberToDisplay)
           return (
-            <ul key={index}>
+            <ul className="mt-2" key={index}>
               <h6> {element.titolo}</h6>
-
               <li>
                 <img
                   className="imgIcon"
@@ -98,7 +97,7 @@ const Competenze = () => {
             setNumberToDisplay(MAXIMUM);
           }}
         >
-          <Col className="d-flex justify-content-center align-items-center">
+          <Col className="d-flex justify-content-center align-items-center mt-3">
             {dataCompetenze.length > DEFAULTNUMBER ? (
               <p>
                 Mostra tutte le Competenze({dataCompetenze.length}){" "}
