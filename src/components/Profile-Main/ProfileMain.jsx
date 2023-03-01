@@ -36,14 +36,14 @@ export const ProfileMain = () => {
             id={seeProfile._id}
           />
           <Risorse />
-          <Informazioni />
+          <Informazioni bio={seeProfile.bio} />
           <Attività />
           <Esperienza />
           {/* parte a sinistra */}
           <Competenze />
           <Interessi />
         </Col>
-        <Col md={3} className="d-none d-md-block">
+        <Col xs={0} md={4} lg={4} className="d-none d-md-block">
           <OtherCompanies />
           <OtherPeople />
           <Learning />

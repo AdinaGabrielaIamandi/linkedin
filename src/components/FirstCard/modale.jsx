@@ -1,6 +1,6 @@
 import { BsFillInfoSquareFill } from "react-icons/bs";
 import { HiPlus } from "react-icons/hi";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -8,7 +8,6 @@ import "./firstCard.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { putFirstPageAction, PUT_PROFILE } from "../../redux/action";
 import "./Modale.scss";
-
 
 const Modale = () => {
   const dispatch = useDispatch();
@@ -32,7 +31,8 @@ const Modale = () => {
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nome*</Form.Label>
-            <Form.Control className="ModalFormControl"
+            <Form.Control
+              className="ModalFormControl"
               placeholder={profileInternal.name}
               type="text"
               autoFocus
@@ -44,11 +44,12 @@ const Modale = () => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Cognome*</Form.Label>
-            <Form.Control className="ModalFormControl"
+            <Form.Control
+              className="ModalFormControl"
               type="text"
               autoFocus
               onChange={(e) => {
-                profileInternal.surname = e.target.value;
+                setProfileInternal((prev) => ({ ...prev, surname: e.target.value }));
               }}
             />
           </Form.Group>
@@ -59,7 +60,7 @@ const Modale = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <p style={{ fontSize: "0.8em" }}>Pronuncia del nome</p>
-          <p style={{ fontSize: "0.8em", color:"#1f1f1f" }}>
+          <p style={{ fontSize: "0.8em", color: "#1f1f1f" }}>
             <BsFillInfoSquareFill /> Può essere aggiunta solo usando la nostra app per dispositivi mobili
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -78,34 +79,59 @@ const Modale = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p style={{ fontSize: "1.3em", color: "black" }}>Posizione attuale</p>
-            <Form.Label style={{color:"#1f1f1f"}}>Posizione lavorativa*</Form.Label>
-            <Form.Select className="ModalFormControl"aria-label="Default select example" type="text" autoFocus>
-            <option value="3">Seleziona</option>
-          </Form.Select>
+            <Form.Label style={{ color: "#1f1f1f" }}>Posizione lavorativa*</Form.Label>
+            <Form.Select className="ModalFormControl" aria-label="Default select example" type="text" autoFocus>
+              <option value="3">Seleziona</option>
+            </Form.Select>
+            <Form.Label
+              onChange={(e) => {
+                setProfileInternal((prev) => ({ ...prev, bio: e.target.value }));
+              }}
+            >
+              Sommario*
+            </Form.Label>
+            <Form.Control type="text" autoFocus />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <p style={{ fontSize: "1.3em", color: "black" }}>Posizione attuale</p>
+            <Form.Label
+              onChange={(e) => {
+                setProfileInternal((prev) => ({ ...prev, title: e.target.value }));
+              }}
+            >
+              Posizione lavorativa*
+            </Form.Label>
+            <Form.Control type="text" autoFocus />
           </Form.Group>
           <p>
-            <Button className="ModalButton"><HiPlus /> Aggiungi una nuova posizione lavorativa</Button>
+            <Button className="ModalButton">
+              <HiPlus /> Aggiungi una nuova posizione lavorativa
+            </Button>
           </p>
-          <p>
-            <input type="checkbox" /> Mostra l'azienda attuale nella mia presentazione
-          </p>
+          <form className="d-flex align-items-center">
+            <input type="checkbox" id="check" hidden />
+            <label for="check" className="checkmark"></label>
+            <label>Mostra l’azienda attuale nella mia presentazione</label>
+          </form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Settore*</p>
             <Form.Control className="ModalFormControl" type="text" autoFocus />
           </Form.Group>
           <p>
-            Scopri di più sulle <span className="ModalSpan" >opzioni relative al settore</span>
+            Scopri di più sulle <span className="ModalSpan">opzioni relative al settore</span>
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p style={{ fontSize: "1.3em", color: "black" }}>Formazione</p>
             <p>Formazione*</p>
 
-            <Form.Select className="ModalFormControl"aria-label="Default select example" type="text" autoFocus>
-            <option value="3">Seleziona</option>
+            <Form.Select className="ModalFormControl" aria-label="Default select example" type="text" autoFocus>
+              <option value="3">Seleziona</option>
             </Form.Select>
           </Form.Group>
           <p>
-            <Button className="ModalButton"><HiPlus /> Aggiungi un nuovo grado di formazione</Button>
+            <Button className="ModalButton">
+              <HiPlus /> Aggiungi un nuovo grado di formazione
+            </Button>
           </p>
           <p>
             <input type="checkbox" /> Mostra la formazione nella mia presentazione
@@ -123,7 +149,14 @@ const Modale = () => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Città*</p>
-            <Form.Control className="ModalFormControl" type="text" autoFocus />
+            <Form.Control
+              className="ModalFormControl"
+              type="text"
+              autoFocus
+              onChange={(e) => {
+                setProfileInternal((prev) => ({ ...prev, area: e.target.value }));
+              }}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"></Form.Group>
           <p style={{ fontSize: "1.3em", color: "black" }}>Informazioni di contatto</p>

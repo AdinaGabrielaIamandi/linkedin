@@ -23,6 +23,7 @@
   border: 1px solid #666666;
   color: #666666;
 }
+
 .cta:hover {
   background-color: rgb(224, 224, 224);
   border: 2px solid #666666;
@@ -31,6 +32,16 @@
 
 .cta2 {
   border-radius: 30px;
+}
+
+.cta3 {
+  border: 2px solid #0a66c2;
+  color: #0a66c2;
+  background-color: white;
+  &:hover {
+    background-color: #d6e7f8;
+    color: #0a66c2;
+  }
 }
 
 .text {
@@ -46,4 +57,36 @@
   }
 }
 
+.modale {
+  overflow-y: auto;
+  height: 450px;
+}
 
+.checkmark {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  position: relative;
+  &:hover {
+    border: 2px solid #666666;
+  }
+}
+
+#check:checked + .checkmark {
+  background-color: #057642;
+  border: none;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  height: 13px;
+  width: 8px;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  top: 45%;
+  left: 48%;
+  transform: translate(-50%, -50%) rotateZ(40deg);
+}
