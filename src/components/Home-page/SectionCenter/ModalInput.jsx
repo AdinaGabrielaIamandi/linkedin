@@ -6,6 +6,8 @@ import { AiFillPicture } from "react-icons/ai";
 import { BsFillPlayBtnFill } from "react-icons/bs";
 import { HiDocumentText } from "react-icons/hi";
 import { SlOptions } from "react-icons/sl";
+import { AiFillMessage } from "react-icons/ai";
+import { AiOutlineClockCircle } from "react-icons/ai";
 import "./PostInput.scss";
 
 export const ModalInput = (props) => {
@@ -48,16 +50,22 @@ export const ModalInput = (props) => {
         <div>
           <FaRegSmile style={{ width: "1.8em" }} />
         </div>
-        <div className="d-flex justify-content-between">
-          <div>
-            <AiFillPicture className="iconFooterInputModal" />
-            <BsFillPlayBtnFill className="iconFooterInputModal" />
-            <HiDocumentText className="iconFooterInputModal" />
-            <SlOptions className="iconFooterInputModal" />
+        <div className="d-flex justify-content-between mt-3">
+          <div className="d-flex align-items-center">
+            <AiFillPicture className="iconFooterInputModal me-3" />
+            <BsFillPlayBtnFill className="iconFooterInputModal me-3" />
+            <HiDocumentText className="iconFooterInputModal me-3" />
+            <SlOptions className="me-3" style={{ color: "#666666" }} />
+            <div className="d-flex borderToDiv">
+              <AiFillMessage className="iconFooterInputModal ms-3 me-1" />
+              <p className="mb-0 all fw-bold">tutti</p>
+            </div>
           </div>
+
           <div>
-            <Button variant="primary" onClick={props.handleClose}>
-              Save Changes
+            <AiOutlineClockCircle className="iconFooterInputModal me-3" />
+            <Button className="pubblicaCta fw-bold" onClick={props.handleClose}>
+              Pubblica
             </Button>
           </div>
         </div>

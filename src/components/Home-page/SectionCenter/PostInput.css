@@ -46,4 +46,18 @@ div .red {
   width: 1.6em;
   height: 1.6em;
   color: #666666;
+}
+
+.all {
+  font-size: 0.9em;
+  color: #757575;
+}
+
+.pubblicaCta {
+  border-radius: 20px;
+  background-color: #0b65c2;
+}
+
+.borderToDiv {
+  border-left: 1px solid rgb(208, 208, 208);
 }/*# sourceMappingURL=PostInput.css.map */
