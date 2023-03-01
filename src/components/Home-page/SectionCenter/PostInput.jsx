@@ -26,20 +26,20 @@ export const PostInput = () => {
         </InputGroup>
       </div>
 
-      <div className="d-flex justify-content-between iconsUnderInput">
-        <div className="d-flex">
+      <div className="d-flex justify-content-center justify-content-lg-between iconsUnderInput flex-wrap">
+        <div className="d-flex me-4 me-lg-0">
           <AiFillPicture className="iconFields" />
           <p className="ms-3 fw-bold textIcon mb-0">Foto</p>
         </div>
-        <div className="d-flex">
+        <div className="d-flex me-4 me-lg-0">
           <BsFillPlayBtnFill className="iconFields green" />
           <p className="ms-3 fw-bold textIcon mb-0">Video</p>
         </div>
-        <div className="d-flex">
+        <div className="d-flex me-4 me-lg-0">
           <BsCalendar2Date className="iconFields orange" />
           <p className="ms-3 fw-bold textIcon mb-0">Evento</p>
         </div>
-        <div className="d-flex">
+        <div className="d-flex mt-3 mt-lg-0">
           <RiArticleFill className="iconFields red" />
           <p className="ms-3 fw-bold textIcon mb-0">Scrivi un articolo</p>
         </div>

@@ -5,7 +5,7 @@ import { BsFillInfoSquareFill } from "react-icons/bs";
 export const SectionRight = () => {
   return (
     <>
-      <Card className="py-4 px-3">
+      <Card className="py-4 px-3 d-none d-md-block">
         <div className="d-flex justify-content-between align-items-center">
           <h6 className="fw-bold text-black mb-0">Linkedin Notizie</h6>
           <BsFillInfoSquareFill style={{ width: "0.7em" }} />
@@ -43,7 +43,7 @@ export const SectionRight = () => {
           </ul>
         </div>
       </Card>
-      <Card className="mt-2">
+      <Card className="mt-2 d-none d-lg-block">
         <img
           src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
           alt=""
