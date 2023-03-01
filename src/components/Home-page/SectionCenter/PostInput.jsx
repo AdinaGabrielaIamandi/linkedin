@@ -25,7 +25,7 @@ export const PostInput = () => {
         </InputGroup>
       </div>
 
-      <div className="d-flex justify-content-between">
+      <div className="d-flex justify-content-between iconsUnderInput">
         <div className="d-flex">
           <AiFillPicture className="iconFields" />
           <p className="ms-3 fw-bold textIcon mb-0">Foto</p>

@@ -7,6 +7,12 @@ div {
     border-radius: 50%;
   }
 
+  .iconsUnderInput {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   #inputPost {
     height: 50px;
     border-radius: 50px;

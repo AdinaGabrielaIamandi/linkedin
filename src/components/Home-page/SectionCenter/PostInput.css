@@ -6,6 +6,9 @@ div img {
      object-fit: cover;
   border-radius: 50%;
 }
+div .iconsUnderInput:hover {
+  cursor: pointer;
+}
 div #inputPost {
   height: 50px;
   border-radius: 50px;
