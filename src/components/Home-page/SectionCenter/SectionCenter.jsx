@@ -4,7 +4,8 @@ import { PostGet } from "./PostGet";
 export const SectionCenter = () => {
   return (
     <>
-      <PostInput /> <PostGet />
+      <PostInput /> 
+      <PostGet />
     </>
   );
 };
