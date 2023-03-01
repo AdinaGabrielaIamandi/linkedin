@@ -5,16 +5,34 @@
 }
 
 .userName {
-  font-size: 1.1em;
+  font-size: 1em;
   &:hover {
     border-bottom: 1.5px solid #c1a1e5;
   }
 }
 
 .userLavoro {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 .collegamenti {
   line-height: -0.5;
+  font-size: 0.7em;
+  &:hover {
+    background-color: #ebebeb;
+    cursor: pointer;
+  }
+}
+
+.premiumHome {
+  &:hover {
+    color: #0a66c2;
+  }
+}
+
+.card2 {
+  font-size: 0.75em;
+  &:hover {
+    text-decoration: underline;
+  }
 }
