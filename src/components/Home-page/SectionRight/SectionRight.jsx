@@ -1,0 +1,3 @@
+export const SectionRight = () => {
+  return;
+};
