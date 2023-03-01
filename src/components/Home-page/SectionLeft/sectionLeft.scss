@@ -3,3 +3,18 @@
   left: 60px;
   transform: translateY(20%);
 }
+
+.userName {
+  font-size: 1.1em;
+  &:hover {
+    border-bottom: 1.5px solid #c1a1e5;
+  }
+}
+
+.userLavoro {
+  font-size: 0.9em;
+}
+
+.collegamenti {
+  line-height: -0.5;
+}

@@ -1,4 +1,4 @@
-import { Card, Button, Image } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 import "./sectionLeft.scss";
 
 export const SectionLeft = () => {
@@ -9,12 +9,19 @@ export const SectionLeft = () => {
         src="http://placekitten.com/g/65/65"
         className="rounded-circle border border-2 border-white foto-profile-first"
       />
-      <Card.Body className=" m-0 mt-4 text-center">
-        <Card.Title className="m-0">User Name</Card.Title>
-        <small className="border-bottom-5">Posizione lavorativa</small>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
-        </Card.Text>
+      <Card.Body className="mt-4">
+        <div className="border-bottom pb-3 text-center">
+          <Card.Title className="mb-1 userName">User Name</Card.Title>
+          <small className="m-1 userLavoro text-secondary">Posizione lavorativa</small>
+        </div>
+        <div className="mt-3 classHover d-flex justify-content-between">
+          <div className="collegamenti">
+            <p className="m-0 fw-bold">Collegamenti</p>
+            <br />
+            <p className="m-0 fw-bold text-secondary">Espandi la tua rete</p>
+          </div>
+          <p className="fw-bold text-primary">13</p>
+        </div>
       </Card.Body>
     </Card>
   );
