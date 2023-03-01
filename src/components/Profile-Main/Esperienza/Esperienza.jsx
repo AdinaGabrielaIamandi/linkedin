@@ -40,9 +40,9 @@ const Esperienza = () => {
           </div>
         </Col>
 
-        {experiences.map((exp) => (
+        {experiences.map((exp, i) => (
           <>
-            <Col xs={10} className="d-flex ">
+            <Col key={i} xs={10} className="d-flex ">
               <img
                 className="picEsperienza"
                 src="https://icons.veryicon.com/png/o/miscellaneous/zr_icon/company-23.png"

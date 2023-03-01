@@ -69,7 +69,7 @@ const Competenze = () => {
       {dataCompetenze.map((element, index) => {
         if (index < numberToDisplay)
           return (
-            <ul>
+            <ul key={index}>
               <h6> {element.titolo}</h6>
 
               <li>
