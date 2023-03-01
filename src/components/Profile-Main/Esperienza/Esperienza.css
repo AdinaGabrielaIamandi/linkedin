@@ -23,4 +23,12 @@
 .pencil-add:hover {
   background-color: #ebebeb;
   cursor: pointer;
-}/*# sourceMappingURL=Esperienza.css.map */
+}
+
+.competenze {
+  font-size: 0.8em !important;
+}
+
+.competenzeText {
+  font-weight: 500;
+} /*# sourceMappingURL=Esperienza.css.map */

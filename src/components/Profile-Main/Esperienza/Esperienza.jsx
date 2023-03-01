@@ -50,18 +50,21 @@ const Esperienza = () => {
               />
               <div className="textFlex mx-3">
                 <h6 className="mb-1">{exp.role}</h6>
-                <ul className="d-flex noBorder">
-                  <li>{exp.company}</li>
-                  <li>{exp.startDate}</li>
-                </ul>
-                <ul className="noBorder">
-                  <li>{exp.area}</li>
+                <ul className="d-flex noBorder mb-0">
+                  <li className="mb-1">{exp.company}</li>
+                  <li className="mb-1">{exp.startDate}</li>
+                  <li className="mb-1">{exp.area}</li>
                 </ul>
                 <p>
-                  <strong>Competenze:</strong>
-                  <ul className="noBorder">
-                    <li>{exp.description}</li>
-                  </ul>
+                  <div className="mt-2">
+                    <span className="text-dark fw-bold competenze">
+                      Competenze:
+                      <span className="competenzeText">
+                        {" "}
+                        {exp.description}{" "}
+                      </span>
+                    </span>
+                  </div>
                 </p>
               </div>
             </Col>
