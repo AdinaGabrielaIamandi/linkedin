@@ -12,11 +12,8 @@
   align-items: start;
 }
 
-ul {
-  margin-bottom: 0;
-}
-ul li {
-  margin-bottom: 0;
+.noBorder {
+  border: none;
 }
 
 .pencil-add {
