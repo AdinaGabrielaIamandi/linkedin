@@ -1,21 +1,21 @@
 import { Card, Image } from "react-bootstrap";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { HiOutlinePlus } from "react-icons/hi";
+import Cover from "../../../images/cover-foto.png";
 import "./sectionLeft.scss";
 
-export const SectionLeft = () => {
+export const SectionLeft = (props) => {
   return (
     <>
       <Card className="mb-2">
-        <Card.Img variant="top" src="http://placekitten.com/g/48/12" />
-        <Image
-          src="http://placekitten.com/g/65/65"
-          className="rounded-circle border border-2 border-white foto-profile-first"
-        />
+        <Card.Img variant="top" src={Cover} />
+        <Image src={props.image} className="rounded-circle border border-2 border-white foto-profile-first" />
         <Card.Body className="p-0 mt-5">
           <div className="border-bottom pb-3 text-center">
-            <Card.Title className="mb-1 userName">User Name</Card.Title>
-            <small className="m-1 userLavoro text-secondary">Posizione lavorativa</small>
+            <Card.Title className="mb-1 userName">
+              {props.name} {props.surname}
+            </Card.Title>
+            <small className="m-1 userLavoro text-secondary">{props.work}</small>
           </div>
           <div className="border-bottom">
             <div className="mt-3 mb-3 classHover d-flex justify-content-between collegamenti ">

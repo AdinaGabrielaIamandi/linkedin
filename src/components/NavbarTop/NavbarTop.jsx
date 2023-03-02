@@ -16,7 +16,6 @@ export const NavbarTop = () => {
   const dispatch = useDispatch();
   const allUsersList = useSelector((state) => state.allProfiles);
   const meUser = useSelector((state) => state.profile);
-  console.log(meUser);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
