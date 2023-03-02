@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getProfileAction } from "./../../redux/action/index";
+import { FooterHome } from "./FooterHome/FooterHome";
 
 export const Homepage = () => {
   const dispatch = useDispatch();
@@ -28,11 +29,12 @@ export const Homepage = () => {
             image={seeProfile.image}
           />
         </Col>
-        <Col lg={6}>
+        <Col lg={5}>
           <SectionCenter />
         </Col>
         <Col lg={3}>
           <SectionRight />
+          <FooterHome />
         </Col>
       </Row>
     </Container>

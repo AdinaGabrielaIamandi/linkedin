@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileAction } from "../../redux/action";
 import { useParams } from "react-router-dom";
+import { Footer } from "./../Footer/Footer";
 
 export const ProfileMain = () => {
   const dispatch = useDispatch();
@@ -49,6 +50,7 @@ export const ProfileMain = () => {
           <Learning />
         </Col>
       </Row>
+      <Footer />
     </Container>
   );
 };
