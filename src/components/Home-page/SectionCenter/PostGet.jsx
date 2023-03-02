@@ -11,6 +11,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 import { useEffect } from "react";
 import { getPostAction } from "../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
+import { BiDotsHorizontalRounded } from "react-icons/bi";
 
 export const PostGet = () => {
   //const data= fetch api post get
@@ -37,20 +38,14 @@ export const PostGet = () => {
 
                   <div className="d-flex ">
                     <div className="d-flex">
-                      <Image
-                        src={el.user?.image}
-                        className="rounded-circle me-2"
-                      />
+                      <Image src={el.user?.image} className="rounded-circle me-2" />
                       <div>
                         <Card.Title className="nome-utente mb-0">
                           {el.user?.name} {el.user?.surname}
                         </Card.Title>
-                        <Card.Text className="text-secondary lavoro-utente mb-0">
-                          {el.user?.title}
-                        </Card.Text>
+                        <Card.Text className="text-secondary lavoro-utente mb-0">{el.user?.title}</Card.Text>
                         <Card.Text className="text-secondary data-post d-flex align-items-center">
-                          {el?.createdAt?.slice(0, -14)}{" "}
-                          {el?.createdAt?.slice(11, 16)} •
+                          {el?.createdAt?.slice(0, -14)} {el?.createdAt?.slice(11, 16)} •
                           <BiWorld className="ms-1 icon-world" />
                         </Card.Text>
                       </div>
@@ -66,10 +61,7 @@ export const PostGet = () => {
                         <Dropdown.Item className="fw-bold" href="#/action-2">
                           <ImPencil className="me-2" /> Modifica post
                         </Dropdown.Item>
-                        <Dropdown.Item
-                          className="fw-bold mt-2"
-                          href="#/action-3"
-                        >
+                        <Dropdown.Item className="fw-bold mt-2" href="#/action-3">
                           <BsFillTrashFill className="me-2 " /> Elimina post
                         </Dropdown.Item>
                       </Dropdown.Menu>
@@ -80,9 +72,7 @@ export const PostGet = () => {
                 <div className="d-flex justify-content-between">
                   <span className="d-flex align-items-center likes">
                     <SlLike className="me-1 text-primary" />
-                    <small className="num-like text-secondary">
-                      {Math.floor(Math.random() * 100)}
-                    </small>
+                    <small className="num-like text-secondary">{Math.floor(Math.random() * 100)}</small>
                   </span>
                   <small className="likes num-like text-secondary">
                     {Math.floor(Math.random() * 300)} diffusioni post
@@ -92,27 +82,19 @@ export const PostGet = () => {
               <Card.Body className="d-flex justify-content-between p-0 me-3 ms-3">
                 <Button className="text-secondary bg-transparent border-0 d-flex align-items-center mt-1 mb-1 bottone-hover">
                   <SlLike className="me-1 fw-bold" />
-                  <p className="d-none d-md-flex align-items-center m-0">
-                    Consiglia
-                  </p>
+                  <p className="d-none d-md-flex align-items-center m-0">Consiglia</p>
                 </Button>
                 <Button className="text-secondary bg-transparent border-0 d-flex align-items-center mt-1 mb-1 bottone-hover">
                   <FaRegCommentDots className="me-1 fw-bold" />
-                  <p className="d-none d-md-flex align-items-center m-0">
-                    Commenta
-                  </p>
+                  <p className="d-none d-md-flex align-items-center m-0">Commenta</p>
                 </Button>
                 <Button className="text-secondary bg-transparent border-0 d-flex align-items-center mt-1 mb-1 bottone-hover">
                   <BsArrowRepeat className="me-1 fw-bold" />
-                  <p className="d-none d-md-flex align-items-center m-0">
-                    Diffondi il post
-                  </p>
+                  <p className="d-none d-md-flex align-items-center m-0">Diffondi il post</p>
                 </Button>
                 <Button className="text-secondary bg-transparent border-0 d-flex align-items-center mt-1 mb-1 bottone-hover">
                   <RiSendPlaneFill className="me-1 fw-bold" />
-                  <p className="d-none d-md-flex align-items-center m-0">
-                    Invia
-                  </p>
+                  <p className="d-none d-md-flex align-items-center m-0">Invia</p>
                 </Button>
               </Card.Body>
             </Card>
