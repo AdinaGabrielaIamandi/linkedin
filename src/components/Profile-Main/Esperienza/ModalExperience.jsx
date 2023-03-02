@@ -74,6 +74,7 @@ export const ModalExperience = (props) => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Qualifica*</Form.Label>
             <Form.Control
+              value={exp.role}
               type="text"
               autoFocus
               onChange={(e) => {
@@ -84,6 +85,7 @@ export const ModalExperience = (props) => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Tipo di impiego*</Form.Label>
             <Form.Control
+              value={exp.description}
               type="text"
               autoFocus
               onChange={(e) => {
@@ -94,6 +96,7 @@ export const ModalExperience = (props) => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nome azienda*</Form.Label>
             <Form.Control
+              value={exp.company}
               type="text"
               autoFocus
               onChange={(e) => {
@@ -104,6 +107,7 @@ export const ModalExperience = (props) => {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Località*</Form.Label>
             <Form.Control
+              value={exp.area}
               type="text"
               autoFocus
               onChange={(e) => {
@@ -123,6 +127,7 @@ export const ModalExperience = (props) => {
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Data di inizio</Form.Label>
               <Form.Control
+                value={exp.startDate}
                 type="date"
                 autoFocus
                 onChange={(e) => {

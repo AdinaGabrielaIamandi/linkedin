@@ -8,6 +8,7 @@ import { RiSendPlaneFill } from "react-icons/ri";
 import { useEffect } from "react";
 import { getPostAction } from "../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
+import { BiDotsHorizontalRounded } from "react-icons/bi";
 
 export const PostGet = () => {
   //const data= fetch api post get
@@ -29,20 +30,27 @@ export const PostGet = () => {
           return (
             <Card key={el._id} className="mt-2">
               <Card.Body className="bordo p-0 m-3 mb-0 border-bottom pb-1">
-                <div className="d-flex mb-2 header-post">
-                  {/* src={data.user.image} */}
-                  <Image src={el.user.image} className="rounded-circle me-2" />
-                  <div>
+                <div className="header-post mb-2 d-flex justify-content-between">
+                  {" "}
+                  <div className="d-flex">
+                    {/* src={data.user.image} */}
+                    <Image
+                      src={el.user.image}
+                      className="rounded-circle me-2"
+                    />
                     <div>
-                      <Card.Title className="nome-utente mb-0">
-                        {el.user.name} {el.user.surname}
-                      </Card.Title>
-                      <Card.Text className="text-secondary lavoro-utente mb-0">
-                        {el.user.title}
-                      </Card.Text>
-                      <Card.Text className="text-secondary data-post d-flex align-items-center">
-                        {el.createdAt} • <BiWorld className="ms-1 icon-world" />
-                      </Card.Text>
+                      <div>
+                        <Card.Title className="nome-utente mb-0">
+                          {el.user.name} {el.user.surname}
+                        </Card.Title>
+                        <Card.Text className="text-secondary lavoro-utente mb-0">
+                          {el.user.title}
+                        </Card.Text>
+                        <Card.Text className="text-secondary data-post d-flex align-items-center">
+                          {el.createdAt} •{" "}
+                          <BiWorld className="ms-1 icon-world" />
+                        </Card.Text>
+                      </div>
                     </div>
                   </div>
                 </div>
