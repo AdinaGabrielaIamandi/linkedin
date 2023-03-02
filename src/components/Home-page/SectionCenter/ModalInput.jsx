@@ -11,7 +11,7 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import "./PostInput.scss";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPostAction } from "../../../redux/action";
+import { addPostAction, getPostAction } from "../../../redux/action";
 
 export const ModalInput = (props) => {
   const dispatch = useDispatch();
@@ -77,6 +77,7 @@ export const ModalInput = (props) => {
               className="pubblicaCta fw-bold"
               onClick={() => {
                 dispatch(addPostAction(post));
+                dispatch(getPostAction());
               }}
             >
               Pubblica
