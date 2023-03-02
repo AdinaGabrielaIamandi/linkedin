@@ -19,9 +19,7 @@ export const PostGet = () => {
   //const data= fetch api post get
   const dispatch = useDispatch();
   const seePost = useSelector((state) => state.allPost);
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  console.log("quessijiidee", seePost);
 
   useEffect(() => {
     dispatch(getPostAction());
@@ -63,47 +61,7 @@ export const PostGet = () => {
                     </div>
                   </div>
                   <div>
-                    {el?.user?._id === "63fcc323f193e60013807f6a" ? (
-                      <Dropdown>
-                        <Dropdown.Toggle className="p-0" id="dropdown-basic">
-                          <SlOptions id="iconDropDownOption" />
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu className="p-3">
-                          <Dropdown.Item
-                            className="fw-bold"
-                            href="#/action-2"
-                            onClick={handleShow}
-                          >
-                            <ImPencil className="me-2" /> Modifica post
-                          </Dropdown.Item>
-                          <Dropdown.Item
-                            className="fw-bold mt-2"
-                            href="#/action-3"
-                          >
-                            <BsFillTrashFill className="me-2 " /> Elimina post
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    ) : (
-                      <Dropdown>
-                        <Dropdown.Toggle className="p-0" id="dropdown-basic">
-                          <SlOptions id="iconDropDownOption" />
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu className="p-3">
-                          <Dropdown.Item className="fw-bold" href="#/action-2">
-                            <ImPencil className="me-2" /> Salva post
-                          </Dropdown.Item>
-                          <Dropdown.Item
-                            className="fw-bold mt-2"
-                            href="#/action-3"
-                          >
-                            <BsFillTrashFill className="me-2 " /> Segnala post
-                          </Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    )}
+                    <ModalToEdit idUser={el?.user?._id} idPost={el?._id} />
                   </div>
                 </div>
                 <Card.Text>{el?.text}</Card.Text>
@@ -149,9 +107,6 @@ export const PostGet = () => {
           );
         })
         .reverse()}
-      <Modal show={show} onHide={handleClose}>
-        <ModalToEdit />
-      </Modal>
     </>
   );
 };
