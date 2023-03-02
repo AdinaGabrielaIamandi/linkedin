@@ -50,10 +50,12 @@ export const PostGet = () => {
                 <div className="d-flex justify-content-between">
                   <span className="d-flex align-items-center likes">
                     <SlLike className="me-1 text-primary" />
-                    <small className="num-like text-secondary">135</small>
+                    <small className="num-like text-secondary">
+                      {Math.floor(Math.random() * 100)}
+                    </small>
                   </span>
                   <small className="likes num-like text-secondary">
-                    2 diffusioni post
+                    {Math.floor(Math.random() * 300)} diffusioni post
                   </small>
                 </div>
               </Card.Body>
