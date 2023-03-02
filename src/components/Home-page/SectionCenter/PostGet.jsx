@@ -1,10 +1,11 @@
-import { Card, Image, Button } from "react-bootstrap";
+import { Card, Image, Button, Dropdown } from "react-bootstrap";
 import "./postget.scss";
 import { BiWorld } from "react-icons/bi";
 import { SlLike } from "react-icons/sl";
 import { FaRegCommentDots } from "react-icons/fa";
 import { BsArrowRepeat } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
+import { SlOptions } from "react-icons/sl";
 import { useEffect } from "react";
 import { getPostAction } from "../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,23 +30,46 @@ export const PostGet = () => {
           return (
             <Card key={el?._id} className="mt-2">
               <Card.Body className="bordo p-0 m-3 mb-0 border-bottom pb-1">
-                <div className="d-flex mb-2 header-post">
+                <div className="d-flex justify-content-between mb-2 header-post">
                   {/* src={data.user.image} */}
-                  <Image src={el.user?.image} className="rounded-circle me-2" />
-                  <div>
-                    <div>
-                      <Card.Title className="nome-utente mb-0">
-                        {el.user?.name} {el.user?.surname}
-                      </Card.Title>
-                      <Card.Text className="text-secondary lavoro-utente mb-0">
-                        {el.user?.title}
-                      </Card.Text>
-                      <Card.Text className="text-secondary data-post d-flex align-items-center">
-                        {el?.createdAt?.slice(0, -14)}{" "}
-                        {el?.createdAt?.slice(11, 16)} •
-                        <BiWorld className="ms-1 icon-world" />
-                      </Card.Text>
+
+                  <div className="d-flex ">
+                    <div className="d-flex">
+                      <Image
+                        src={el.user?.image}
+                        className="rounded-circle me-2"
+                      />
+                      <div>
+                        <Card.Title className="nome-utente mb-0">
+                          {el.user?.name} {el.user?.surname}
+                        </Card.Title>
+                        <Card.Text className="text-secondary lavoro-utente mb-0">
+                          {el.user?.title}
+                        </Card.Text>
+                        <Card.Text className="text-secondary data-post d-flex align-items-center">
+                          {el?.createdAt?.slice(0, -14)}{" "}
+                          {el?.createdAt?.slice(11, 16)} •
+                          <BiWorld className="ms-1 icon-world" />
+                        </Card.Text>
+                      </div>
                     </div>
+                  </div>
+                  <div>
+                    <Dropdown>
+                      <Dropdown.Toggle className="p-0" id="dropdown-basic">
+                        <SlOptions id="iconDropDownOption" />
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">
+                          Another action
+                        </Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">
+                          Something else
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </div>
                 </div>
                 <Card.Text>{el?.text}</Card.Text>

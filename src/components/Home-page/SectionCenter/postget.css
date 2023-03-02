@@ -5,10 +5,10 @@
 .nome-utente {
   font-size: 1em;
   line-height: 1;
-  &:hover {
-    text-decoration: underline;
-    color: #3983ce;
-  }
+}
+.nome-utente:hover {
+  text-decoration: underline;
+  color: #3983ce;
 }
 
 .lavoro-utente {
@@ -26,16 +26,14 @@
 
 .likes {
   font-size: 0.8em;
-  &:hover {
-    cursor: pointer;
-  }
+}
+.likes:hover {
+  cursor: pointer;
 }
 
-.num-like {
-  &:hover {
-    color: #3983ce !important;
-    text-decoration: underline;
-  }
+.num-like:hover {
+  color: #3983ce !important;
+  text-decoration: underline;
 }
 
 .bottone-hover {
@@ -43,9 +41,9 @@
   padding-left: 8px;
   padding-bottom: 10px;
   padding-right: 8px;
-  &:hover {
-    background-color: #ebebeb !important;
-  }
+}
+.bottone-hover:hover {
+  background-color: #ebebeb !important;
 }
 
 #dropdown-basic {
@@ -56,4 +54,4 @@
 #iconDropDownOption {
   color: grey;
   font-size: 1.2em;
-}
+}/*# sourceMappingURL=postget.css.map */
