@@ -11,7 +11,7 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import "./PostInput.scss";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { putPostEditedAction } from "../../../redux/action";
+import { deletePostAction, putPostEditedAction } from "../../../redux/action";
 import { addPostAction, getPostAction } from "../../../redux/action";
 import { ImPencil } from "react-icons/im";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -47,8 +47,17 @@ export const ModalToEdit = (props) => {
             >
               <ImPencil className="me-2" /> Modifica post
             </Dropdown.Item>
-            <Dropdown.Item className="fw-bold mt-2" href="#/action-3">
-              <BsFillTrashFill className="me-2 " /> Elimina post
+            <Dropdown.Item
+              className="fw-bold mt-2"
+              href="#/action-3"
+              onClick={() => {
+                dispatch(deletePostAction(props.idPost));
+                dispatch(getPostAction());
+                console.log("JJOKDDK", props.idPost);
+              }}
+            >
+              <BsFillTrashFill className="me-2 " />
+              Elimina post
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
@@ -96,10 +105,10 @@ export const ModalToEdit = (props) => {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Control
-                placeholder="Di cosa vorresti parlare?"
                 className="border-0"
                 as="textarea"
                 rows={3}
+                value={props.text}
                 onChange={(e) => {
                   setPostToEdit((prev) => ({ ...prev, text: e.target.value }));
                 }}
