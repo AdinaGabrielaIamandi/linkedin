@@ -17,7 +17,7 @@ export const SectionRight = () => {
               <p className="mb-2">18 ore fa</p>
             </div>
             <div>
-              <li className="fw-bold text-dark">Oltre al cervello c'è di più</li>
+              <li className="fw-bold text-dark">Oltre al codice c'è un mondo fuori</li>
               <p className="mb-2">14 ore fa</p>
             </div>
             <div>
