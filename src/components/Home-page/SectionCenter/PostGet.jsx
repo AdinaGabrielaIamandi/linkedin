@@ -6,6 +6,8 @@ import { FaRegCommentDots } from "react-icons/fa";
 import { BsArrowRepeat } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { SlOptions } from "react-icons/sl";
+import { ImPencil } from "react-icons/im";
+import { BsFillTrashFill } from "react-icons/bs";
 import { useEffect } from "react";
 import { getPostAction } from "../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
@@ -60,13 +62,15 @@ export const PostGet = () => {
                         <SlOptions id="iconDropDownOption" />
                       </Dropdown.Toggle>
 
-                      <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">
-                          Another action
+                      <Dropdown.Menu className="p-3">
+                        <Dropdown.Item className="fw-bold" href="#/action-2">
+                          <ImPencil className="me-2" /> Modifica post
                         </Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">
-                          Something else
+                        <Dropdown.Item
+                          className="fw-bold mt-2"
+                          href="#/action-3"
+                        >
+                          <BsFillTrashFill className="me-2 " /> Elimina post
                         </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
