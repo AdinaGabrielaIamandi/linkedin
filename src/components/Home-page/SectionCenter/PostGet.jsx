@@ -23,30 +23,32 @@ export const PostGet = () => {
   return (
     <>
       {seePost
-        ?.reverse()
-        .slice(0, 10)
+        .reverse()
+        ?.slice(-10)
         .map((el) => {
           return (
-            <Card key={el._id} className="mt-2">
+            <Card key={el?._id} className="mt-2">
               <Card.Body className="bordo p-0 m-3 mb-0 border-bottom pb-1">
                 <div className="d-flex mb-2 header-post">
                   {/* src={data.user.image} */}
-                  <Image src={el.user.image} className="rounded-circle me-2" />
+                  <Image src={el.user?.image} className="rounded-circle me-2" />
                   <div>
                     <div>
                       <Card.Title className="nome-utente mb-0">
-                        {el.user.name} {el.user.surname}
+                        {el.user?.name} {el.user?.surname}
                       </Card.Title>
                       <Card.Text className="text-secondary lavoro-utente mb-0">
-                        {el.user.title}
+                        {el.user?.title}
                       </Card.Text>
                       <Card.Text className="text-secondary data-post d-flex align-items-center">
-                        {el.createdAt} • <BiWorld className="ms-1 icon-world" />
+                        {el?.createdAt?.slice(0, -14)}{" "}
+                        {el?.createdAt?.slice(11, 16)} •
+                        <BiWorld className="ms-1 icon-world" />
                       </Card.Text>
                     </div>
                   </div>
                 </div>
-                <Card.Text>{el.text}</Card.Text>
+                <Card.Text>{el?.text}</Card.Text>
                 <div className="d-flex justify-content-between">
                   <span className="d-flex align-items-center likes">
                     <SlLike className="me-1 text-primary" />
@@ -87,7 +89,8 @@ export const PostGet = () => {
               </Card.Body>
             </Card>
           );
-        })}
+        })
+        .reverse()}
     </>
   );
 };
