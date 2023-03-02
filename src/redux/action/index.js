@@ -249,7 +249,7 @@ export const addPostAction = (props) => {
 
         dispatch({
           type: POST_POST,
-          payload: props,
+          payload: props.text,
         });
       }
     } catch (error) {

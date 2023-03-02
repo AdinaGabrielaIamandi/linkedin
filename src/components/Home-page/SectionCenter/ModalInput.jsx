@@ -10,11 +10,16 @@ import { AiFillMessage } from "react-icons/ai";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import "./PostInput.scss";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addPostAction } from "../../../redux/action";
 
 export const ModalInput = (props) => {
+  const dispatch = useDispatch();
+  const [post, setPost] = useState({});
+
   return (
     <>
-      <Modal.Header closeButton>
+      <Modal.Header closeButton onClick={props.handleClose}>
         <Modal.Title>Crea un post</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -45,7 +50,9 @@ export const ModalInput = (props) => {
               className="border-0"
               as="textarea"
               rows={3}
-              onChange={(e) => console.log(e.target.value)}
+              onChange={(e) => {
+                setPost((prev) => ({ ...prev, text: e.target.value }));
+              }}
             />
           </Form.Group>
         </Form>
@@ -66,7 +73,12 @@ export const ModalInput = (props) => {
 
           <div>
             <AiOutlineClockCircle className="iconFooterInputModal me-3" />
-            <Button className="pubblicaCta fw-bold" onClick={props.handleClose}>
+            <Button
+              className="pubblicaCta fw-bold"
+              onClick={() => {
+                dispatch(addPostAction(post));
+              }}
+            >
               Pubblica
             </Button>
           </div>

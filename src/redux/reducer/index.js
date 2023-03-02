@@ -6,6 +6,7 @@ import {
   ADD_EXPERIENCE,
   PUT_EXPERIENCE,
   GET_POST,
+  POST_POST,
 } from "../action";
 
 const initialState = {
@@ -46,6 +47,11 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         allPost: action.payload,
+      };
+    case POST_POST:
+      return {
+        ...state,
+        allPost: state.allPost.concat(action.payload),
       };
 
     /*case PUT_EXPERIENCE:
