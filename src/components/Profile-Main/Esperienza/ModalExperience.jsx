@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addExperienceAction,
-  putExperience,
-  getExperienceAction,
-  deleteExperience,
-} from "../../../redux/action";
+import { addExperienceAction, putExperience, getExperienceAction, deleteExperience } from "../../../redux/action";
 import { HiOutlinePencil } from "react-icons/hi";
 import { AiOutlinePlus } from "react-icons/ai";
 
@@ -23,7 +18,7 @@ export const ModalExperience = (props) => {
     company: "",
     startDate: "",
     description: "",
-    area: "",
+    area: ""
   };
 
   /*props.id!
@@ -34,37 +29,24 @@ export const ModalExperience = (props) => {
   useEffect(() => {
     if (props.id === "ADDEXP") setExp(esperienza);
     else {
-      const myExperiences = allExperiences.filter(
-        (obj) => obj._id === props.id
-      );
+      const myExperiences = allExperiences.filter((obj) => obj._id === props.id);
       setExp(myExperiences[0]);
     }
-  }, []);
+  }, [props.id]);
 
   return (
     <>
       <div className="d-flex justify-content-end ">
         <div className="d-flex justify-content-center rounded-circle pencil-add align-items-center">
           {props.id === "ADDEXP" ? (
-            <AiOutlinePlus
-              style={{ fontSize: "23px" }}
-              onClick={(e) => handleShow()}
-            />
+            <AiOutlinePlus style={{ fontSize: "23px" }} onClick={(e) => handleShow()} />
           ) : (
-            <HiOutlinePencil
-              style={{ fontSize: "23px" }}
-              onClick={(e) => handleShow()}
-            />
+            <HiOutlinePencil style={{ fontSize: "23px" }} onClick={(e) => handleShow()} />
           )}
         </div>
       </div>
 
-      <Modal
-        size="lg"
-        show={show}
-        onHide={handleClose}
-        aria-labelledby="example-modal-sizes-title-lg"
-      >
+      <Modal size="lg" show={show} onHide={handleClose} aria-labelledby="example-modal-sizes-title-lg">
         {console.log("ID DELL'EXPERIENCE", props.id)}
         {console.log("LA MIA ESPERIENZA", exp)}
         <Modal.Header closeButton>
@@ -145,9 +127,11 @@ export const ModalExperience = (props) => {
           {props.id !== "ADDEXP" ? (
             <Button
               variant="danger"
-              onClick={() => {
+              onClick={(e) => {
+                handleClose();
                 dispatch(deleteExperience(exp._id));
                 dispatch(getExperienceAction());
+                setExp(esperienza);
               }}
             >
               DELETE
@@ -163,8 +147,10 @@ export const ModalExperience = (props) => {
             <Button
               variant="primary"
               onClick={() => {
+                handleClose();
                 dispatch(addExperienceAction(exp));
                 dispatch(getExperienceAction());
+                setExp(esperienza);
               }}
             >
               {" "}
@@ -174,6 +160,7 @@ export const ModalExperience = (props) => {
             <Button
               variant="primary"
               onClick={() => {
+                handleClose();
                 dispatch(putExperience(exp, props.id));
                 dispatch(getExperienceAction());
               }}

@@ -39,42 +39,41 @@ const Esperienza = () => {
           </div>
         </Col>
         <ModalExperience id="ADDEXP" />
-        {experiences.map((exp, i) => (
-          <>
-            <Col key={i} xs={10} className="d-flex ">
-              <img
-                className="picEsperienza"
-                src="https://icons.veryicon.com/png/o/miscellaneous/zr_icon/company-23.png"
-                alt="immagine non trovata"
-              />
-              <div className="textFlex mx-3">
-                <h6 className="mb-1">{exp.role}</h6>
-                <ul className="d-flex noBorder mb-0">
-                  <li className="mb-1">{exp.company}</li>
-                  <li className="mb-1">{exp.startDate}</li>
-                  <li className="mb-1">{exp.area}</li>
-                </ul>
-                <p>
-                  <div className="mt-2">
-                    <span className="text-dark fw-bold competenze">
-                      Competenze:
-                      <span className="competenzeText">
-                        {" "}
-                        {exp.description}{" "}
+        {experiences
+          .map((exp, i) => (
+            <>
+              <Col key={i} xs={10} className="d-flex ">
+                <img
+                  className="picEsperienza"
+                  src="https://icons.veryicon.com/png/o/miscellaneous/zr_icon/company-23.png"
+                  alt="immagine non trovata"
+                />
+                <div className="textFlex mx-3">
+                  <h6 className="mb-1">{exp.role}</h6>
+                  <ul className="d-flex noBorder mb-0">
+                    <li className="mb-1">{exp.company}</li>
+                    <li className="mb-1">{exp.startDate}</li>
+                    <li className="mb-1">{exp.area}</li>
+                  </ul>
+                  <p>
+                    <div className="mt-2">
+                      <span className="text-dark fw-bold competenze">
+                        Competenze:
+                        <span className="competenzeText"> {exp.description} </span>
                       </span>
-                    </span>
-                  </div>
-                </p>
-              </div>
-            </Col>
-            <Col xs={2}>
-              <ModalExperience id={exp._id} />
-              {/*               <Modal.Body>
+                    </div>
+                  </p>
+                </div>
+              </Col>
+              <Col xs={2}>
+                <ModalExperience id={exp._id} />
+                {/*               <Modal.Body>
                   Woohoo, you're reading this text in a modal!
                 </Modal.Body> */}
-            </Col>
-          </>
-        ))}
+              </Col>
+            </>
+          ))
+          .reverse()}
       </Row>
     </Container>
   );
