@@ -1,13 +1,13 @@
-.foto-profile-first {
+.foto-profile-first-home {
   position: absolute;
-  left: 60px;
-  transform: translateY(20%);
+  left: 40%;
+  transform: translateY(50%);
 }
 
 .userName {
   font-size: 1em;
   &:hover {
-    border-bottom: 1.5px solid #c1a1e5;
+    text-decoration: underline #c1a1e5;
   }
 }
 
