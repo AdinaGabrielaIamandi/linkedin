@@ -12,7 +12,7 @@ function App() {
       <NavbarTop />
       <Routes>
         <Route path="/profile/:id" element={<ProfileMain />} />
-        <Route path="/home" element={<Homepage />} />
+        <Route path="/home/:id" element={<Homepage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
