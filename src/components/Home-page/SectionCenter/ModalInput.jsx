@@ -9,6 +9,7 @@ import { SlOptions } from "react-icons/sl";
 import { AiFillMessage } from "react-icons/ai";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import "./PostInput.scss";
+import { useState } from "react";
 
 export const ModalInput = (props) => {
   return (
@@ -44,6 +45,7 @@ export const ModalInput = (props) => {
               className="border-0"
               as="textarea"
               rows={3}
+              onChange={(e) => console.log(e.target.value)}
             />
           </Form.Group>
         </Form>

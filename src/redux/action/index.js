@@ -5,6 +5,8 @@ export const GET_ALL_PROFILES = "GET_ALL_PROFILES";
 export const PUT_PROFILE = "PUT_PROFILE";
 export const ADD_EXPERIENCE = "ADD_EXPERIENCE";
 export const PUT_EXPERIENCE = "PUT_EXPERIENCE";
+export const GET_POST = "GET_POST";
+export const POST_POST = "POST_POST";
 
 export const getProfileAction = (id) => {
   return async (dispatch, getState) => {
@@ -187,6 +189,68 @@ export const deleteExperience = (_id) => {
       if (res.ok) {
         let profile = await res.json();
         console.log("DELETE PROFILE", profile);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+//POST GET
+
+export const getPostAction = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/ ",
+
+        {
+          method: "GET",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4",
+          },
+        }
+      );
+      if (res.ok) {
+        let data = await res.json();
+        dispatch({
+          type: GET_POST,
+          payload: data,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+// POST HOMEPAGE
+
+export const addPostAction = (props) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4",
+          },
+          body: JSON.stringify(props),
+        }
+      );
+      if (res.ok) {
+        let post = await res.json();
+        console.log("FETCH POST", post);
+
+        dispatch({
+          type: POST_POST,
+          payload: props,
+        });
       }
     } catch (error) {
       console.log(error);

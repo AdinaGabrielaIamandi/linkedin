@@ -5,12 +5,14 @@ import {
   PUT_PROFILE,
   ADD_EXPERIENCE,
   PUT_EXPERIENCE,
+  GET_POST,
 } from "../action";
 
 const initialState = {
   profile: [],
   experience: [],
   allProfiles: [],
+  allPost: [],
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -39,6 +41,11 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         experience: state.experience.concat(action.payload),
+      };
+    case GET_POST:
+      return {
+        ...state,
+        allPost: action.payload,
       };
 
     /*case PUT_EXPERIENCE:
