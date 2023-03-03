@@ -8,6 +8,7 @@ import "./firstCard.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { putFirstPageAction, PUT_PROFILE } from "../../redux/action";
 import "./Modale.scss";
+import { addFotoProfile } from "./../../redux/action/index";
 
 const Modale = (props) => {
   const dispatch = useDispatch();
@@ -22,27 +23,17 @@ const Modale = (props) => {
     setFd((prev) => {
       console.log("FOTO");
       //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
-      prev.delete("post"); //ricordatevi di svuotare il FormData prima :)
-      prev.append("post", ev.target.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
-      console.log(prev);
+      prev.delete("profile"); //ricordatevi di svuotare il FormData prima :)
+      prev.append("profile", ev.target?.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
+      console.log(ev.target?.files[0]);
       return prev;
     });
   };
   console.log("ID PROFILO", props.id);
 
-  const handleSubmit = async (ev) => {
+  const handleSubmit = (ev) => {
     ev.preventDefault();
-    let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + props.id, {
-      //qui l'id andra' sostituito con un id DINAMICO!!!!!
-      method: "POST",
-      body: fd, //non serve JSON.stringify
-      headers: {
-        //NON serve ContentType :)
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
-      }
-    });
-    console.log("FOTO INVIATA");
+    dispatch(addFotoProfile(fd, props.id));
   };
 
   /*   useEffect(() => {
@@ -56,9 +47,14 @@ const Modale = (props) => {
       </Modal.Header>
       <Modal.Body className="modale">
         <Form>
+          <p>Aggiungi la tua foto di profilo</p>
           <Form.Group onSubmit={handleSubmit}>
-            <p>Aggiungi la tua foto di profilo</p>
-            <input type="file" onChange={handleFile} />
+            <input
+              type="file"
+              onChange={(e) => {
+                setProfileInternal((prev) => ({ ...prev, image: handleFile(e) }));
+              }}
+            />
           </Form.Group>
 
           <p style={{ fontSize: "0.8em" }}>*Indica che è obbligatorio</p>

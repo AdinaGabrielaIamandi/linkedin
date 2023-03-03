@@ -7,9 +7,9 @@ import { useState } from "react";
 import Modale from "./Modale";
 
 export const FirstCard = (props) => {
-  const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  const [show1, setShow1] = useState(false);
+  const handleShow1 = () => setShow1(true);
+  const handleClose1 = () => setShow1(false);
 
   return (
     <Card className="mb-2">
@@ -23,10 +23,10 @@ export const FirstCard = (props) => {
         <Card.Text className="mt-3">
           <div className="d-flex justify-content-end">
             <div className="d-flex justify-content-center rounded-circle pencil-add align-items-center">
-              <HiOutlinePencil style={{ fontSize: "23px" }} onClick={handleShow} />
+              <HiOutlinePencil style={{ fontSize: "23px" }} onClick={handleShow1} />
             </div>
           </div>
-          <Modal size="lg" show={show} onHide={handleClose} aria-labelledby="example-modal-sizes-title-lg">
+          <Modal size="lg" show={show1} onHide={handleClose1} aria-labelledby="example-modal-sizes-title-lg">
             <Modale id={props.id} />
           </Modal>
           <div className="d-flex align-items-baseline mt-3">
