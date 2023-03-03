@@ -13,41 +13,30 @@ export const SectionRight = () => {
         <div className="mt-2">
           <ul className="ps-3">
             <div>
-              <li className="fw-bold text-dark">
-                Meno negozi, più ristoranti e B&B
-              </li>
+              <li className="fw-bold text-dark">Meno lavoro, più aperitivi</li>
               <p className="mb-2">18 ore fa</p>
             </div>
             <div>
-              <li className="fw-bold text-dark">
-                Oltre il nuovo logo di Nokia
-              </li>
+              <li className="fw-bold text-dark">Oltre al codice c'è un mondo fuori</li>
               <p className="mb-2">14 ore fa</p>
             </div>
             <div>
-              <li className="fw-bold text-dark">
-                Viva il dissenso costruttivo
-              </li>
+              <li className="fw-bold text-dark">Viva il disagio collettivo</li>
               <p className="mb-2">6 ore fa</p>
             </div>
             <div>
-              <li className="fw-bold text-dark">
-                Cosa cambia della giustizia civile
-              </li>
+              <li className="fw-bold text-dark">Cosa cambia se stacchi la testa a qualcuno</li>
               <p className="mb-2">1 ore fa</p>
             </div>
             <div>
-              <li className="fw-bold text-dark">Un'azienda scomoda sul CV</li>
+              <li className="fw-bold text-dark">Un'azienda scomoda sul WC</li>
               <p className="mb-2">19 ore fa</p>
             </div>
           </ul>
         </div>
       </Card>
       <Card className="mt-2 d-none d-lg-block">
-        <img
-          src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
-          alt=""
-        />
+        <img src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png" alt="" />
       </Card>
     </>
   );

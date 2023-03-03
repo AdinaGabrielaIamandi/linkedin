@@ -9,7 +9,7 @@ export const SectionLeft = (props) => {
     <>
       <Card className="mb-2">
         <Card.Img variant="top" src={Cover} />
-        <Image src={props.image} className="rounded-circle border border-2 border-white foto-profile-first" />
+        <Image src={props.image} className="rounded-circle border border-2 border-white foto-profile-first-home" />
         <Card.Body className="p-0 mt-5">
           <div className="border-bottom pb-3 text-center">
             <Card.Title className="mb-1 userName">

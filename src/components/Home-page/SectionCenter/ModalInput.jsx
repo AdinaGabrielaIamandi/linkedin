@@ -25,26 +25,20 @@ export const ModalInput = (props) => {
       <Modal.Body>
         <div className="d-flex ms-2">
           <div>
-            <img
-              id="portraitInput"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Mona_Lisa-restored.jpg/1200px-Mona_Lisa-restored.jpg"
-              alt=""
-            />
+            <img id="portraitInput" src={props.image} alt="" />
           </div>
 
           <div className="mb-3 ms-2 ">
-            <h6 className="fw-bold mb-1">Mona Lisa</h6>
+            <h6 className="fw-bold mb-1">
+              {props.name} {props.surname}
+            </h6>
             <Button className="ctaInput py-1 px-3 d-flex align-items-center fw-bold">
-              <BiWorld className="me-1 buttonIcon" /> Chiunque{" "}
-              <RxTriangleDown className="ms-1 buttonIcon" />
+              <BiWorld className="me-1 buttonIcon" /> Chiunque <RxTriangleDown className="ms-1 buttonIcon" />
             </Button>
           </div>
         </div>
         <Form>
-          <Form.Group
-            className="mb-3 mt-3"
-            controlId="exampleForm.ControlTextarea1"
-          >
+          <Form.Group className="mb-3 mt-3" controlId="exampleForm.ControlTextarea1">
             <Form.Control
               placeholder="Di cosa vorresti parlare?"
               className="border-0"

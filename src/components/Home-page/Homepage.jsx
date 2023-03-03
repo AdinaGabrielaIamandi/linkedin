@@ -30,7 +30,7 @@ export const Homepage = () => {
           />
         </Col>
         <Col lg={5}>
-          <SectionCenter />
+          <SectionCenter name={seeProfile.name} surname={seeProfile.surname} image={seeProfile.image} />
         </Col>
         <Col lg={3}>
           <SectionRight />

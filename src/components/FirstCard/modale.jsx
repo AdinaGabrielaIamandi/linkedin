@@ -9,17 +9,45 @@ import { useDispatch, useSelector } from "react-redux";
 import { putFirstPageAction, PUT_PROFILE } from "../../redux/action";
 import "./Modale.scss";
 
-const Modale = () => {
+const Modale = (props) => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
 
   const [profileInternal, setProfileInternal] = useState(profile);
 
+  const [fd, setFd] = useState(new FormData()); //FormData e' una classe usata per raccogliere dati non stringa dai form
+  //E' formata da coppie chiave/valore => ["post", File], ["exp", File]
+
+  const handleFile = (ev) => {
+    setFd((prev) => {
+      console.log("FOTO");
+      //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
+      prev.delete("post"); //ricordatevi di svuotare il FormData prima :)
+      prev.append("post", ev.target.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
+      console.log(prev);
+      return prev;
+    });
+  };
+  console.log("ID PROFILO", props.id);
+
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + props.id, {
+      //qui l'id andra' sostituito con un id DINAMICO!!!!!
+      method: "POST",
+      body: fd, //non serve JSON.stringify
+      headers: {
+        //NON serve ContentType :)
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+      }
+    });
+    console.log("FOTO INVIATA");
+  };
+
   /*   useEffect(() => {
     dispatch(putFirstPageAction(props.id));
   }, []); */
-
-  console.log("edit profile", profile);
 
   return (
     <>
@@ -27,8 +55,13 @@ const Modale = () => {
         <Modal.Title id="example-modal-sizes-title-lg">Modifica introduzione</Modal.Title>
       </Modal.Header>
       <Modal.Body className="modale">
-        <p style={{ fontSize: "0.8em" }}>*Indica che è obbligatorio</p>
         <Form>
+          <Form.Group onSubmit={handleSubmit}>
+            <p>Aggiungi la tua foto di profilo</p>
+            <input type="file" onChange={handleFile} />
+          </Form.Group>
+
+          <p style={{ fontSize: "0.8em" }}>*Indica che è obbligatorio</p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nome*</Form.Label>
             <Form.Control
@@ -158,10 +191,6 @@ const Modale = () => {
           style={{ borderRadius: "5em", width: "5em" }}
           variant="primary"
           onClick={() => {
-            /*dispatch({
-              type: "PUT_PROFILE",
-              payload: profileInternal,
-            });*/
             dispatch(putFirstPageAction(profileInternal));
           }}
         >
