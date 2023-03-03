@@ -9,7 +9,7 @@ import { Modal, Button } from "react-bootstrap";
 import "./Esperienza.scss";
 import { ModalExperience } from "./ModalExperience";
 
-const Esperienza = () => {
+const Esperienza = (prop) => {
   const TUTTOLOSTORE = useSelector((state) => state);
   console.log("STORE", TUTTOLOSTORE);
 
@@ -38,18 +38,14 @@ const Esperienza = () => {
             <div className="d-flex justify-content-center rounded-circle pencil-add align-items-center"></div>
           </div>
         </Col>
-        <ModalExperience id="ADDEXP" />
+        <ModalExperience id="ADDEXP" idProfile={prop.id} />
         {experiences
           .map((exp, i) => (
             <>
               <Col key={i} xs={10} className="d-flex ">
-                <img
-                  className="picEsperienza"
-                  src="https://icons.veryicon.com/png/o/miscellaneous/zr_icon/company-23.png"
-                  alt="immagine non trovata"
-                />
+                <img className="picEsperienza" src={exp.image} alt="immagine non trovata" />
                 <div className="textFlex mx-3">
-                  <h6 className="mb-1">{exp.role}</h6>
+                  <h6 className="mb-1">{exp?.role}</h6>
                   <ul className="d-flex noBorder mb-0">
                     <li className="mb-1">{exp.company}</li>
                     <li className="mb-1">{exp.startDate}</li>
@@ -66,7 +62,7 @@ const Esperienza = () => {
                 </div>
               </Col>
               <Col xs={2}>
-                <ModalExperience id={exp._id} />
+                <ModalExperience idExp={exp._id} id={exp._id} idProfile={prop.id} />
                 {/*               <Modal.Body>
                   Woohoo, you're reading this text in a modal!
                 </Modal.Body> */}

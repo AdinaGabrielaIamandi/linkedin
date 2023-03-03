@@ -1,14 +1,14 @@
 import { BsFillInfoSquareFill } from "react-icons/bs";
 import { HiPlus } from "react-icons/hi";
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import "./firstCard.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { putFirstPageAction, PUT_PROFILE } from "../../redux/action";
+import { putFirstPageAction } from "../../redux/action";
 import "./Modale.scss";
-import { addFotoProfile } from "./../../redux/action/index";
+import { addFotoProfile, getProfileAction } from "./../../redux/action/index";
 
 const Modale = (props) => {
   const dispatch = useDispatch();
@@ -16,29 +16,25 @@ const Modale = (props) => {
 
   const [profileInternal, setProfileInternal] = useState(profile);
 
-  const [fd, setFd] = useState(new FormData()); //FormData e' una classe usata per raccogliere dati non stringa dai form
-  //E' formata da coppie chiave/valore => ["post", File], ["exp", File]
+  const [fd, setFd] = useState(new FormData());
 
   const handleFile = (ev) => {
     setFd((prev) => {
-      console.log("FOTO");
-      //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
-      prev.delete("profile"); //ricordatevi di svuotare il FormData prima :)
-      prev.append("profile", ev.target?.files[0]); //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
-      console.log(ev.target?.files[0]);
+      prev.delete("profile");
+      prev.append("profile", ev.target?.files[0]);
       return prev;
     });
   };
-  console.log("ID PROFILO", props.id);
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
     dispatch(addFotoProfile(fd, props.id));
+    refresh();
   };
 
-  /*   useEffect(() => {
-    dispatch(putFirstPageAction(props.id));
-  }, []); */
+  const refresh = () => {
+    window.location.reload(false);
+  };
 
   return (
     <>
@@ -65,6 +61,7 @@ const Modale = (props) => {
               placeholder={profileInternal.name}
               type="text"
               autoFocus
+              value={profileInternal.name}
               onChange={(e) => {
                 setProfileInternal((prev) => ({ ...prev, name: e.target.value }));
               }}
@@ -76,6 +73,7 @@ const Modale = (props) => {
               className="ModalFormControl"
               type="text"
               autoFocus
+              value={profileInternal.surname}
               onChange={(e) => {
                 setProfileInternal((prev) => ({ ...prev, surname: e.target.value }));
               }}
@@ -105,6 +103,7 @@ const Modale = (props) => {
               className="ModalFormControl"
               type="text"
               autoFocus
+              value={profileInternal.bio}
               onChange={(e) => {
                 setProfileInternal((prev) => ({ ...prev, bio: e.target.value }));
               }}
@@ -133,6 +132,7 @@ const Modale = (props) => {
               className="ModalFormControl"
               type="text"
               autoFocus
+              value={profileInternal.title}
               onChange={(e) => {
                 setProfileInternal((prev) => ({ ...prev, title: e.target.value }));
               }}
@@ -172,6 +172,7 @@ const Modale = (props) => {
               className="ModalFormControl"
               type="text"
               autoFocus
+              value={profileInternal.area}
               onChange={(e) => {
                 setProfileInternal((prev) => ({ ...prev, area: e.target.value }));
               }}
@@ -187,7 +188,9 @@ const Modale = (props) => {
           style={{ borderRadius: "5em", width: "5em" }}
           variant="primary"
           onClick={() => {
+            dispatch(addFotoProfile(fd, props.id));
             dispatch(putFirstPageAction(profileInternal));
+            dispatch(getProfileAction(props.id));
           }}
         >
           Salva

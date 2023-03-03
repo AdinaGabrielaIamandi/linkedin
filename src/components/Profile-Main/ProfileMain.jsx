@@ -39,7 +39,7 @@ export const ProfileMain = () => {
           <Risorse />
           <Informazioni bio={seeProfile.bio} />
           <Attività />
-          <Esperienza />
+          <Esperienza id={seeProfile._id} />
           {/* parte a sinistra */}
           <Competenze />
           <Interessi />

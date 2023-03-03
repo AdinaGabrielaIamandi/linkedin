@@ -361,7 +361,38 @@ export const addFotoProfile = (file, id) => {
         console.log("ATTENTION:");
       }
     } catch (error) {
-      console.log("ERROR: " + error.messages);
+      console.log("ERROR: " + error.message);
+    }
+  };
+};
+
+export const addFotoExp = (file, idProfile, idExp) => {
+  return async (dispatch) => {
+    try {
+      let res = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${idProfile}/experiences/${idExp}/picture`,
+        {
+          method: "POST",
+          body: file, //non serve JSON.stringify
+          headers: {
+            //NON serve ContentType :)
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          }
+        }
+      );
+      if (res.ok) {
+        let data = await res.json();
+        dispatch({
+          type: POST_PROFILE_IMAGE,
+          payload: file
+        });
+        console.log("FOTO INVIATA");
+      } else {
+        console.log("ATTENTION:");
+      }
+    } catch (error) {
+      console.log("ERROR: " + error.message);
     }
   };
 };

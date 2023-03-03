@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addExperienceAction, putExperience, getExperienceAction, deleteExperience } from "../../../redux/action";
+import {
+  addExperienceAction,
+  putExperience,
+  getExperienceAction,
+  deleteExperience,
+  addFotoExp
+} from "../../../redux/action";
 import { HiOutlinePencil } from "react-icons/hi";
 import { AiOutlinePlus } from "react-icons/ai";
 
@@ -18,13 +24,31 @@ export const ModalExperience = (props) => {
     company: "",
     startDate: "",
     description: "",
-    area: ""
+    area: "",
+    image: ""
   };
 
-  /*props.id!
-  const [exp, setExp] = useState({
- 
-  }):*/
+  const [fd, setFd] = useState(new FormData());
+
+  const handleFile = (ev) => {
+    setFd((prev) => {
+      prev.delete("experience");
+      prev.append("experience", ev.target?.files[0]);
+      return prev;
+    });
+  };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    dispatch(addFotoExp(fd, props.idProfile, props.idExp));
+    refresh();
+  };
+
+  const refresh = () => {
+    window.location.reload(false);
+  };
+
+  console.log("IDPROFILE", props.idProfile, "IDEXP", props.idExp);
 
   useEffect(() => {
     if (props.id === "ADDEXP") setExp(esperienza);
@@ -32,7 +56,13 @@ export const ModalExperience = (props) => {
       const myExperiences = allExperiences.filter((obj) => obj._id === props.id);
       setExp(myExperiences[0]);
     }
-  }, [props.id]);
+  }, [props.idExp]);
+
+  const handleSave = async () => {
+    await dispatch(addExperienceAction(exp));
+    await dispatch(getExperienceAction());
+    await console.log("exp aggiunta", exp);
+  };
 
   return (
     <>
@@ -53,6 +83,15 @@ export const ModalExperience = (props) => {
           <Modal.Title>titolo</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modale">
+          <p>Aggiungi la tua foto di profilo</p>
+          <Form.Group onSubmit={handleSubmit}>
+            <input
+              type="file"
+              onChange={(e) => {
+                setExp((exp) => ({ ...exp, image: handleFile(e) }));
+              }}
+            />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Qualifica*</Form.Label>
             <Form.Control
@@ -147,13 +186,12 @@ export const ModalExperience = (props) => {
             <Button
               variant="primary"
               onClick={() => {
-                handleClose();
-                dispatch(addExperienceAction(exp));
-                dispatch(getExperienceAction());
+                handleSave();
                 setExp(esperienza);
+                dispatch(addFotoExp(fd, props.idProfile, props.idExp));
+                handleClose();
               }}
             >
-              {" "}
               Save Changes
             </Button>
           ) : (
@@ -161,11 +199,11 @@ export const ModalExperience = (props) => {
               variant="primary"
               onClick={() => {
                 handleClose();
-                dispatch(putExperience(exp, props.id));
+                dispatch(addFotoExp(fd, props.idProfile, props.idExp));
+                dispatch(putExperience(exp, props.idExp));
                 dispatch(getExperienceAction());
               }}
             >
-              {" "}
               Save Changes
             </Button>
           )}

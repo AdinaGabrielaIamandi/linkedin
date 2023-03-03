@@ -27,7 +27,7 @@ export const FirstCard = (props) => {
             </div>
           </div>
           <Modal size="lg" show={show1} onHide={handleClose1} aria-labelledby="example-modal-sizes-title-lg">
-            <Modale id={props.id} />
+            <Modale id={props.id} chiudi={handleClose1} />
           </Modal>
           <div className="d-flex align-items-baseline mt-3">
             <h4 className="m-0 text-black">
