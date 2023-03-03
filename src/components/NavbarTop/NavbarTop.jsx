@@ -15,6 +15,7 @@ import { useEffect } from "react";
 export const NavbarTop = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const goHome = useNavigate();
   const allUsersList = useSelector((state) => state.allProfiles);
   const meUser = useSelector((state) => state.profile);
 
@@ -76,7 +77,12 @@ export const NavbarTop = () => {
           <FaSearch className="icons-navbar me-4" />
           <Nav.Link className="d-none d-lg-block text-icons">Cerca</Nav.Link>
         </div>
-        <div className="d-none d-md-flex flex-column align-items-center justify-content-center text-secondary me-4">
+        <div
+          onClick={() => {
+            goHome("/home/:id");
+          }}
+          className="d-none d-md-flex flex-column align-items-center justify-content-center text-secondary me-4"
+        >
           <FaHome className="icons-navbar" />
           <Nav.Link href="#action1" className="d-none d-lg-block text-icons">
             Home
@@ -144,7 +150,7 @@ export const NavbarTop = () => {
             >
               <Button
                 onClick={() => {
-                  navigate("/profile/me");
+                  navigate("/profile/:id");
                 }}
                 className="cta2 cta3 fw-bold w-100"
               >
