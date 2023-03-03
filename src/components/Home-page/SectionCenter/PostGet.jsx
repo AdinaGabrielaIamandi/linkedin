@@ -1,18 +1,13 @@
-import { Card, Image, Button, Dropdown, Modal } from "react-bootstrap";
+import { Card, Image, Button } from "react-bootstrap";
 import "./postget.scss";
 import { BiWorld } from "react-icons/bi";
 import { SlLike } from "react-icons/sl";
 import { FaRegCommentDots } from "react-icons/fa";
 import { BsArrowRepeat } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
-import { SlOptions } from "react-icons/sl";
-import { ImPencil } from "react-icons/im";
-import { BsFillTrashFill } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getPostAction } from "../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
-import { BiDotsHorizontalRounded } from "react-icons/bi";
-import { ModalInput } from "./ModalInput";
 import { ModalToEdit } from "./ModalToEdit";
 
 export const PostGet = () => {

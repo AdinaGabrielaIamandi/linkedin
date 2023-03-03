@@ -8,7 +8,7 @@ import "./firstCard.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { putFirstPageAction } from "../../redux/action";
 import "./Modale.scss";
-import { addFotoProfile, getProfileAction } from "./../../redux/action/index";
+import { addFotoProfile, getProfileAction } from "../../redux/action/index";
 
 const Modale = (props) => {
   const dispatch = useDispatch();

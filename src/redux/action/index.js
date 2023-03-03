@@ -115,13 +115,11 @@ export const addExperienceAction = (props) => {
         body: JSON.stringify(props)
       });
       if (res.ok) {
-        let exp = await res.json();
-        console.log("FETCH EXP", exp);
-
         dispatch({
           type: ADD_EXPERIENCE,
           payload: props
         });
+        return await res.json();
       }
     } catch (error) {
       console.log(error);
@@ -383,11 +381,7 @@ export const addFotoExp = (file, idProfile, idExp) => {
       );
       if (res.ok) {
         let data = await res.json();
-        dispatch({
-          type: POST_PROFILE_IMAGE,
-          payload: file
-        });
-        console.log("FOTO INVIATA");
+        return data;
       } else {
         console.log("ATTENTION:");
       }

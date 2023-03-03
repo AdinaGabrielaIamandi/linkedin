@@ -2,26 +2,13 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { getExperienceAction } from "../../../redux/action";
 import { useEffect } from "react";
-
-import { HiOutlinePencil } from "react-icons/hi";
-import { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
 import "./Esperienza.scss";
 import { ModalExperience } from "./ModalExperience";
 
 const Esperienza = (prop) => {
-  const TUTTOLOSTORE = useSelector((state) => state);
-  console.log("STORE", TUTTOLOSTORE);
-
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => {
-    setShow(true);
-  };
   // vado a leggere stato
   const experiences = useSelector((state) => state.experience);
   const dispatch = useDispatch();
-  console.log(experiences);
 
   useEffect(() => {
     dispatch(getExperienceAction());
@@ -38,7 +25,7 @@ const Esperienza = (prop) => {
             <div className="d-flex justify-content-center rounded-circle pencil-add align-items-center"></div>
           </div>
         </Col>
-        <ModalExperience id="ADDEXP" idProfile={prop.id} />
+        <ModalExperience id="ADDEXP" idProfile={prop.id} allExp={experiences} />
         {experiences
           .map((exp, i) => (
             <>

@@ -40,29 +40,24 @@ export const ModalExperience = (props) => {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    dispatch(addFotoExp(fd, props.idProfile, props.idExp));
-    refresh();
+    return async (dispatch) => {
+      if (props.id === "ADDEXP") {
+        setExp(esperienza);
+        await dispatch(addExperienceAction(exp));
+        await dispatch(addFotoExp(fd, props.idProfile, props.allExp._id));
+      } else {
+        const myExperiences = allExperiences.filter((obj) => obj._id === props.id);
+        setExp(myExperiences[0]);
+        await dispatch(addFotoExp(fd, props.idProfile, props.idExp));
+      }
+    };
   };
 
-  const refresh = () => {
-    window.location.reload(false);
-  };
-
-  console.log("IDPROFILE", props.idProfile, "IDEXP", props.idExp);
-
-  useEffect(() => {
-    if (props.id === "ADDEXP") setExp(esperienza);
-    else {
-      const myExperiences = allExperiences.filter((obj) => obj._id === props.id);
-      setExp(myExperiences[0]);
-    }
-  }, [props.idExp]);
-
-  const handleSave = async () => {
+  /*   const handleSave = async () => {
+    await console.log("exp aggiunta", exp.id);
     await dispatch(addExperienceAction(exp));
     await dispatch(getExperienceAction());
-    await console.log("exp aggiunta", exp);
-  };
+  }; */
 
   return (
     <>
@@ -186,7 +181,8 @@ export const ModalExperience = (props) => {
             <Button
               variant="primary"
               onClick={() => {
-                handleSave();
+                dispatch(addExperienceAction(exp));
+                dispatch(getExperienceAction());
                 setExp(esperienza);
                 dispatch(addFotoExp(fd, props.idProfile, props.idExp));
                 handleClose();
