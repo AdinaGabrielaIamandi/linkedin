@@ -11,11 +11,28 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import "./PostInput.scss";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPostAction, getPostAction } from "../../../redux/action";
+import { addFotoPost, addPostAction, getPostAction } from "../../../redux/action";
 
 export const ModalInput = (props) => {
   const dispatch = useDispatch();
   const [post, setPost] = useState({});
+  //use selector => last post
+  const lastPost = useSelector((state) => state.lastPost);
+  //last post da mettetere a riga 33
+  const [fd, setFd] = useState(new FormData());
+
+  const handleFile = (ev) => {
+    setFd((prev) => {
+      prev.delete("post");
+      prev.append("post", ev.target?.files[0]);
+      return prev;
+    });
+  };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    dispatch(addFotoPost(fd, lastPost));
+  };
 
   return (
     <>
@@ -49,6 +66,15 @@ export const ModalInput = (props) => {
               }}
             />
           </Form.Group>
+          <p>Aggiungi la tua foto di profilo</p>
+          <Form.Group onSubmit={handleSubmit}>
+            <input
+              type="file"
+              onChange={(e) => {
+                setPost((prev) => ({ ...prev, image: handleFile(e) }));
+              }}
+            />
+          </Form.Group>
         </Form>
         <div>
           <FaRegSmile style={{ width: "1.8em" }} />
@@ -71,6 +97,7 @@ export const ModalInput = (props) => {
               className="pubblicaCta fw-bold"
               onClick={() => {
                 dispatch(addPostAction(post));
+                dispatch(addFotoPost(fd, lastPost));
                 dispatch(getPostAction());
               }}
             >

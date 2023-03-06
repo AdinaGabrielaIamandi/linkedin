@@ -18,7 +18,7 @@ export const ModalExperience = (props) => {
   const dispatch = useDispatch();
   const allExperiences = useSelector((state) => state.experience);
   const [exp, setExp] = useState(allExperiences);
-  //const [exp, setExp] = useState();
+  const lastExp = useSelector((state) => state.lastExp);
   const esperienza = {
     role: "",
     company: "",
@@ -27,6 +27,8 @@ export const ModalExperience = (props) => {
     area: "",
     image: ""
   };
+
+  console.log("ID ultima exp", lastExp);
 
   const [fd, setFd] = useState(new FormData());
 
@@ -40,24 +42,21 @@ export const ModalExperience = (props) => {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    return async (dispatch) => {
-      if (props.id === "ADDEXP") {
-        setExp(esperienza);
-        await dispatch(addExperienceAction(exp));
-        await dispatch(addFotoExp(fd, props.idProfile, props.allExp._id));
-      } else {
-        const myExperiences = allExperiences.filter((obj) => obj._id === props.id);
-        setExp(myExperiences[0]);
-        await dispatch(addFotoExp(fd, props.idProfile, props.idExp));
-      }
-    };
+    if (props.id === "ADDEXP") {
+      dispatch(addFotoExp(fd, lastExp));
+    } else {
+      dispatch(addFotoExp(fd, props.idExp));
+    }
   };
 
-  /*   const handleSave = async () => {
-    await console.log("exp aggiunta", exp.id);
-    await dispatch(addExperienceAction(exp));
-    await dispatch(getExperienceAction());
-  }; */
+  useEffect(() => {
+    if (props.id === "ADDEXP") {
+      setExp(esperienza);
+    } else {
+      const myExperiences = allExperiences.filter((obj) => obj._id === props.id);
+      setExp(myExperiences[0]);
+    }
+  }, []);
 
   return (
     <>
@@ -161,11 +160,9 @@ export const ModalExperience = (props) => {
           {props.id !== "ADDEXP" ? (
             <Button
               variant="danger"
-              onClick={(e) => {
-                handleClose();
+              onClick={() => {
                 dispatch(deleteExperience(exp._id));
                 dispatch(getExperienceAction());
-                setExp(esperienza);
               }}
             >
               DELETE
@@ -182,10 +179,8 @@ export const ModalExperience = (props) => {
               variant="primary"
               onClick={() => {
                 dispatch(addExperienceAction(exp));
+                dispatch(addFotoExp(fd, props.idProfile, lastExp));
                 dispatch(getExperienceAction());
-                setExp(esperienza);
-                dispatch(addFotoExp(fd, props.idProfile, props.idExp));
-                handleClose();
               }}
             >
               Save Changes
@@ -194,9 +189,8 @@ export const ModalExperience = (props) => {
             <Button
               variant="primary"
               onClick={() => {
-                handleClose();
-                dispatch(addFotoExp(fd, props.idProfile, props.idExp));
                 dispatch(putExperience(exp, props.idExp));
+                dispatch(addFotoExp(fd, props.idProfile, props.idExp));
                 dispatch(getExperienceAction());
               }}
             >

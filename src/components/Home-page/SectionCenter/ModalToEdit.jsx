@@ -7,12 +7,11 @@ import { BsFillPlayBtnFill } from "react-icons/bs";
 import { HiDocumentText } from "react-icons/hi";
 import { SlOptions } from "react-icons/sl";
 import { AiFillMessage } from "react-icons/ai";
-import { AiOutlineClockCircle } from "react-icons/ai";
 import "./PostInput.scss";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePostAction, putPostEditedAction } from "../../../redux/action";
-import { addPostAction, getPostAction } from "../../../redux/action";
+import { addFotoPost, deletePostAction, putPostEditedAction } from "../../../redux/action";
+import { getPostAction } from "../../../redux/action";
 import { ImPencil } from "react-icons/im";
 import { BsFillTrashFill } from "react-icons/bs";
 
@@ -23,6 +22,21 @@ export const ModalToEdit = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [fd, setFd] = useState(new FormData());
+
+  const handleFile = (ev) => {
+    setFd((prev) => {
+      prev.delete("post");
+      prev.append("post", ev.target?.files[0]);
+      return prev;
+    });
+  };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    dispatch(addFotoPost(fd, props.id));
+  };
 
   useEffect(() => {
     const myPost = allPost.filter((el) => {
@@ -40,11 +54,7 @@ export const ModalToEdit = (props) => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu className="p-3">
-            <Dropdown.Item
-              className="fw-bold"
-              href="#/action-2"
-              onClick={handleShow}
-            >
+            <Dropdown.Item className="fw-bold" href="#/action-2" onClick={handleShow}>
               <ImPencil className="me-2" /> Modifica post
             </Dropdown.Item>
             <Dropdown.Item
@@ -94,16 +104,12 @@ export const ModalToEdit = (props) => {
             <div className="mb-3 ms-2 ">
               <h6 className="fw-bold mb-1">Mona Lisa</h6>
               <Button className="ctaInput py-1 px-3 d-flex align-items-center fw-bold">
-                <BiWorld className="me-1 buttonIcon" /> Chiunque{" "}
-                <RxTriangleDown className="ms-1 buttonIcon" />
+                <BiWorld className="me-1 buttonIcon" /> Chiunque <RxTriangleDown className="ms-1 buttonIcon" />
               </Button>
             </div>
           </div>
           <Form>
-            <Form.Group
-              className="mb-3 mt-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
+            <Form.Group className="mb-3 mt-3" controlId="exampleForm.ControlTextarea1">
               <Form.Control
                 className="border-0"
                 as="textarea"
@@ -111,6 +117,15 @@ export const ModalToEdit = (props) => {
                 value={props.text}
                 onChange={(e) => {
                   setPostToEdit((prev) => ({ ...prev, text: e.target.value }));
+                }}
+              />
+            </Form.Group>
+            <p>Aggiungi la tua foto di profilo</p>
+            <Form.Group onSubmit={handleSubmit}>
+              <input
+                type="file"
+                onChange={(e) => {
+                  setPostToEdit((prev) => ({ ...prev, image: handleFile(e) }));
                 }}
               />
             </Form.Group>
@@ -132,6 +147,7 @@ export const ModalToEdit = (props) => {
             <div>
               <Button
                 onClick={() => {
+                  dispatch(addFotoPost(fd, props.idPost));
                   dispatch(putPostEditedAction(postToEdit, props.idPost));
                   dispatch(getPostAction());
                 }}

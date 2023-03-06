@@ -9,6 +9,8 @@ export const PUT_EXPERIENCE = "PUT_EXPERIENCE";
 export const GET_POST = "GET_POST";
 export const POST_POST = "POST_POST";
 export const PUT_POST_EDITED = "PUT_POST_EDITED";
+export const LAST_POST_ID = "LAST_POST_ID";
+export const LAST_EXPERIENCE_ID = "LAST_EXPERIENCE_ID";
 
 export const getProfileAction = (id) => {
   return async (dispatch, getState) => {
@@ -115,11 +117,11 @@ export const addExperienceAction = (props) => {
         body: JSON.stringify(props)
       });
       if (res.ok) {
+        let data = await res.json();
         dispatch({
-          type: ADD_EXPERIENCE,
-          payload: props
+          type: LAST_EXPERIENCE_ID,
+          payload: data._id
         });
-        return await res.json();
       }
     } catch (error) {
       console.log(error);
@@ -215,7 +217,6 @@ export const addPostAction = (props) => {
     try {
       let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
         method: "POST",
-
         headers: {
           "Content-type": "application/json",
           Authorization:
@@ -225,11 +226,9 @@ export const addPostAction = (props) => {
       });
       if (res.ok) {
         let post = await res.json();
-        console.log("FETCH POST", post);
-
         dispatch({
-          type: POST_POST,
-          payload: props.text
+          type: LAST_POST_ID,
+          payload: post._id
         });
       }
     } catch (error) {
@@ -364,6 +363,8 @@ export const addFotoProfile = (file, id) => {
   };
 };
 
+//ADD FOTO EXP
+
 export const addFotoExp = (file, idProfile, idExp) => {
   return async (dispatch) => {
     try {
@@ -379,6 +380,32 @@ export const addFotoExp = (file, idProfile, idExp) => {
           }
         }
       );
+      if (res.ok) {
+        let data = await res.json();
+        return data;
+      } else {
+        console.log("ATTENTION:");
+      }
+    } catch (error) {
+      console.log("ERROR: " + error.message);
+    }
+  };
+};
+
+//ADD FOTO POST
+
+export const addFotoPost = (file, idPost) => {
+  return async (dispatch) => {
+    try {
+      let res = await fetch(`https://striveschool-api.herokuapp.com/api/posts/${idPost}`, {
+        method: "POST",
+        body: file, //non serve JSON.stringify
+        headers: {
+          //NON serve ContentType :)
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+        }
+      });
       if (res.ok) {
         let data = await res.json();
         return data;

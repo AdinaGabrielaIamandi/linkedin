@@ -1,4 +1,4 @@
-import { Card, Image, Button } from "react-bootstrap";
+import { Card, Image, Button, Container } from "react-bootstrap";
 import "./postget.scss";
 import { BiWorld } from "react-icons/bi";
 import { SlLike } from "react-icons/sl";
@@ -30,11 +30,11 @@ export const PostGet = () => {
         .map((el) => {
           return (
             <Card key={el?._id} className="mt-2">
-              <Card.Body className="bordo p-0 m-3 mb-0 border-bottom pb-1">
-                <div className="d-flex justify-content-between mb-2 header-post">
+              <Card.Body className="bordo p-0 m-0 mb-0 border-bottom pb-1">
+                <div className="d-flex justify-content-between mb-2 header-post mt-3 mx-3">
                   {/* src={data.user.image} */}
 
-                  <div className="d-flex ">
+                  <div className="d-flex">
                     <div className="d-flex">
                       <Image
                         src={el.user?.image}
@@ -57,8 +57,14 @@ export const PostGet = () => {
                     <ModalToEdit idUser={el?.user?._id} idPost={el?._id} />
                   </div>
                 </div>
-                <Card.Text>{el?.text}</Card.Text>
-                <div className="d-flex justify-content-between">
+                <Card.Text className=" mx-3">{el?.text}</Card.Text>
+                {el?.image ? (
+                  <Image src={el?.image} style={{ width: "100%", height: "30%" }} className="mb-3" />
+                ) : (
+                  <Image src={el?.image} className="d-none" />
+                )}
+
+                <div className="d-flex justify-content-between mx-3">
                   <span className="d-flex align-items-center likes">
                     <SlLike className="me-1 text-primary" />
                     <small className="num-like text-secondary">{Math.floor(Math.random() * 100)}</small>

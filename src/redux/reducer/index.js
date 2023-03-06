@@ -5,16 +5,19 @@ import {
   PUT_PROFILE,
   POST_PROFILE_IMAGE,
   ADD_EXPERIENCE,
-  PUT_EXPERIENCE,
   GET_POST,
-  POST_POST
+  POST_POST,
+  LAST_POST_ID,
+  LAST_EXPERIENCE_ID
 } from "../action";
 
 const initialState = {
   profile: [],
   experience: [],
   allProfiles: [],
-  allPost: []
+  allPost: [],
+  lastExp: "",
+  lastPost: ""
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -59,17 +62,16 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         allPost: state.allPost.concat(action.payload)
       };
-
-    /*case PUT_EXPERIENCE:
-      let index = state.experience.findIndex(
-        (exp) => action.payload_id === exp._id
-      );
-
+    case LAST_POST_ID:
       return {
         ...state,
-        experience: (state.experience[index] = action.payload),
-      };*/
-
+        lastPost: action.payload
+      };
+    case LAST_EXPERIENCE_ID:
+      return {
+        ...state,
+        lastExp: action.payload
+      };
     default:
       return state;
   }
