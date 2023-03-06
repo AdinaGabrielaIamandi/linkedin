@@ -47,6 +47,7 @@ export const ModalEditComment = (props) => {
             onClick={() => {
               dispatch(editCommentAction(editedComment, editedComment._id));
               dispatch(getCommentAction());
+              window.location.reload();
             }}
           >
             Salva modifiche

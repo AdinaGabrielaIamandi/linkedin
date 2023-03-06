@@ -21,6 +21,7 @@ export const InputComment = (props) => {
         onClick={() => {
           dispatch(postCommentAction(comment));
           dispatch(getCommentAction());
+          window.location.reload();
         }}
       >
         Invia
