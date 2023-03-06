@@ -24,7 +24,7 @@ export const PostComments = (props) => {
       );
       if (res.ok) {
         const comment = await res.json();
-        console.log("ijewijokep", comment);
+        console.log(props.id, comment);
         setComment(comment);
       }
     } catch (error) {

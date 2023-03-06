@@ -20,11 +20,18 @@ export const PostGet = () => {
   const dispatch = useDispatch();
   const seePost = useSelector((state) => state.allPost);
   const seeComment = useSelector((state) => state.allComments);
+  const [clickedComment, setClickedComment] = useState(false);
+  const NUMBER_TO_DISPLAY = 4;
 
   useEffect(() => {
     dispatch(getPostAction());
     dispatch(getCommentAction());
   }, []);
+
+  const handleClikcked = () => {
+    if (clickedComment === true) setClickedComment(false);
+    else setClickedComment(true);
+  };
 
   return (
     <>
@@ -83,7 +90,10 @@ export const PostGet = () => {
                   <SlLike className="me-1 fw-bold" />
                   <p className="d-none d-md-flex align-items-center m-0">Consiglia</p>
                 </Button>
-                <Button className="text-secondary bg-transparent border-0 d-flex align-items-center mt-1 mb-1 bottone-hover">
+                <Button
+                  className="text-secondary bg-transparent border-0 d-flex align-items-center mt-1 mb-1 bottone-hover"
+                  onClick={() => handleClikcked()}
+                >
                   <FaRegCommentDots className="me-1 fw-bold" />
                   <p className="d-none d-md-flex align-items-center m-0">Commenta</p>
                 </Button>
