@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { ListGroup } from "react-bootstrap";
+import { Button, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getCommentAction } from "../../../redux/action";
+import { deleteCommentAction, getCommentAction } from "../../../redux/action";
+import { MdDelete } from "react-icons/md";
 
 export const PostComments = (props) => {
   const [comment, setComment] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchComments();
@@ -35,7 +37,25 @@ export const PostComments = (props) => {
   return (
     <ListGroup>
       {comment.map((el) => {
-        return <ListGroup.Item key={el._id}>{el.comment}</ListGroup.Item>;
+        return (
+          <div className="d-flex justify-content-between align-items-center">
+            <ListGroup.Item
+              style={{ width: "90%" }}
+              className="border-0 border-none "
+              key={el._id}
+            >
+              {el.comment}
+            </ListGroup.Item>
+
+            <MdDelete
+              onClick={() => {
+                dispatch(deleteCommentAction(el._id));
+                dispatch(getCommentAction());
+              }}
+              className="text-danger me-3"
+            />
+          </div>
+        );
       })}
     </ListGroup>
   );
