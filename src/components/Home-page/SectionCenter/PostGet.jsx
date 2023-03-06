@@ -1,4 +1,4 @@
-import { Card, Image, Button, ListGroup } from "react-bootstrap";
+import { Card, Image, Button } from "react-bootstrap";
 import "./postget.scss";
 import { BiWorld } from "react-icons/bi";
 import { SlLike } from "react-icons/sl";
@@ -13,6 +13,7 @@ import { getCommentAction, getPostAction } from "../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalToEdit } from "./ModalToEdit";
 import { PostComments } from "./PostComments";
+import { InputComment } from "./InputComment";
 
 export const PostGet = () => {
   //const data= fetch api post get
@@ -97,12 +98,16 @@ export const PostGet = () => {
               </Card.Body>
               {seeComment
                 .reverse()
-                ?.slice(-10)
+                ?.slice(-1)
                 .map((el) => {
-                  return <PostComments id={el.elementId} />;
+                  return (
+                    <>
+                      <PostComments id={el.elementId} />
+                      <InputComment id={el.elementId} />
+                    </>
+                  );
                 })
-                .reverse()
-                .splice(1)}
+                .reverse()}
             </Card>
           );
         })
