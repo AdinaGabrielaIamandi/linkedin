@@ -178,8 +178,7 @@ export const ModalExperience = (props) => {
             <Button
               variant="primary"
               onClick={() => {
-                dispatch(addExperienceAction(exp));
-                dispatch(addFotoExp(fd, props.idProfile, lastExp));
+                dispatch(addExperienceAction(exp, fd));
                 dispatch(getExperienceAction());
               }}
             >

@@ -103,8 +103,10 @@ export const putFirstPageAction = (props) => {
     }
   };
 };
+
 //
-export const addExperienceAction = (props) => {
+
+export const addExperienceAction = (props, file) => {
   return async (dispatch, getState) => {
     try {
       let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/63fcc323f193e60013807f6a/experiences", {
@@ -119,6 +121,25 @@ export const addExperienceAction = (props) => {
       });
       if (res.ok) {
         let data = await res.json();
+        let res2 = await fetch(
+          `https://striveschool-api.herokuapp.com/api/profile/63fcc323f193e60013807f6a/experiences/${data._id}/picture`,
+          {
+            method: "POST",
+            body: file, //non serve JSON.stringify
+            headers: {
+              //NON serve ContentType :)
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+            }
+          }
+        );
+        if (res2.ok) {
+          let data = await res2.json();
+          return data;
+        } else {
+          console.log("ATTENTION:");
+        }
+
         dispatch({
           type: LAST_EXPERIENCE_ID,
           payload: data._id
