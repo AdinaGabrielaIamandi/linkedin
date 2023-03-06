@@ -96,18 +96,8 @@ export const PostGet = () => {
                   <p className="d-none d-md-flex align-items-center m-0">Invia</p>
                 </Button>
               </Card.Body>
-              {seeComment
-                .reverse()
-                ?.slice(-1)
-                .map((el) => {
-                  return (
-                    <>
-                      <PostComments id={el.elementId} />
-                      <InputComment id={el.elementId} />
-                    </>
-                  );
-                })
-                .reverse()}
+              <PostComments id={el._id} />
+              <InputComment id={el._id} />
             </Card>
           );
         })
