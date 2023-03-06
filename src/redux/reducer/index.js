@@ -9,6 +9,7 @@ import {
   POST_POST,
   LAST_POST_ID,
   LAST_EXPERIENCE_ID
+  GET_COMMENTS,
 } from "../action";
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   allPost: [],
   lastExp: "",
   lastPost: ""
+  allComments: [],
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -25,42 +27,42 @@ const mainReducer = (state = initialState, action) => {
     case GET_PROFILE:
       return {
         ...state,
-        profile: action.payload
+        profile: action.payload,
       };
     case GET_EXPERIENCE:
       return {
         ...state,
-        experience: action.payload
+        experience: action.payload,
       };
     case GET_ALL_PROFILES:
       return {
         ...state,
-        allProfiles: action.payload
+        allProfiles: action.payload,
       };
     case PUT_PROFILE:
       return {
         ...state,
-        profile: action.payload
+        profile: action.payload,
       };
     case POST_PROFILE_IMAGE:
       return {
         ...state,
-        profile: [...state.profile, action.payload]
+        profile: [...state.profile, action.payload],
       };
     case ADD_EXPERIENCE:
       return {
         ...state,
-        experience: state.experience.concat(action.payload)
+        experience: state.experience.concat(action.payload),
       };
     case GET_POST:
       return {
         ...state,
-        allPost: action.payload
+        allPost: action.payload,
       };
     case POST_POST:
       return {
         ...state,
-        allPost: state.allPost.concat(action.payload)
+        allPost: state.allPost.concat(action.payload),
       };
     case LAST_POST_ID:
       return {
@@ -72,6 +74,12 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         lastExp: action.payload
       };
+    case GET_COMMENTS:
+      return {
+        ...state,
+        allComments: action.payload,
+      };
+
     default:
       return state;
   }

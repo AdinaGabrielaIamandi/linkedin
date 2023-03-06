@@ -1,31 +1,34 @@
-import { Card, Image, Button, Container } from "react-bootstrap";
+import { Card, Image, Button, ListGroup } from "react-bootstrap";
 import "./postget.scss";
 import { BiWorld } from "react-icons/bi";
 import { SlLike } from "react-icons/sl";
 import { FaRegCommentDots } from "react-icons/fa";
 import { BsArrowRepeat } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
-import { useEffect } from "react";
-import { getPostAction } from "../../../redux/action";
+import { SlOptions } from "react-icons/sl";
+import { ImPencil } from "react-icons/im";
+import { BsFillTrashFill } from "react-icons/bs";
+import { useEffect, useState } from "react";
+import { getCommentAction, getPostAction } from "../../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalToEdit } from "./ModalToEdit";
+import { PostComments } from "./PostComments";
 
 export const PostGet = () => {
   //const data= fetch api post get
   const dispatch = useDispatch();
   const seePost = useSelector((state) => state.allPost);
-  console.log("quessijiidee", seePost);
+  const seeComment = useSelector((state) => state.allComments);
 
   useEffect(() => {
     dispatch(getPostAction());
+    dispatch(getCommentAction());
   }, []);
-
-  console.log(seePost.reverse().slice(0, 10));
 
   return (
     <>
       {seePost
-        .reverse()
+
         ?.slice(-10)
         .map((el) => {
           return (
@@ -92,6 +95,14 @@ export const PostGet = () => {
                   <p className="d-none d-md-flex align-items-center m-0">Invia</p>
                 </Button>
               </Card.Body>
+              {seeComment
+                .reverse()
+                ?.slice(-10)
+                .map((el) => {
+                  return <PostComments id={el.elementId} />;
+                })
+                .reverse()
+                .splice(1)}
             </Card>
           );
         })

@@ -11,6 +11,7 @@ export const POST_POST = "POST_POST";
 export const PUT_POST_EDITED = "PUT_POST_EDITED";
 export const LAST_POST_ID = "LAST_POST_ID";
 export const LAST_EXPERIENCE_ID = "LAST_EXPERIENCE_ID";
+export const GET_COMMENTS = "GET_COMMENTS";
 
 export const getProfileAction = (id) => {
   return async (dispatch, getState) => {
@@ -414,6 +415,31 @@ export const addFotoPost = (file, idPost) => {
       }
     } catch (error) {
       console.log("ERROR: " + error.message);
+    }
+  };
+};
+
+// GET COMMENT FETCH DIFFERENT KEY
+
+export const getCommentAction = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDA1YjBkZTAyY2FjZDAwMTMyZjE5OTMiLCJpYXQiOjE2NzgwOTQ1NTgsImV4cCI6MTY3OTMwNDE1OH0.3JzuoAwpie8rPAglhCDeNuAHhZY01BetkUJHZldeBOw"
+        }
+      });
+      if (res.ok) {
+        let comments = await res.json();
+        dispatch({
+          type: GET_COMMENTS,
+          payload: comments
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 };
