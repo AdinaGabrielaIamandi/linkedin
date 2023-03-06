@@ -53,6 +53,7 @@ export const PostComments = (props) => {
               onClick={() => {
                 dispatch(deleteCommentAction(el._id));
                 dispatch(getCommentAction());
+                window.location.reload();
               }}
               className="text-danger me-3"
             />
