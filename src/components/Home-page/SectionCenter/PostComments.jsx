@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteCommentAction, getCommentAction } from "../../../redux/action";
 import { MdDelete } from "react-icons/md";
 
+import { ModalEditComment } from "./ModalEditComment";
+
 export const PostComments = (props) => {
   const [comment, setComment] = useState([]);
   const dispatch = useDispatch();
@@ -54,6 +56,8 @@ export const PostComments = (props) => {
               }}
               className="text-danger me-3"
             />
+
+            <ModalEditComment text={el} />
           </div>
         );
       })}
