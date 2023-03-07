@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/profile/:id" element={<ProfileMain />} />
         <Route path="/home/:id" element={<Homepage />} />
-        <Route patc="/work/:id" element={<WorkSection/>} />
+        <Route path="/work" element={<WorkSection/>} />
       </Routes>
     </BrowserRouter>
   );
