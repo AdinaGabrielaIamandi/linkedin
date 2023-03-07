@@ -40,7 +40,7 @@ const ModalNavbar = (props) => {
                   className="rounded-circle"
                 ></img>
                 <div className="d-flex">
-                  <p className="ms-3 mb-0 fw-bold">
+                  <p className="ms-3 mb-0 fw-bold text-dark">
                     {elemento.name} {elemento.surname}
                   </p>
                 </div>
