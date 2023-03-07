@@ -12,6 +12,8 @@ export const PUT_POST_EDITED = "PUT_POST_EDITED";
 export const LAST_POST_ID = "LAST_POST_ID";
 export const LAST_EXPERIENCE_ID = "LAST_EXPERIENCE_ID";
 export const GET_COMMENTS = "GET_COMMENTS";
+export const ADD_TO_FRIENDS = "ADD_TO_FRIENDS";
+export const REMOVE_FROM_FRIENDS = "REMOVE_FROM_FRIENDS";
 
 export const getProfileAction = (id) => {
   return async (dispatch, getState) => {
@@ -144,8 +146,8 @@ export const addExperienceAction = (props, file) => {
             headers: {
               //NON serve ContentType :)
               Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
-            }
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4",
+            },
           }
         );
         if (res2.ok) {
