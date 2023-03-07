@@ -22,8 +22,7 @@ const initialState = {
   lastExp: "",
   lastPost: "",
   allComments: [],
-  allfriends: [],
-  isMyFriend: false
+  allfriends: []
 };
 
 const mainReducer = (state = initialState, action) => {

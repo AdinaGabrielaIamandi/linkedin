@@ -13,9 +13,10 @@ export const FirstCard = (props) => {
   const [show1, setShow1] = useState(false);
   const handleShow1 = () => setShow1(true);
   const handleClose1 = () => setShow1(false);
-  const follower = useSelector((state) => state.linkedin.isMyFriend);
-  const [myfriend, setMyfriend] = useState(follower);
   const allfriends = useSelector((state) => state.linkedin.allfriends);
+  console.log("sono la prop di first card", props);
+
+  const friend = allfriends.includes(props.id);
 
   const dispatch = useDispatch();
 
@@ -59,24 +60,12 @@ export const FirstCard = (props) => {
         </Card.Text>
         <div className="d-flex mb-3">
           <Button className="cta2 fw-bold me-2 ">Disponibile per</Button>
-          {myfriend === false ? (
-            <Button
-              className="cta2 cta3 fw-bold me-2 "
-              onChange={() => {
-                setMyfriend(false);
-              }}
-              onClick={() => dispatch(removeFriend(myfriend))}
-            >
+          {friend ? (
+            <Button className="cta2 cta3 fw-bold me-2 " onClick={() => dispatch(removeFriend(props.id))}>
               Elimina dagli amici
             </Button>
           ) : (
-            <Button
-              className="cta2 cta3 fw-bold me-2 "
-              onChange={() => {
-                setMyfriend(true);
-              }}
-              onClick={() => dispatch(addFriend(myfriend))}
-            >
+            <Button className="cta2 cta3 fw-bold me-2 " onClick={() => dispatch(addFriend(props.id))}>
               Aggiungi agli amici
             </Button>
           )}
