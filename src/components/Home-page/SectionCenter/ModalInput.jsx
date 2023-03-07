@@ -99,6 +99,7 @@ export const ModalInput = (props) => {
                 dispatch(addPostAction(post));
                 dispatch(addFotoPost(fd, lastPost));
                 dispatch(getPostAction());
+                window.location.reload();
               }}
             >
               Pubblica

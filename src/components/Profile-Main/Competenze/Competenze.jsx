@@ -14,40 +14,40 @@ const Competenze = () => {
 
   const dataCompetenze = [
     {
-      titolo: "Angular",
+      titolo: "Idraulica avanzata",
       Conferme: ["Lucia Dolla", "Pinco Pallino", "Sara Dello Russo"],
-      Descrizione: "Student presso Epicode Italia",
+      Descrizione: "Scuola di idraulica di Brooklyn",
       Categoria: "Conoscenza del Settore",
-      img: "https://d92mrp7hetgfk.cloudfront.net/images/sites/misc/EPICODE_resized/original.png?1651791536",
+      img: "https://c8.alamy.com/compit/rjh185/una-incisione-raffigurante-il-test-dell-acciaio-per-ancoraggio-in-una-pressa-idraulica-della-sospensione-di-brooklyn-bridge-la-sospensione-di-brooklyn-bridge-e-stato-progettato-e-costruito-da-john-augustus-roebling-1806-1869-e-suo-figlio-washington-roebling-augusto-1837-1926-e-aperto-nel-1883-datata-del-xix-secolo-rjh185.jpg"
     },
     {
-      titolo: "Javascript",
-      Descrizione: "Student presso Epicode Italia",
+      titolo: "Salto di precisione",
+      Descrizione: "Esperto",
       Conferme: ["Lucia Dolla", "Pinco Pallino", "Sara Dello Russo"],
       Categoria: "Conoscenza del Settore",
-      img: "https://d92mrp7hetgfk.cloudfront.net/images/sites/misc/EPICODE_resized/original.png?1651791536",
+      img: "https://storage.laprovinciadicomo.it/media/photologue/2020/6/16/photos/schembri-salto-triplo-lungo-e-altosono-il-piu-forte-di-tutti-i-tempi_6d47b806-b617-11ea-9af4-d2823e8a66df_900_566.jpg"
     },
     {
-      titolo: "Forbes",
-      Descrizione: "Esperto di Profumi",
+      titolo: "Forza sovrumana",
+      Descrizione: "Potenza",
       Conferme: ["Hugo Boss", "Chartier", "Parlament", "Lamborghini"],
-      img: "https://logos-world.net/wp-content/uploads/2021/08/Forbes-Symbol.png",
-      Categoria: "Conoscenza del Settore",
+      img: "http://wonepiece3.weebly.com/uploads/1/7/2/3/17237142/1207064.jpg?409",
+      Categoria: "Conoscenza del Settore"
     },
     {
-      titolo: "Css",
+      titolo: "Abilità culinarie",
       Conferme: ["Bootstrap CSS"],
-      Descrizione: "Student presso Epicode Italia",
-      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/800px-CSS3_logo.svg.png",
-      Categoria: "Conoscenza del Settore",
+      Descrizione: "Casa della mamma",
+      img: "https://www.irenemilito.it/wp-content/uploads/2020/09/age_rf_photo_of_veggie_stir-fry.jpg",
+      Categoria: "Conoscenza del Settore"
     },
     {
       titolo: "Investigazione Privata",
       Descrizione: "6 mesi Scuola di Polizia",
       Conferme: ["POLIZIA DI STATO"],
       img: "https://thumbs.dreamstime.com/b/police-officer-badge-icon-vector-89817911.jpg",
-      Categoria: "Investigazione",
-    },
+      Categoria: "Investigazione"
+    }
   ];
 
   return (
@@ -55,10 +55,7 @@ const Competenze = () => {
       <Row>
         <Col className="d-flex align-items-center">
           {numberToDisplay > DEFAULTNUMBER ? (
-            <AiOutlineArrowLeft
-              className="iconTitle"
-              onClick={(e) => setNumberToDisplay(DEFAULTNUMBER)}
-            />
+            <AiOutlineArrowLeft className="iconTitle" onClick={(e) => setNumberToDisplay(DEFAULTNUMBER)} />
           ) : (
             <></>
           )}
@@ -72,11 +69,7 @@ const Competenze = () => {
             <ul className="mt-2" key={index}>
               <h6> {element.titolo}</h6>
               <li>
-                <img
-                  className="imgIcon"
-                  src={element.img}
-                  alt={element.titolo + " immagine"}
-                />
+                <img className="imgIcon" src={element.img} alt={element.titolo + " immagine"} />
                 {element.Descrizione}
               </li>
               <li>
@@ -100,8 +93,7 @@ const Competenze = () => {
           <Col className="d-flex justify-content-center align-items-center mt-3">
             {dataCompetenze.length > DEFAULTNUMBER ? (
               <p>
-                Mostra tutte le Competenze({dataCompetenze.length}){" "}
-                <BsFillArrowRightCircleFill />
+                Mostra tutte le Competenze({dataCompetenze.length}) <BsFillArrowRightCircleFill />
               </p>
             ) : (
               <></>

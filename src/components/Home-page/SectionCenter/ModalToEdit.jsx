@@ -150,6 +150,7 @@ export const ModalToEdit = (props) => {
                   dispatch(addFotoPost(fd, props.idPost));
                   dispatch(putPostEditedAction(postToEdit, props.idPost));
                   dispatch(getPostAction());
+                  window.location.reload();
                 }}
                 className="pubblicaCta fw-bold"
               >

@@ -191,6 +191,7 @@ const Modale = (props) => {
             dispatch(addFotoProfile(fd, props.id));
             dispatch(putFirstPageAction(profileInternal));
             dispatch(getProfileAction(props.id));
+            window.location.reload();
           }}
         >
           Salva
