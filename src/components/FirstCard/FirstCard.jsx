@@ -16,7 +16,7 @@ export const FirstCard = (props) => {
   const allfriends = useSelector((state) => state.linkedin.allfriends);
   console.log("sono la prop di first card", props);
 
-  const friend = allfriends.includes(props.id);
+  const friend = allfriends.includes(props);
 
   const dispatch = useDispatch();
 
@@ -61,11 +61,11 @@ export const FirstCard = (props) => {
         <div className="d-flex mb-3">
           <Button className="cta2 fw-bold me-2 ">Disponibile per</Button>
           {friend ? (
-            <Button className="cta2 cta3 fw-bold me-2 " onClick={() => dispatch(removeFriend(props.id))}>
+            <Button className="cta2 cta3 fw-bold me-2 " onClick={() => dispatch(removeFriend(props))}>
               Elimina dagli amici
             </Button>
           ) : (
-            <Button className="cta2 cta3 fw-bold me-2 " onClick={() => dispatch(addFriend(props.id))}>
+            <Button className="cta2 cta3 fw-bold me-2 " onClick={() => dispatch(addFriend(props))}>
               Aggiungi agli amici
             </Button>
           )}

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const MyFriends = () => {
   const allFriends = useSelector((state) => state.linkedin.allfriends);
+  console.log("tutti i collegamenti", allFriends);
 
   return (
     <Container fluid className="allCards companies p-4 mt-3">
@@ -11,16 +12,15 @@ const MyFriends = () => {
         <>
           <div className="d-flex align-items-center mt-4">
             <div>
-              <img className="portrait" src={obj.image} alt="" />
+              <img className="portrait" src={obj?.image} alt="" />
             </div>
             <div className="ms-3">
               <h6 className="fw-bold mb-0">
-                {obj.name} {obj.surname}
+                {obj?.name} {obj?.surname}
               </h6>
-              <p className="job mb-0">{obj.work}</p>
+              <p className="job mb-0">{obj?.work}</p>
             </div>
           </div>
-
           <hr className="line mt-4" />
         </>
       ))}
