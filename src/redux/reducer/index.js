@@ -22,7 +22,8 @@ const initialState = {
   lastExp: "",
   lastPost: "",
   allComments: [],
-  allfriends: []
+  allfriends: [],
+  idFriends: []
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -85,12 +86,14 @@ const mainReducer = (state = initialState, action) => {
     case ADD_TO_FRIENDS:
       return {
         ...state,
-        allfriends: [...state.allfriends, action.payload]
+        allfriends: [...state.allfriends, action.payload],
+        idFriends: [...state.idFriends, action.payload.id]
       };
     case REMOVE_FROM_FRIENDS:
       return {
         ...state,
-        allfriends: state.allfriends.filter((el) => el !== action.payload)
+        allfriends: state.allfriends.filter((el) => el !== action.payload),
+        idFriends: state.idFriends.filter((el) => el !== action.payload)
       };
     default:
       return state;

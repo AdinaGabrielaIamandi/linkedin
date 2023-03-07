@@ -206,7 +206,7 @@ export const deleteExperience = (_id) => {
         }
       );
       if (res.ok) {
-        let profile = await res.json();
+        let profile = await res.text();
         console.log("DELETE PROFILE", profile);
       }
     } catch (error) {
