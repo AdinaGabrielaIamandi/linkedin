@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap"
-
+import "./CenterSection.css"
 const CenterSection = () => {
     return (
         <Container className="allCards m- w-100">
