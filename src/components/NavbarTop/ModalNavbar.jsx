@@ -27,20 +27,26 @@ const ModalNavbar = (props) => {
 
         {props.profilesSearched?.map((elemento) => (
           <>
-            <Link to={"/profile/" + elemento._id} onClick={() => {}}>
-              <div className="d-flex justify-content-between">
-                <p>
-                  <strong>
-                    {elemento.name} {elemento.surname}
-                  </strong>{" "}
-                  {elemento.email}
-                </p>
+            <Link
+              key={elemento._id}
+              to={"/profile/" + elemento._id}
+              onClick={() => {}}
+            >
+              <div className="d-flex px-3 py-2 align-items-center">
                 <img
                   src={elemento.image}
                   alt="immagine non disponibile"
-                  width="50"
-                  height="50"
+                  style={{ width: "50px", height: "50px" }}
+                  className="rounded-circle"
                 ></img>
+                <div className="d-flex">
+                  <p className="ms-3 mb-0 fw-bold">
+                    {elemento.name} {elemento.surname}
+                  </p>
+                </div>
+                <div style={{ width: "190px" }}>
+                  <p className="text-truncate mb-0 ms-4">{elemento.title}</p>
+                </div>
               </div>
             </Link>
           </>
