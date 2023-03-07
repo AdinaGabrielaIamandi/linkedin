@@ -1,14 +1,16 @@
 import { Col, Container, Row } from "react-bootstrap"
-import { NavbarTop } from "../NavbarTop/NavbarTop"
 import LeftSection from "./LeftSection/LeftSection"
+import CenterSection from "./CenterSection/CenterSection"
 
 export const WorkSection = () => {
     return(
-        <Container>
+        <Container className="d-flex justify-content-center">
             <Row>
                 <Col>
-                <NavbarTop/>
                 <LeftSection/>
+                </Col>
+                <Col>
+                <CenterSection/>
                 </Col>
             </Row>
         </Container>

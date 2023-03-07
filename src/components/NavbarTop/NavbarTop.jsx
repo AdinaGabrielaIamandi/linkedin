@@ -42,6 +42,8 @@ export const NavbarTop = () => {
     dispatch(getAllProfilesAction());
   }, []);
 
+  const work = useNavigate() 
+
   return (
     <Navbar
       bg="white"
@@ -96,7 +98,9 @@ export const NavbarTop = () => {
         </div>
         <div className="d-none d-md-flex flex-column align-items-center justify-content-center text-secondary me-4">
           <MdWork className="icons-navbar" />
-          <Nav.Link href="#action3" className="d-none d-lg-block text-icons">
+          <Nav.Link onClick={()=>{
+            work("/work")
+          }} className="d-none d-lg-block text-icons">
             Lavoro
           </Nav.Link>
         </div>
