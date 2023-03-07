@@ -180,6 +180,7 @@ export const ModalExperience = (props) => {
               onClick={() => {
                 dispatch(addExperienceAction(exp, fd));
                 dispatch(getExperienceAction());
+                window.location.reload();
               }}
             >
               Save Changes
