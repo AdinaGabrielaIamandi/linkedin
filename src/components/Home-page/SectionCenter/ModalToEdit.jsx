@@ -10,14 +10,18 @@ import { AiFillMessage } from "react-icons/ai";
 import "./PostInput.scss";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addFotoPost, deletePostAction, putPostEditedAction } from "../../../redux/action";
+import {
+  addFotoPost,
+  deletePostAction,
+  putPostEditedAction,
+} from "../../../redux/action";
 import { getPostAction } from "../../../redux/action";
 import { ImPencil } from "react-icons/im";
 import { BsFillTrashFill } from "react-icons/bs";
 
 export const ModalToEdit = (props) => {
   const dispatch = useDispatch();
-  const allPost = useSelector((state) => state.allPost);
+  const allPost = useSelector((state) => state.linkedin.allPost);
   const [postToEdit, setPostToEdit] = useState(allPost);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -54,7 +58,11 @@ export const ModalToEdit = (props) => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu className="p-3">
-            <Dropdown.Item className="fw-bold" href="#/action-2" onClick={handleShow}>
+            <Dropdown.Item
+              className="fw-bold"
+              href="#/action-2"
+              onClick={handleShow}
+            >
               <ImPencil className="me-2" /> Modifica post
             </Dropdown.Item>
             <Dropdown.Item
@@ -104,12 +112,16 @@ export const ModalToEdit = (props) => {
             <div className="mb-3 ms-2 ">
               <h6 className="fw-bold mb-1">Mona Lisa</h6>
               <Button className="ctaInput py-1 px-3 d-flex align-items-center fw-bold">
-                <BiWorld className="me-1 buttonIcon" /> Chiunque <RxTriangleDown className="ms-1 buttonIcon" />
+                <BiWorld className="me-1 buttonIcon" /> Chiunque{" "}
+                <RxTriangleDown className="ms-1 buttonIcon" />
               </Button>
             </div>
           </div>
           <Form>
-            <Form.Group className="mb-3 mt-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Group
+              className="mb-3 mt-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
               <Form.Control
                 className="border-0"
                 as="textarea"

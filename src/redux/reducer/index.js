@@ -50,12 +50,12 @@ const mainReducer = (state = initialState, action) => {
     case POST_PROFILE_IMAGE:
       return {
         ...state,
-        profile: [...state.profile, action.payload],
+        profile: [...state.linkedin.profile, action.payload],
       };
     case ADD_EXPERIENCE:
       return {
         ...state,
-        experience: state.experience.concat(action.payload),
+        experience: state.linkedin.experience.concat(action.payload),
       };
     case GET_POST:
       return {

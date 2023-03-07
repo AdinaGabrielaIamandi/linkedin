@@ -12,7 +12,7 @@ import { addFotoProfile, getProfileAction } from "../../redux/action/index";
 
 const Modale = (props) => {
   const dispatch = useDispatch();
-  const profile = useSelector((state) => state.profile);
+  const profile = useSelector((state) => state.linkedin.profile);
 
   const [profileInternal, setProfileInternal] = useState(profile);
 
@@ -39,7 +39,9 @@ const Modale = (props) => {
   return (
     <>
       <Modal.Header closeButton>
-        <Modal.Title id="example-modal-sizes-title-lg">Modifica introduzione</Modal.Title>
+        <Modal.Title id="example-modal-sizes-title-lg">
+          Modifica introduzione
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body className="modale">
         <Form>
@@ -48,7 +50,10 @@ const Modale = (props) => {
             <input
               type="file"
               onChange={(e) => {
-                setProfileInternal((prev) => ({ ...prev, image: handleFile(e) }));
+                setProfileInternal((prev) => ({
+                  ...prev,
+                  image: handleFile(e),
+                }));
               }}
             />
           </Form.Group>
@@ -63,7 +68,10 @@ const Modale = (props) => {
               autoFocus
               value={profileInternal.name}
               onChange={(e) => {
-                setProfileInternal((prev) => ({ ...prev, name: e.target.value }));
+                setProfileInternal((prev) => ({
+                  ...prev,
+                  name: e.target.value,
+                }));
               }}
             />
           </Form.Group>
@@ -75,7 +83,10 @@ const Modale = (props) => {
               autoFocus
               value={profileInternal.surname}
               onChange={(e) => {
-                setProfileInternal((prev) => ({ ...prev, surname: e.target.value }));
+                setProfileInternal((prev) => ({
+                  ...prev,
+                  surname: e.target.value,
+                }));
               }}
             />
           </Form.Group>
@@ -85,17 +96,20 @@ const Modale = (props) => {
           </Form.Group>
           <p style={{ fontSize: "0.8em" }}>Pronuncia del nome</p>
           <p style={{ fontSize: "0.8em", color: "#1f1f1f" }}>
-            <BsFillInfoSquareFill /> Può essere aggiunta solo usando la nostra app per dispositivi mobili
+            <BsFillInfoSquareFill /> Può essere aggiunta solo usando la nostra
+            app per dispositivi mobili
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Inserisci i pronomi personalizzati</Form.Label>
             <Form.Control className="ModalFormControl" type="text" autoFocus />
             <p style={{ fontSize: "0.8em" }}>
-              Indica i pronomi di genere che vuoi che gli altri usino per riferirsi a te.
+              Indica i pronomi di genere che vuoi che gli altri usino per
+              riferirsi a te.
             </p>
           </Form.Group>
           <p>
-            Scopri di più sui <span className="ModalSpan">pronomi di genere</span>
+            Scopri di più sui{" "}
+            <span className="ModalSpan">pronomi di genere</span>
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Sommario*</Form.Label>
@@ -105,14 +119,26 @@ const Modale = (props) => {
               autoFocus
               value={profileInternal.bio}
               onChange={(e) => {
-                setProfileInternal((prev) => ({ ...prev, bio: e.target.value }));
+                setProfileInternal((prev) => ({
+                  ...prev,
+                  bio: e.target.value,
+                }));
               }}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <p style={{ fontSize: "1.3em", color: "black" }}>Posizione attuale</p>
-            <Form.Label style={{ color: "#1f1f1f" }}>Posizione lavorativa*</Form.Label>
-            <Form.Select className="ModalFormControl" aria-label="Default select example" type="text" autoFocus>
+            <p style={{ fontSize: "1.3em", color: "black" }}>
+              Posizione attuale
+            </p>
+            <Form.Label style={{ color: "#1f1f1f" }}>
+              Posizione lavorativa*
+            </Form.Label>
+            <Form.Select
+              className="ModalFormControl"
+              aria-label="Default select example"
+              type="text"
+              autoFocus
+            >
               <option value="3">Seleziona</option>
             </Form.Select>
           </Form.Group>
@@ -134,18 +160,27 @@ const Modale = (props) => {
               autoFocus
               value={profileInternal.title}
               onChange={(e) => {
-                setProfileInternal((prev) => ({ ...prev, title: e.target.value }));
+                setProfileInternal((prev) => ({
+                  ...prev,
+                  title: e.target.value,
+                }));
               }}
             />
           </Form.Group>
           <p>
-            Scopri di più sulle <span className="ModalSpan">opzioni relative al settore</span>
+            Scopri di più sulle{" "}
+            <span className="ModalSpan">opzioni relative al settore</span>
           </p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p style={{ fontSize: "1.3em", color: "black" }}>Formazione</p>
             <p>Formazione*</p>
 
-            <Form.Select className="ModalFormControl" aria-label="Default select example" type="text" autoFocus>
+            <Form.Select
+              className="ModalFormControl"
+              aria-label="Default select example"
+              type="text"
+              autoFocus
+            >
               <option value="3">Seleziona</option>
             </Form.Select>
           </Form.Group>
@@ -155,7 +190,8 @@ const Modale = (props) => {
             </Button>
           </p>
           <p>
-            <input type="checkbox" /> Mostra la formazione nella mia presentazione
+            <input type="checkbox" /> Mostra la formazione nella mia
+            presentazione
           </p>
           <p style={{ fontSize: "1.3em", color: "black" }}>Località</p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -174,13 +210,20 @@ const Modale = (props) => {
               autoFocus
               value={profileInternal.area}
               onChange={(e) => {
-                setProfileInternal((prev) => ({ ...prev, area: e.target.value }));
+                setProfileInternal((prev) => ({
+                  ...prev,
+                  area: e.target.value,
+                }));
               }}
             />
           </Form.Group>
-          <p style={{ fontSize: "1.3em", color: "black" }}>Informazioni di contatto</p>
+          <p style={{ fontSize: "1.3em", color: "black" }}>
+            Informazioni di contatto
+          </p>
           <p>Aggiungi o modifica il tuo profilo URL, indirizzo email e altro</p>
-          <Button className="LastModalButton">Modifica le informazioni di contatto</Button>
+          <Button className="LastModalButton">
+            Modifica le informazioni di contatto
+          </Button>
         </Form>
       </Modal.Body>
       <Modal.Footer>

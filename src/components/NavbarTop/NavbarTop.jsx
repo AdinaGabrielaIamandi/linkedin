@@ -16,8 +16,8 @@ export const NavbarTop = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const goHome = useNavigate();
-  const allUsersList = useSelector((state) => state.allProfiles);
-  const meUser = useSelector((state) => state.profile);
+  const allUsersList = useSelector((state) => state.linkedin.allProfiles);
+  const meUser = useSelector((state) => state.linkedin.profile);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

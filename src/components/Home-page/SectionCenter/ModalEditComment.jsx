@@ -10,13 +10,17 @@ export const ModalEditComment = (props) => {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
-  const comments = useSelector((state) => state.allComments);
+  const comments = useSelector((state) => state.linkedin.allComments);
   const [editedComment, setEditedComment] = useState(props.text);
   const dispatch = useDispatch();
 
   return (
     <>
-      <ImPencil className="me-3 text-primary" style={{ width: "0.8em", height: "0.8em" }} onClick={handleShow} />
+      <ImPencil
+        className="me-3 text-primary"
+        style={{ width: "0.8em", height: "0.8em" }}
+        onClick={handleShow}
+      />
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modifica post</Modal.Title>
@@ -28,7 +32,7 @@ export const ModalEditComment = (props) => {
               onChange={(e) => {
                 setEditedComment((prev) => ({
                   ...prev,
-                  comment: e.target.value
+                  comment: e.target.value,
                 }));
               }}
             />

@@ -17,7 +17,7 @@ import { Footer } from "./../Footer/Footer";
 
 export const ProfileMain = () => {
   const dispatch = useDispatch();
-  const seeProfile = useSelector((state) => state.profile);
+  const seeProfile = useSelector((state) => state.linkedin.profile);
   const params = useParams();
 
   useEffect(() => {

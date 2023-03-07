@@ -13,7 +13,7 @@ export const FirstCard = (props) => {
   const handleShow1 = () => setShow1(true);
   const handleClose1 = () => setShow1(false);
   const [myfriend, setMyfriend] = useState(false);
-  const allfriends = useSelector((state) => state.allfriends);
+  const allfriends = useSelector((state) => state.linkedin.allfriends);
 
   const dispatch = useDispatch();
   const friendsButton = () => {
@@ -91,7 +91,7 @@ export const FirstCard = (props) => {
               to="/"
               className="text-primary fw-bold text-decoration-none link mb-2"
             >
-              12 collegamenti
+              {allfriends.length} collegamenti
             </Link>
           </p>
         </Card.Text>

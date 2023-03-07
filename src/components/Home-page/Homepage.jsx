@@ -11,7 +11,7 @@ import { FooterHome } from "./FooterHome/FooterHome";
 
 export const Homepage = () => {
   const dispatch = useDispatch();
-  const seeProfile = useSelector((state) => state.profile);
+  const seeProfile = useSelector((state) => state.linkedin.profile);
   const params = useParams();
 
   useEffect(() => {
@@ -30,7 +30,11 @@ export const Homepage = () => {
           />
         </Col>
         <Col lg={5}>
-          <SectionCenter name={seeProfile.name} surname={seeProfile.surname} image={seeProfile.image} />
+          <SectionCenter
+            name={seeProfile.name}
+            surname={seeProfile.surname}
+            image={seeProfile.image}
+          />
         </Col>
         <Col lg={3}>
           <SectionRight />

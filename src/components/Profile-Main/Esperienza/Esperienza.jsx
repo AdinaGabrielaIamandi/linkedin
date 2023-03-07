@@ -7,7 +7,7 @@ import { ModalExperience } from "./ModalExperience";
 
 const Esperienza = (prop) => {
   // vado a leggere stato
-  const experiences = useSelector((state) => state.experience);
+  const experiences = useSelector((state) => state.linkedin.experience);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,7 +30,11 @@ const Esperienza = (prop) => {
           .map((exp, i) => (
             <>
               <Col key={i} xs={10} className="d-flex ">
-                <img className="picEsperienza" src={exp.image} alt="immagine non trovata" />
+                <img
+                  className="picEsperienza"
+                  src={exp.image}
+                  alt="immagine non trovata"
+                />
                 <div className="textFlex mx-3">
                   <h6 className="mb-1">{exp?.role}</h6>
                   <ul className="d-flex noBorder mb-0">
@@ -42,14 +46,21 @@ const Esperienza = (prop) => {
                     <div className="mt-2">
                       <span className="text-dark fw-bold competenze">
                         Competenze:
-                        <span className="competenzeText"> {exp.description} </span>
+                        <span className="competenzeText">
+                          {" "}
+                          {exp.description}{" "}
+                        </span>
                       </span>
                     </div>
                   </p>
                 </div>
               </Col>
               <Col xs={2}>
-                <ModalExperience idExp={exp._id} id={exp._id} idProfile={prop.id} />
+                <ModalExperience
+                  idExp={exp._id}
+                  id={exp._id}
+                  idProfile={prop.id}
+                />
                 {/*               <Modal.Body>
                   Woohoo, you're reading this text in a modal!
                 </Modal.Body> */}

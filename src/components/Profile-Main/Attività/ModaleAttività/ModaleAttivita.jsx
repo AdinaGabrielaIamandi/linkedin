@@ -10,7 +10,7 @@ import { putFirstPageAction, PUT_PROFILE } from "../../redux/action";
 
 const Modale = () => {
   const dispatch = useDispatch();
-  const profile = useSelector((state) => state.profile);
+  const profile = useSelector((state) => state.linkedin.profile);
 
   const profileInternal = { ...profile };
 
