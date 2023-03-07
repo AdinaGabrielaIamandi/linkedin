@@ -6,8 +6,8 @@ const MyFriends = () => {
 
   return (
     <Container fluid className="allCards companies p-4 mt-3">
-      <h5>I tuoi amici {allFriends.length}</h5>
-      {allFriends.map((obj) => (
+      <h5>I tuoi amici {allFriends ? allFriends.length : 0}</h5>
+      {allFriends?.map((obj) => (
         <>
           <div className="d-flex align-items-center mt-4">
             <div>
