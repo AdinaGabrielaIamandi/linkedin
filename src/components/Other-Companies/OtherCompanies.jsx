@@ -10,7 +10,7 @@ export const OtherCompanies = () => {
           <img
             className="portrait"
             src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8&w=1000&q=80"
-            alt=""
+            alt="immagine non trovata"
           />
         </div>
         <div className="ms-3">
