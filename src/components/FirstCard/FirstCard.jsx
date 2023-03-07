@@ -6,46 +6,22 @@ import Cover from "../../images/cover-foto.png";
 import { useState } from "react";
 import Modale from "./Modale";
 import { useSelector, useDispatch } from "react-redux";
-import { ADD_TO_FRIENDS, REMOVE_FROM_FRIENDS } from "../../redux/action";
+import { addFriend } from "../../redux/action";
+import { removeFriend } from "./../../redux/action/index";
 
 export const FirstCard = (props) => {
   const [show1, setShow1] = useState(false);
   const handleShow1 = () => setShow1(true);
   const handleClose1 = () => setShow1(false);
-  const [myfriend, setMyfriend] = useState(false);
+  const follower = useSelector((state) => state.linkedin.isMyFriend);
+  const [myfriend, setMyfriend] = useState(follower);
   const allfriends = useSelector((state) => state.linkedin.allfriends);
 
   const dispatch = useDispatch();
-  const friendsButton = () => {
-    isAlreadyMyfriend();
-    if (myfriend === false) {
-      dispatch({
-        type: ADD_TO_FRIENDS,
-        payload: props,
-      });
-      setMyfriend(true);
-    } else {
-      dispatch({
-        type: REMOVE_FROM_FRIENDS,
-        payload: props,
-      });
-      setMyfriend(false);
-    }
-  };
-
-  const isAlreadyMyfriend = () => {
-    allfriends.map((obj) => {
-      if (obj.id === props.id) setMyfriend(true);
-    });
-  };
 
   return (
     <Card className="mb-2">
-      <Card.Img
-        variant="top"
-        src={Cover}
-        style={{ width: "100%", height: "180px" }}
-      />
+      <Card.Img variant="top" src={Cover} style={{ width: "100%", height: "180px" }} />
       <Card.Body>
         <Image
           src={props.image}
@@ -55,18 +31,10 @@ export const FirstCard = (props) => {
         <Card.Text className="mt-3">
           <div className="d-flex justify-content-end">
             <div className="d-flex justify-content-center rounded-circle pencil-add align-items-center">
-              <HiOutlinePencil
-                style={{ fontSize: "23px" }}
-                onClick={handleShow1}
-              />
+              <HiOutlinePencil style={{ fontSize: "23px" }} onClick={handleShow1} />
             </div>
           </div>
-          <Modal
-            size="lg"
-            show={show1}
-            onHide={handleClose1}
-            aria-labelledby="example-modal-sizes-title-lg"
-          >
+          <Modal size="lg" show={show1} onHide={handleClose1} aria-labelledby="example-modal-sizes-title-lg">
             <Modale id={props.id} chiudi={handleClose1} />
           </Modal>
           <div className="d-flex align-items-baseline mt-3">
@@ -78,31 +46,41 @@ export const FirstCard = (props) => {
           <p className="mb-2 text-secondary">
             {props.town} •
             <span>
-              <Link
-                to="/"
-                className="text-primary fw-bold text-decoration-none link"
-              >
+              <Link to="/" className="text-primary fw-bold text-decoration-none link">
                 Informazioni di contatto
               </Link>
             </span>
           </p>
           <p>
-            <Link
-              to="/"
-              className="text-primary fw-bold text-decoration-none link mb-2"
-            >
+            <Link to="/" className="text-primary fw-bold text-decoration-none link mb-2">
               {allfriends.length} collegamenti
             </Link>
           </p>
         </Card.Text>
         <div className="d-flex mb-3">
           <Button className="cta2 fw-bold me-2 ">Disponibile per</Button>
-          <Button
-            className="cta2 cta3 fw-bold me-2 "
-            onClick={() => friendsButton()}
-          >
-            {myfriend ? "Elimina dagli Amici" : "Aggiungi Agli Amici"}
-          </Button>
+          {myfriend === false ? (
+            <Button
+              className="cta2 cta3 fw-bold me-2 "
+              onChange={() => {
+                setMyfriend(false);
+              }}
+              onClick={() => dispatch(removeFriend(myfriend))}
+            >
+              Elimina dagli amici
+            </Button>
+          ) : (
+            <Button
+              className="cta2 cta3 fw-bold me-2 "
+              onChange={() => {
+                setMyfriend(true);
+              }}
+              onClick={() => dispatch(addFriend(myfriend))}
+            >
+              Aggiungi agli amici
+            </Button>
+          )}
+
           <Button className="cta fw-bold">Altro</Button>
         </div>
       </Card.Body>
