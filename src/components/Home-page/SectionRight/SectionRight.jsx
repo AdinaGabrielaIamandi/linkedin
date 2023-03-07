@@ -1,6 +1,7 @@
 import "./sectionRight.scss";
 import { Card } from "react-bootstrap";
 import { BsFillInfoSquareFill } from "react-icons/bs";
+import MyFriends from "../../MyFriends/MyFriends";
 
 export const SectionRight = () => {
   return (
@@ -17,7 +18,9 @@ export const SectionRight = () => {
               <p className="mb-2">18 ore fa</p>
             </div>
             <div>
-              <li className="fw-bold text-dark">Oltre al codice c'è un mondo fuori</li>
+              <li className="fw-bold text-dark">
+                Oltre al codice c'è un mondo fuori
+              </li>
               <p className="mb-2">14 ore fa</p>
             </div>
             <div>
@@ -25,7 +28,9 @@ export const SectionRight = () => {
               <p className="mb-2">6 ore fa</p>
             </div>
             <div>
-              <li className="fw-bold text-dark">Cosa cambia se stacchi la testa a qualcuno</li>
+              <li className="fw-bold text-dark">
+                Cosa cambia se stacchi la testa a qualcuno
+              </li>
               <p className="mb-2">1 ore fa</p>
             </div>
             <div>
@@ -36,8 +41,12 @@ export const SectionRight = () => {
         </div>
       </Card>
       <Card className="mt-2 d-none d-lg-block">
-        <img src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png" alt="" />
+        <img
+          src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
+          alt=""
+        />
       </Card>
+      <MyFriends />
     </>
   );
 };

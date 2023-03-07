@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProfileAction } from "../../redux/action";
 import { useParams } from "react-router-dom";
 import { Footer } from "./../Footer/Footer";
+import MyFriends from "../MyFriends/MyFriends";
 
 export const ProfileMain = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ export const ProfileMain = () => {
           <OtherCompanies />
           <OtherPeople />
           <Learning />
+          <MyFriends />
         </Col>
       </Row>
       <Footer />

@@ -14,6 +14,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { ModalToEdit } from "./ModalToEdit";
 import { PostComments } from "./PostComments";
 import { InputComment } from "./InputComment";
+import { Container, Row, Col } from "react-bootstrap";
+import { AiFillFilter } from "react-icons/ai";
 
 export const PostGet = () => {
   //const data= fetch api post get
@@ -33,8 +35,19 @@ export const PostGet = () => {
     else setClickedComment(true);
   };
 
+  const filterFunction = () => {
+    seePost = seePost.filter((el) => el);
+  };
+
   return (
     <>
+      <Container>
+        <Row className="d-flex justify-content-end">
+          <Col xs={1}>
+            <AiFillFilter onClick={() => filterFunction()}></AiFillFilter>
+          </Col>
+        </Row>
+      </Container>
       {seePost
 
         ?.slice(-10)
