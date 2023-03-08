@@ -119,7 +119,6 @@ export const addExperienceAction = (props, idUtente, file) => {
     try {
       let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences`, {
         method: "POST",
-
         headers: {
           "Content-type": "application/json",
           Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
@@ -228,7 +227,7 @@ export const getPostAction = () => {
 
 // POST HOMEPAGE
 
-export const addPostAction = (props) => {
+export const addPostAction = (props, file) => {
   return async (dispatch, getState) => {
     try {
       let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
@@ -240,11 +239,24 @@ export const addPostAction = (props) => {
         body: JSON.stringify(props)
       });
       if (res.ok) {
-        let post = await res.json();
-        dispatch({
-          type: LAST_POST_ID,
-          payload: post._id
+        let data = await res.json();
+        let res2 = await fetch(`https://striveschool-api.herokuapp.com/api/posts/${data._id}`, {
+          method: "POST",
+          body: file, //non serve JSON.stringify
+          headers: {
+            //NON serve ContentType :)
+            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+          }
         });
+        if (res2.ok) {
+          let post = await res2.json();
+          dispatch({
+            type: LAST_POST_ID,
+            payload: post._id
+          });
+        }
+      } else {
+        console.log("ATTENTION:");
       }
     } catch (error) {
       console.log(error);
@@ -265,7 +277,7 @@ export const deletePost = (_id) => {
         // body: JSON.stringify(props),
       });
       if (res.ok) {
-        let profile = await res.json();
+        let profile = await res.text();
         console.log("DELETE PROFILE", profile);
       }
     } catch (error) {
@@ -303,7 +315,6 @@ export const putPostEditedAction = (props, id) => {
     try {
       let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + id, {
         method: "PUT",
-
         headers: {
           "Content-type": "application/json",
           Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
@@ -334,9 +345,7 @@ export const deletePostAction = (id) => {
         // body: JSON.stringify(props),
       });
       if (res.ok) {
-        let deletePost = await res.json();
-
-        console.log("CIAOOOOO", id);
+        let deletePost = await res.text();
       }
     } catch (error) {
       console.log(error);
@@ -391,7 +400,6 @@ export const addFotoExp = (file, idProfile, idExp) => {
       );
       if (res.ok) {
         let data = await res.json();
-        return data;
       } else {
         console.log("ATTENTION:");
       }
@@ -488,7 +496,7 @@ export const deleteCommentAction = (props) => {
         }
       });
       if (res.ok) {
-        let commentToDelet = await res.json();
+        let commentToDelet = await res.text();
       } else {
         console.log("error");
         alert("something went wrong");

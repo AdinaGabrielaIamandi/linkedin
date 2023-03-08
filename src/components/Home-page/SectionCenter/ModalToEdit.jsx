@@ -10,11 +10,7 @@ import { AiFillMessage } from "react-icons/ai";
 import "./PostInput.scss";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addFotoPost,
-  deletePostAction,
-  putPostEditedAction,
-} from "../../../redux/action";
+import { addFotoPost, deletePostAction, putPostEditedAction } from "../../../redux/action";
 import { getPostAction } from "../../../redux/action";
 import { ImPencil } from "react-icons/im";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -58,20 +54,14 @@ export const ModalToEdit = (props) => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu className="p-3">
-            <Dropdown.Item
-              className="fw-bold"
-              href="#/action-2"
-              onClick={handleShow}
-            >
+            <Dropdown.Item className="fw-bold" onClick={handleShow}>
               <ImPencil className="me-2" /> Modifica post
             </Dropdown.Item>
             <Dropdown.Item
               className="fw-bold mt-2"
-              href="#/action-3"
               onClick={() => {
                 dispatch(deletePostAction(props.idPost));
                 dispatch(getPostAction());
-                console.log("JJOKDDK", props.idPost);
               }}
             >
               <BsFillTrashFill className="me-2 " />
@@ -112,16 +102,12 @@ export const ModalToEdit = (props) => {
             <div className="mb-3 ms-2 ">
               <h6 className="fw-bold mb-1">Mona Lisa</h6>
               <Button className="ctaInput py-1 px-3 d-flex align-items-center fw-bold">
-                <BiWorld className="me-1 buttonIcon" /> Chiunque{" "}
-                <RxTriangleDown className="ms-1 buttonIcon" />
+                <BiWorld className="me-1 buttonIcon" /> Chiunque <RxTriangleDown className="ms-1 buttonIcon" />
               </Button>
             </div>
           </div>
           <Form>
-            <Form.Group
-              className="mb-3 mt-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
+            <Form.Group className="mb-3 mt-3" controlId="exampleForm.ControlTextarea1">
               <Form.Control
                 className="border-0"
                 as="textarea"
@@ -159,8 +145,8 @@ export const ModalToEdit = (props) => {
             <div>
               <Button
                 onClick={() => {
-                  dispatch(addFotoPost(fd, props.idPost));
                   dispatch(putPostEditedAction(postToEdit, props.idPost));
+                  dispatch(addFotoPost(fd, props.idPost));
                   dispatch(getPostAction());
                   window.location.reload();
                 }}

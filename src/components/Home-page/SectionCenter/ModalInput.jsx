@@ -94,8 +94,7 @@ export const ModalInput = (props) => {
             <Button
               className="pubblicaCta fw-bold"
               onClick={() => {
-                dispatch(addPostAction(post));
-                dispatch(addFotoPost(fd, lastPost));
+                dispatch(addPostAction(post, fd));
                 dispatch(getPostAction());
                 window.location.reload();
               }}
