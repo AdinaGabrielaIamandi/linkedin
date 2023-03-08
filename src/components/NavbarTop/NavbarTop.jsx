@@ -15,7 +15,6 @@ import ModalNavbar from "./ModalNavbar";
 
 export const NavbarTop = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const goHome = useNavigate();
   const allUsersList = useSelector((state) => state.linkedin.allProfiles);
   const meUser = useSelector((state) => state.linkedin.profile);
@@ -28,14 +27,10 @@ export const NavbarTop = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(getAllProfilesAction());
-
     await getIDByName(event.target.firstName.value);
   };
 
   const getIDByName = (input) => {
-    console.log("allUsersLists", allUsersList);
-    console.log("input", input);
-
     setProfilesSearched(
       allUsersList
         .filter((user) => input.toString().toUpperCase() === user.name.toString().toUpperCase())
@@ -49,8 +44,6 @@ export const NavbarTop = () => {
     // Update the document title using the browser API
     dispatch(getAllProfilesAction());
   }, []);
-
-  const work = useNavigate();
 
   return (
     <>
@@ -79,7 +72,7 @@ export const NavbarTop = () => {
           </div>
           <div
             onClick={() => {
-              goHome("/home/:id");
+              goHome("/home/me");
             }}
             className="d-none d-md-flex flex-column align-items-center justify-content-center text-secondary me-4"
           >
@@ -115,14 +108,9 @@ export const NavbarTop = () => {
                 </div>
               </div>
               <NavDropdown.Item className="text-decoration-none bg-transparent">
-                <Button
-                  onClick={() => {
-                    navigate("/profile/:id");
-                  }}
-                  className="cta2 cta3 fw-bold w-100"
-                >
+                <Link to="/profile/me" className="btn btn-primary cta2 cta3 fw-bold w-100">
                   Visualizza profilo
-                </Button>
+                </Link>
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <p className="fw-bold text-black ms-3 mb-0 titolo-nav">Account</p>

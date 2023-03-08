@@ -1,14 +1,11 @@
 import { Dropdown, Modal } from "react-bootstrap";
-import { useState } from "react";
-import DropdownItem from "react-bootstrap/esm/DropdownItem";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const ModalNavbar = (props) => {
   const handleClose = () => {
     props.setShowFunction(false);
   };
-  const navigate = useNavigate();
+
   return (
     <>
       <Modal show={props.showModal} onHide={handleClose}>
@@ -18,20 +15,13 @@ const ModalNavbar = (props) => {
             {props.profilesSearched?.map((elemento) => (
               <Dropdown.Item>{elemento._id}</Dropdown.Item>
             ))}
-            {console.log(
-              "PROFILES SEARCHED MODAL NAVBAR",
-              props.profilesSearched
-            )}
+            {console.log("PROFILES SEARCHED MODAL NAVBAR", props.profilesSearched)}
           </Dropdown.Menu>
         </Dropdown>
 
         {props.profilesSearched?.map((elemento) => (
           <>
-            <Link
-              key={elemento._id}
-              to={"/profile/" + elemento._id}
-              onClick={() => {}}
-            >
+            <Link key={elemento._id} to={"/profile/" + elemento._id} onClick={() => {}}>
               <div className="d-flex px-3 py-2 align-items-center">
                 <img
                   src={elemento.image}

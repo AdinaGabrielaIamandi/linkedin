@@ -42,7 +42,6 @@ export const PostGet = () => {
   console.log("filterd post", filtredPosts);
 
   const totalPages = Math.ceil(filtredPosts.length / itemsPerPage);
-  console.log(totalPages);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);

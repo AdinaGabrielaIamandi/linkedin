@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Button, ListGroup } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { ListGroup } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { deleteCommentAction, getCommentAction } from "../../../redux/action";
 import { MdDelete } from "react-icons/md";
 
@@ -16,16 +16,13 @@ export const PostComments = (props) => {
 
   const fetchComments = async () => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/" + props.id,
-        {
-          method: "GET",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDA1YjBkZTAyY2FjZDAwMTMyZjE5OTMiLCJpYXQiOjE2NzgwOTQ1NTgsImV4cCI6MTY3OTMwNDE1OH0.3JzuoAwpie8rPAglhCDeNuAHhZY01BetkUJHZldeBOw",
-          },
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + props.id, {
+        method: "GET",
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDA1YjBkZTAyY2FjZDAwMTMyZjE5OTMiLCJpYXQiOjE2NzgwOTQ1NTgsImV4cCI6MTY3OTMwNDE1OH0.3JzuoAwpie8rPAglhCDeNuAHhZY01BetkUJHZldeBOw"
         }
-      );
+      });
       if (res.ok) {
         const comment = await res.json();
         console.log(props.id, comment);
@@ -41,11 +38,7 @@ export const PostComments = (props) => {
       {comment.map((el) => {
         return (
           <div className="d-flex justify-content-between align-items-center">
-            <ListGroup.Item
-              style={{ width: "90%" }}
-              className="border-0 border-none "
-              key={el._id}
-            >
+            <ListGroup.Item style={{ width: "90%" }} className="border-0 border-none " key={el._id}>
               {el.comment}
             </ListGroup.Item>
 

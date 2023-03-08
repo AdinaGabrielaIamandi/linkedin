@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Col, Row, Container, Button } from "react-bootstrap";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { AiOutlinePlus, AiOutlineArrowLeft } from "react-icons/ai";
-import "../../../App.css";
 import "./app.scss";
 
 const Interessi = () => {

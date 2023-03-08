@@ -1,4 +1,4 @@
-import "./OtherCompanies.css";
+import "./OtherCompanies.scss";
 import { Button, Container } from "react-bootstrap";
 
 export const OtherCompanies = () => {

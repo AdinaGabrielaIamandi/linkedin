@@ -1,4 +1,4 @@
-import "./Informazioni.css";
+import "./Informazioni.scss";
 import { Container, Row } from "react-bootstrap";
 
 const Informazioni = (props) => {

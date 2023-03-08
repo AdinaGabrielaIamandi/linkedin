@@ -1,4 +1,4 @@
-import "./OtherPeople.css";
+import "./OtherPeople.scss";
 import { Button, Container } from "react-bootstrap";
 
 export const OtherPeople = () => {

@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./Footer.css";
+import "./Footer.scss";
 
 export const Footer = () => {
   return (
@@ -19,10 +19,7 @@ export const Footer = () => {
           <Row>
             <Col>
               <div className="d-flex flex-column">
-                <Link
-                  className="collegamenti"
-                  to={"https://about.linkedin.com/it-it"}
-                >
+                <Link className="collegamenti" to={"https://about.linkedin.com/it-it"}>
                   Informazioni
                 </Link>
                 <Link
@@ -42,10 +39,7 @@ export const Footer = () => {
                 >
                   Sales Solutions
                 </Link>
-                <Link
-                  to={"https://safety.linkedin.com/"}
-                  className="collegamenti"
-                >
+                <Link to={"https://safety.linkedin.com/"} className="collegamenti">
                   Centro sicurezza
                 </Link>
               </div>
@@ -60,22 +54,13 @@ export const Footer = () => {
                 >
                   Accessibilità
                 </Link>
-                <Link
-                  to={"https://careers.linkedin.com/"}
-                  className="collegamenti"
-                >
+                <Link to={"https://careers.linkedin.com/"} className="collegamenti">
                   Carriera
                 </Link>
-                <Link
-                  to={"https://mobile.linkedin.com/it-it"}
-                  className="collegamenti"
-                >
+                <Link to={"https://mobile.linkedin.com/it-it"} className="collegamenti">
                   Opzioni di annuncio
                 </Link>
-                <Link
-                  to={"https://mobile.linkedin.com/it-it"}
-                  className="collegamenti"
-                >
+                <Link to={"https://mobile.linkedin.com/it-it"} className="collegamenti">
                   Mobile
                 </Link>
               </div>
@@ -91,25 +76,18 @@ export const Footer = () => {
                   Talent Solutions
                 </Link>
                 <Link
-                  to={
-                    "https://business.linkedin.com/it-it/marketing-solutions?trk=n_nav_lms_f&src=li-footer"
-                  }
+                  to={"https://business.linkedin.com/it-it/marketing-solutions?trk=n_nav_lms_f&src=li-footer"}
                   className="collegamenti"
                 >
                   Soluzioni di marketing
                 </Link>
                 <Link
-                  to={
-                    "https://business.linkedin.com/it-it/marketing-solutions/ads?trk=n_nav_ads_f"
-                  }
+                  to={"https://business.linkedin.com/it-it/marketing-solutions/ads?trk=n_nav_ads_f"}
                   className="collegamenti"
                 >
                   Pubbilictà
                 </Link>
-                <Link
-                  to={"https://business.linkedin.com/grow?&src=li-footer"}
-                  className="collegamenti"
-                >
+                <Link to={"https://business.linkedin.com/grow?&src=li-footer"} className="collegamenti">
                   Piccole imprese
                 </Link>
               </div>
@@ -124,15 +102,11 @@ export const Footer = () => {
                 >
                   Domande?
                 </Link>
-                <p className="footerQuestion">
-                  Visita il nostro Centro assistenza
-                </p>
+                <p className="footerQuestion">Visita il nostro Centro assistenza</p>
               </div>
               <div>
                 <Link
-                  to={
-                    "https://www.linkedin.com/mypreferences/d/categories/account"
-                  }
+                  to={"https://www.linkedin.com/mypreferences/d/categories/account"}
                   className="collegamenti domande"
                 >
                   Gestisci il tuo account e la tua privacy
@@ -143,12 +117,7 @@ export const Footer = () => {
             <Col>
               <div>
                 <p className="footerQuestion mb-1 ">Seleziona lingua</p>
-                <select
-                  className="px-2 py-1"
-                  id="language"
-                  name="languageList"
-                  form="form"
-                >
+                <select className="px-2 py-1" id="language" name="languageList" form="form">
                   <option value="Italiano">Italiano</option>
                   <option value="Inglese">Inglese</option>
                   <option value="Francese">Francese</option>

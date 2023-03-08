@@ -1,4 +1,4 @@
-import { Card, InputGroup, Form, Modal, Button } from "react-bootstrap";
+import { Card, InputGroup, Form, Modal } from "react-bootstrap";
 import "./PostInput.scss";
 import { AiFillPicture } from "react-icons/ai";
 import { BsFillPlayBtnFill } from "react-icons/bs";
@@ -8,7 +8,6 @@ import { ModalInput } from "./ModalInput";
 import { useState } from "react";
 
 export const PostInput = (props) => {
-  console.log("props", props);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

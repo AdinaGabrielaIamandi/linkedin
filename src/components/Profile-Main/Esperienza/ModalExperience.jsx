@@ -6,7 +6,7 @@ import {
   putExperience,
   getExperienceAction,
   deleteExperience,
-  addFotoExp,
+  addFotoExp
 } from "../../../redux/action";
 import { HiOutlinePencil } from "react-icons/hi";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -25,10 +25,8 @@ export const ModalExperience = (props) => {
     startDate: "",
     description: "",
     area: "",
-    image: "",
+    image: ""
   };
-
-  console.log("ID ultima exp", lastExp);
 
   const [fd, setFd] = useState(new FormData());
 
@@ -53,9 +51,7 @@ export const ModalExperience = (props) => {
     if (props.id === "ADDEXP") {
       setExp(esperienza);
     } else {
-      const myExperiences = allExperiences.filter(
-        (obj) => obj._id === props.id
-      );
+      const myExperiences = allExperiences.filter((obj) => obj._id === props.id);
       setExp(myExperiences[0]);
     }
   }, []);
@@ -65,25 +61,14 @@ export const ModalExperience = (props) => {
       <div className="d-flex justify-content-end ">
         <div className="d-flex justify-content-center rounded-circle pencil-add align-items-center">
           {props.id === "ADDEXP" ? (
-            <AiOutlinePlus
-              style={{ fontSize: "23px" }}
-              onClick={(e) => handleShow()}
-            />
+            <AiOutlinePlus style={{ fontSize: "23px" }} onClick={(e) => handleShow()} />
           ) : (
-            <HiOutlinePencil
-              style={{ fontSize: "23px" }}
-              onClick={(e) => handleShow()}
-            />
+            <HiOutlinePencil style={{ fontSize: "23px" }} onClick={(e) => handleShow()} />
           )}
         </div>
       </div>
 
-      <Modal
-        size="lg"
-        show={show}
-        onHide={handleClose}
-        aria-labelledby="example-modal-sizes-title-lg"
-      >
+      <Modal size="lg" show={show} onHide={handleClose} aria-labelledby="example-modal-sizes-title-lg">
         {console.log("ID DELL'EXPERIENCE", props.id)}
         {console.log("LA MIA ESPERIENZA", exp)}
         <Modal.Header closeButton>

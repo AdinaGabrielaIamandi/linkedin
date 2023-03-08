@@ -1,9 +1,8 @@
-import { Col, Row, Container, Button } from "react-bootstrap";
+import { Col, Row, Container } from "react-bootstrap";
 import { useState } from "react";
-import { AiOutlinePlus, AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import "../../../App.css";
 import "./app.scss";
 
 const Competenze = () => {

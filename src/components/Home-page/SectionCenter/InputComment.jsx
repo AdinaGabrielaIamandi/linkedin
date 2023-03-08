@@ -1,6 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { postCommentAction, getCommentAction } from "../../../redux/action";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 export const InputComment = (props) => {

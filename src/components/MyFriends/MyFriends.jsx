@@ -1,5 +1,5 @@
-import { Container, Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const MyFriends = () => {
   const allFriends = useSelector((state) => state.linkedin.allfriends);

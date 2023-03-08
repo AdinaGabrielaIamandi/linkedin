@@ -3,8 +3,11 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { HiOutlinePlus } from "react-icons/hi";
 import Cover from "../../../images/cover-foto.png";
 import "./sectionLeft.scss";
+import { useNavigate } from "react-router-dom";
 
 export const SectionLeft = (props) => {
+  const goProfile = useNavigate();
+
   return (
     <>
       <Card className="mb-2">
@@ -12,7 +15,7 @@ export const SectionLeft = (props) => {
         <Image src={props.image} className="rounded-circle border border-2 border-white foto-profile-first-home" />
         <Card.Body className="p-0 mt-5">
           <div className="border-bottom pb-3 text-center">
-            <Card.Title className="mb-1 userName">
+            <Card.Title className="mb-1 userName" onClick={() => goProfile("/profile/me")}>
               {props.name} {props.surname}
             </Card.Title>
             <small className="m-1 userLavoro text-secondary">{props.work}</small>
