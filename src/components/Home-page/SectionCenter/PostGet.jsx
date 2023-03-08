@@ -37,7 +37,7 @@ export const PostGet = () => {
 
   const filtredPosts = seePost
     .filter((singlePost) => {
-      return myFriends?.includes(singlePost.user?._id);
+      return myFriends?.includes(singlePost.user?._id) || singlePost.user?._id === "63fcc323f193e60013807f6a";
     })
     .reverse();
 

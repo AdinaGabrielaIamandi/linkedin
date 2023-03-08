@@ -6,7 +6,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   }
 
   return (
-    <ul className="pagination">
+    <ul className="pagination d-flex justify-content-center">
       {pages.map((page) => (
         <li key={page} className={`page-item${currentPage === page ? " active" : ""}`}>
           <Button className="page-link" onClick={() => onPageChange(page)}>

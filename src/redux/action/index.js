@@ -31,8 +31,7 @@ export const getProfileAction = (id) => {
       let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + id, {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
       });
       if (res.ok) {
@@ -54,8 +53,7 @@ export const getAllProfilesAction = () => {
       let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/", {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
       });
       if (res.ok) {
@@ -76,8 +74,7 @@ export const getExperienceAction = (id) => {
     let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`, {
       method: "GET",
       headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+        Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
       }
     });
     if (res.ok) {
@@ -98,8 +95,7 @@ export const putFirstPageAction = (props) => {
 
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         },
         body: JSON.stringify(props)
       });
@@ -126,8 +122,7 @@ export const addExperienceAction = (props, idUtente, file) => {
 
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         },
         body: JSON.stringify(props)
       });
@@ -138,8 +133,7 @@ export const addExperienceAction = (props, idUtente, file) => {
           body: file, //non serve JSON.stringify
           headers: {
             //NON serve ContentType :)
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
           }
         });
         if (res2.ok) {
@@ -168,8 +162,7 @@ export const putExperience = (props, idUtente, id) => {
 
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         },
         body: JSON.stringify(props)
       });
@@ -191,8 +184,7 @@ export const deleteExperience = (idUtente, _id) => {
 
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
         // body: JSON.stringify(props),
       });
@@ -217,8 +209,7 @@ export const getPostAction = () => {
         {
           method: "GET",
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
           }
         }
       );
@@ -244,8 +235,7 @@ export const addPostAction = (props) => {
         method: "POST",
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         },
         body: JSON.stringify(props)
       });
@@ -270,8 +260,7 @@ export const deletePost = (_id) => {
 
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
         // body: JSON.stringify(props),
       });
@@ -293,8 +282,7 @@ export const putPost = (props, _id) => {
 
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         },
         body: JSON.stringify(props)
       });
@@ -318,8 +306,7 @@ export const putPostEditedAction = (props, id) => {
 
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         },
         body: JSON.stringify(props)
       });
@@ -342,8 +329,7 @@ export const deletePostAction = (id) => {
 
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
         // body: JSON.stringify(props),
       });
@@ -368,8 +354,7 @@ export const addFotoProfile = (file, id) => {
         body: file, //non serve JSON.stringify
         headers: {
           //NON serve ContentType :)
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
       });
       if (res.ok) {
@@ -400,8 +385,7 @@ export const addFotoExp = (file, idProfile, idExp) => {
           body: file, //non serve JSON.stringify
           headers: {
             //NON serve ContentType :)
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
           }
         }
       );
@@ -427,8 +411,7 @@ export const addFotoPost = (file, idPost) => {
         body: file, //non serve JSON.stringify
         headers: {
           //NON serve ContentType :)
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
       });
       if (res.ok) {
@@ -451,8 +434,7 @@ export const getCommentAction = () => {
       let res = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDA1YjBkZTAyY2FjZDAwMTMyZjE5OTMiLCJpYXQiOjE2NzgwOTQ1NTgsImV4cCI6MTY3OTMwNDE1OH0.3JzuoAwpie8rPAglhCDeNuAHhZY01BetkUJHZldeBOw"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT
         }
       });
       if (res.ok) {
@@ -478,8 +460,7 @@ export const postCommentAction = (props) => {
         body: JSON.stringify(props),
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDA1YjBkZTAyY2FjZDAwMTMyZjE5OTMiLCJpYXQiOjE2NzgwOTQ1NTgsImV4cCI6MTY3OTMwNDE1OH0.3JzuoAwpie8rPAglhCDeNuAHhZY01BetkUJHZldeBOw"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT
         }
       });
       if (res.ok) {
@@ -503,8 +484,7 @@ export const deleteCommentAction = (props) => {
         method: "DELETE",
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDA1YjBkZTAyY2FjZDAwMTMyZjE5OTMiLCJpYXQiOjE2NzgwOTQ1NTgsImV4cCI6MTY3OTMwNDE1OH0.3JzuoAwpie8rPAglhCDeNuAHhZY01BetkUJHZldeBOw"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT
         }
       });
       if (res.ok) {
@@ -529,8 +509,7 @@ export const editCommentAction = (props, id) => {
 
         headers: {
           "Content-type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDA1YjBkZTAyY2FjZDAwMTMyZjE5OTMiLCJpYXQiOjE2NzgwOTQ1NTgsImV4cCI6MTY3OTMwNDE1OH0.3JzuoAwpie8rPAglhCDeNuAHhZY01BetkUJHZldeBOw"
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT
         },
         body: JSON.stringify(props)
       });
