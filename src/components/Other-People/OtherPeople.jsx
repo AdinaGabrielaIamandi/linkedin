@@ -1,5 +1,6 @@
 import "./OtherPeople.scss";
 import { Button, Container } from "react-bootstrap";
+import { AiOutlinePlus } from "react-icons/ai";
 
 export const OtherPeople = () => {
   return (
@@ -16,10 +17,11 @@ export const OtherPeople = () => {
         <div className="ms-3">
           <h6 className="fw-bold mb-0">Riccardo Rossi</h6>
           <p className="job mb-0">Junior Front End Developer</p>
+          <Button className="cta fw-bold mt-1 d-flex align-items-center">
+            <AiOutlinePlus />
+            Collegati
+          </Button>
         </div>
-      </div>
-      <div className="d-flex justify-content-center">
-        <Button className="cta fw-bold">Collegati</Button>
       </div>
       <hr className="line mt-4" />
     </Container>

@@ -1,22 +1,20 @@
 import "./Risorse.scss";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const Risorse = () => {
   return (
-    <Container className="allCards mt-2">
-      <Row className="px-0 mt-3">
-        <h5 className="TextRisorse mt-3">Risorse</h5>
-        <p className="TextRisorse">Solo per te</p>
-        <h6 className="TextRisorse">
-          Modalità creazione di contenuti <button className="ButtonRisorse">No</button>
-        </h6>
-        <p className="TextRisorse border-bottom py-3">
-          Fatti scoprire, metti in risalto i contenuti sul tuo profilo e accedi agli strumenti di creazione
-        </p>
-        <h6 className="TextRisorse">La mia rete</h6>
-        <p className="TextRisorse border-bottom py-3">Salva e gestisci i tuoi collegamenti e interessi</p>
-        <button className="ButtonMostraRisorse py-2">Mostra tutte le risorse</button>
-      </Row>
+    <Container className="allCards mt-2 ps-4">
+      <h5 className="TextRisorse ps-1 mt-3">Risorse</h5>
+      <p className="TextRisorse ps-1 ">Solo per te</p>
+      <h6 className="TextRisorse ps-1 ">
+        Modalità creazione di contenuti <button className="ButtonRisorse">No</button>
+      </h6>
+      <p className="TextRisorse border-bottom ps-1 py-3">
+        Fatti scoprire, metti in risalto i contenuti sul tuo profilo e accedi agli strumenti di creazione
+      </p>
+      <h6 className="TextRisorse ps-1 ">La mia rete</h6>
+      <p className="TextRisorse border-bottom ps-1 py-3 mb-0">Salva e gestisci i tuoi collegamenti e interessi</p>
+      <button className="ButtonMostraRisorse ">Mostra tutte le risorse</button>
     </Container>
   );
 };

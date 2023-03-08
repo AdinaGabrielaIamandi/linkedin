@@ -72,7 +72,7 @@ export const NavbarTop = () => {
           </div>
           <div
             onClick={() => {
-              goHome("/home/me");
+              goHome("/");
             }}
             className="d-none d-md-flex flex-column align-items-center justify-content-center text-secondary me-4"
           >

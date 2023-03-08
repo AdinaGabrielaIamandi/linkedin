@@ -159,8 +159,8 @@ export const ModalExperience = (props) => {
             <Button
               variant="danger"
               onClick={() => {
-                dispatch(deleteExperience(exp._id));
-                dispatch(getExperienceAction());
+                dispatch(deleteExperience(props.idProfile, exp._id));
+                dispatch(getExperienceAction(props.idProfile));
               }}
             >
               DELETE
@@ -176,8 +176,8 @@ export const ModalExperience = (props) => {
             <Button
               variant="primary"
               onClick={() => {
-                dispatch(addExperienceAction(exp, fd));
-                dispatch(getExperienceAction());
+                dispatch(addExperienceAction(exp, props.idProfile, fd));
+                dispatch(getExperienceAction(props.idProfile));
                 window.location.reload();
               }}
             >
@@ -187,9 +187,9 @@ export const ModalExperience = (props) => {
             <Button
               variant="primary"
               onClick={() => {
-                dispatch(putExperience(exp, props.idExp));
+                dispatch(putExperience(exp, props.idProfile, props.idExp));
                 dispatch(addFotoExp(fd, props.idProfile, props.idExp));
-                dispatch(getExperienceAction());
+                dispatch(getExperienceAction(props.idProfile));
               }}
             >
               Save Changes

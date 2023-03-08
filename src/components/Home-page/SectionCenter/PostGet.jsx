@@ -39,8 +39,6 @@ export const PostGet = () => {
     return myFriends?.includes(singlePost.user?._id);
   });
 
-  console.log("filterd post", filtredPosts);
-
   const totalPages = Math.ceil(filtredPosts.length / itemsPerPage);
 
   const handlePageChange = (page) => {
@@ -78,7 +76,7 @@ export const PostGet = () => {
                       </Card.Title>
                       <Card.Text className="text-secondary lavoro-utente mb-0">{el.user?.title}</Card.Text>
                       <Card.Text className="text-secondary data-post d-flex align-items-center">
-                        {el?.createdAt?.slice(0, -14)} {el?.createdAt?.slice(11, 16)} •
+                        {el?.createdAt?.slice(0, -14).split("-").reverse().join("-")} {el?.createdAt?.slice(11, 16)} •
                         <BiWorld className="ms-1 icon-world" />
                       </Card.Text>
                     </div>
@@ -94,7 +92,6 @@ export const PostGet = () => {
               ) : (
                 <Image src={el?.image} className="d-none" />
               )}
-
               <div className="d-flex justify-content-between mx-3">
                 <span className="d-flex align-items-center likes">
                   <SlLike className="me-1 text-primary" />

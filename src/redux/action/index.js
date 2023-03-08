@@ -71,9 +71,9 @@ export const getAllProfilesAction = () => {
   };
 };
 
-export const getExperienceAction = () => {
+export const getExperienceAction = (id) => {
   return async (dispatch, getState) => {
-    let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/63fcc323f193e60013807f6a/experiences", {
+    let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`, {
       method: "GET",
       headers: {
         Authorization:
@@ -118,10 +118,10 @@ export const putFirstPageAction = (props) => {
 
 //
 
-export const addExperienceAction = (props, file) => {
+export const addExperienceAction = (props, idUtente, file) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/63fcc323f193e60013807f6a/experiences", {
+      let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences`, {
         method: "POST",
 
         headers: {
@@ -133,18 +133,15 @@ export const addExperienceAction = (props, file) => {
       });
       if (res.ok) {
         let data = await res.json();
-        let res2 = await fetch(
-          `https://striveschool-api.herokuapp.com/api/profile/63fcc323f193e60013807f6a/experiences/${data._id}/picture`,
-          {
-            method: "POST",
-            body: file, //non serve JSON.stringify
-            headers: {
-              //NON serve ContentType :)
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
-            }
+        let res2 = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/${data._id}/picture`, {
+          method: "POST",
+          body: file, //non serve JSON.stringify
+          headers: {
+            //NON serve ContentType :)
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
           }
-        );
+        });
         if (res2.ok) {
           let data = await res2.json();
           return data;
@@ -163,22 +160,19 @@ export const addExperienceAction = (props, file) => {
   };
 };
 
-export const putExperience = (props, id) => {
+export const putExperience = (props, idUtente, id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/63fcc323f193e60013807f6a/experiences/" + id,
-        {
-          method: "PUT",
+      let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences/${id}`, {
+        method: "PUT",
 
-          headers: {
-            "Content-type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
-          },
-          body: JSON.stringify(props)
-        }
-      );
+        headers: {
+          "Content-type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
+        },
+        body: JSON.stringify(props)
+      });
       if (res.ok) {
         let profile = await res.json();
         console.log("PROFILE PUT EXP", profile);
@@ -189,22 +183,19 @@ export const putExperience = (props, id) => {
   };
 };
 
-export const deleteExperience = (_id) => {
+export const deleteExperience = (idUtente, _id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/63fcc323f193e60013807f6a/experiences/" + _id,
-        {
-          method: "DELETE",
+      let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences/${_id}`, {
+        method: "DELETE",
 
-          headers: {
-            "Content-type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
-          }
-          // body: JSON.stringify(props),
+        headers: {
+          "Content-type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2ZjYzMyM2YxOTNlNjAwMTM4MDdmNmEiLCJpYXQiOjE2Nzc1MDk0MTEsImV4cCI6MTY3ODcxOTAxMX0.R53lHjWog6EJvRCyB0VUk4MSezgPNRWZ6qSfsQZk7F4"
         }
-      );
+        // body: JSON.stringify(props),
+      });
       if (res.ok) {
         let profile = await res.text();
         console.log("DELETE PROFILE", profile);

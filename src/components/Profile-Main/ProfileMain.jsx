@@ -41,7 +41,6 @@ export const ProfileMain = () => {
           <Informazioni bio={seeProfile.bio} />
           <Attività />
           <Esperienza id={seeProfile._id} />
-          {/* parte a sinistra */}
           <Competenze />
           <Interessi />
         </Col>
@@ -49,7 +48,7 @@ export const ProfileMain = () => {
           <OtherCompanies />
           <OtherPeople />
           <Learning />
-          <MyFriends />
+          {/* <MyFriends /> */}
         </Col>
       </Row>
       <Footer />
