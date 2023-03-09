@@ -19,8 +19,8 @@ export const PostGet = (props) => {
   const dispatch = useDispatch();
   const seePost = useSelector((state) => state.linkedin.allPost);
   const [clickedComment, setClickedComment] = useState(false);
-
   const myFriends = useSelector((state) => state.linkedin.allfriends);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     dispatch(getPostAction());
@@ -129,7 +129,7 @@ export const PostGet = (props) => {
             </Button>
             <Button
               className="text-secondary bg-transparent border-0 d-flex align-items-center mt-1 mb-1 bottone-hover"
-              onClick={() => handleClikcked()}
+              onClick={() => setShow(true)}
             >
               <FaRegCommentDots className="me-1 fw-bold" />
               <p className="d-none d-md-flex align-items-center m-0">
@@ -147,8 +147,13 @@ export const PostGet = (props) => {
               <p className="d-none d-md-flex align-items-center m-0">Invia</p>
             </Button>
           </Card.Body>
-          <PostComments id={el._id} />
-          <InputComment id={el._id} />
+          {show === false ? (
+            <></>
+          ) : (
+            <>
+              <PostComments id={el._id} /> <InputComment id={el._id} />
+            </>
+          )}
         </Card>
       ))}
       <Pagination
