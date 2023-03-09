@@ -1,7 +1,6 @@
 ul {
   padding: 0;
   list-style-type: none;
-  // padding-bottom: 15px;
   border-bottom: 1px solid #e9e8e5;
   li {
     cursor: pointer;
@@ -13,6 +12,7 @@ ul {
 .greenLink {
   color: rgb(1, 214, 1);
   padding-bottom: 15px;
+  margin-bottom: 0;
   border-bottom: 1px solid rgb(1, 214, 1);
 }
 

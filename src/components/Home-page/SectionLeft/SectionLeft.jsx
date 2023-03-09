@@ -11,8 +11,12 @@ export const SectionLeft = (props) => {
   return (
     <>
       <Card className="mb-2">
-        <Card.Img variant="top" src={Cover} />
-        <Image src={props.image} className="rounded-circle border border-2 border-white foto-profile-first-home" />
+        <Card.Img variant="top" src={Cover} style={{ height: "50px" }} />
+        <Image
+          src={props.image}
+          className="rounded-circle border border-2 border-white foto-profile-first-home"
+          style={{ height: "72px", width: "72px" }}
+        />
         <Card.Body className="p-0 mt-5">
           <div className="border-bottom pb-3 text-center">
             <Card.Title className="mb-1 userName" onClick={() => goProfile("/profile/me")}>

@@ -2,39 +2,25 @@ import { SectionLeft } from "./SectionLeft/SectionLeft";
 import { SectionCenter } from "./SectionCenter/SectionCenter";
 import { SectionRight } from "./SectionRight/SectionRight";
 import { Col, Container, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { getProfileAction } from "./../../redux/action/index";
 import { FooterHome } from "./FooterHome/FooterHome";
 
 export const Homepage = () => {
-  const dispatch = useDispatch();
-  const seeProfile = useSelector((state) => state.linkedin.profile);
-  const params = useParams();
-
-  useEffect(() => {
-    dispatch(getProfileAction(params.id));
-  }, []);
+  const myProfile = useSelector((state) => state.linkedin.myProfile);
 
   return (
     <Container>
       <Row className="justify-content-center">
         <Col lg={2}>
           <SectionLeft
-            name={seeProfile.name}
-            surname={seeProfile.surname}
-            work={seeProfile.title}
-            image={seeProfile.image}
+            name={myProfile.name}
+            surname={myProfile.surname}
+            work={myProfile.title}
+            image={myProfile.image}
           />
         </Col>
         <Col lg={5}>
-          <SectionCenter
-            name={seeProfile.name}
-            surname={seeProfile.surname}
-            image={seeProfile.image}
-          />
+          <SectionCenter name={myProfile.name} surname={myProfile.surname} image={myProfile.image} />
         </Col>
         <Col lg={3}>
           <SectionRight />

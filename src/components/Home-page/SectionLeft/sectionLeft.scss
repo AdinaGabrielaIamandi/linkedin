@@ -1,7 +1,12 @@
 .foto-profile-first-home {
   position: absolute;
-  left: 40%;
-  transform: translateY(50%);
+  left: 33%;
+  transform: translateY(20%);
+  @media (max-width: 450px) {
+    position: absolute;
+    left: 39%;
+    transform: translateY(20%);
+  }
 }
 
 .userName {

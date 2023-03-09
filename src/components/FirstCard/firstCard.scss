@@ -90,3 +90,12 @@
   left: 48%;
   transform: translate(-50%, -50%) rotateZ(40deg);
 }
+
+.text-mobile {
+  @media (max-width: 450px) {
+    display: flex;
+    align-items: center;
+    font-size: 0.86em;
+    padding: 0.2em;
+  }
+}

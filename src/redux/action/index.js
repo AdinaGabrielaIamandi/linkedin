@@ -1,5 +1,6 @@
 // qui verranno inserite tutte le azioni da esportare
 export const GET_PROFILE = "GET_PROFILE";
+export const GET_MY_PROFILE = "GET_MY_PROFILE";
 export const GET_EXPERIENCE = "GET_EXPERIENCE";
 export const GET_ALL_PROFILES = "GET_ALL_PROFILES";
 export const PUT_PROFILE = "PUT_PROFILE";
@@ -22,43 +23,61 @@ export const REMOVE_FAVOURITE_JOBS = "REMOVE_FAVOURITE_JOBS";
 
 export const addFriend = (props) => ({
   type: ADD_TO_FRIENDS,
-  payload: props,
+  payload: props
 });
 
 export const removeFriend = (props) => ({
   type: REMOVE_FROM_FRIENDS,
-  payload: props,
+  payload: props
 });
 
 // ADD & REMOVE JOBS
 
 export const addJobs = (props) => ({
   type: ADD_FAVOURITE_JOBS,
-  payload: props,
+  payload: props
 });
 
 export const removeJobs = (props) => ({
   type: REMOVE_FAVOURITE_JOBS,
-  payload: props,
+  payload: props
 });
 
 export const getProfileAction = (id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" + id,
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + id, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
-      );
+      });
       if (res.ok) {
         let profile = await res.json();
         dispatch({
           type: GET_PROFILE,
-          payload: profile,
+          payload: profile
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+export const getMyProfileAction = (id) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+        }
+      });
+      if (res.ok) {
+        let meprofile = await res.json();
+        dispatch({
+          type: GET_MY_PROFILE,
+          payload: meprofile
         });
       }
     } catch (error) {
@@ -70,20 +89,17 @@ export const getProfileAction = (id) => {
 export const getAllProfilesAction = () => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
-      );
+      });
       if (res.ok) {
         let profiles = await res.json();
         dispatch({
           type: GET_ALL_PROFILES,
-          payload: profiles,
+          payload: profiles
         });
       }
     } catch (error) {
@@ -94,20 +110,17 @@ export const getAllProfilesAction = () => {
 
 export const getExperienceAction = (id) => {
   return async (dispatch, getState) => {
-    let res = await fetch(
-      `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-        },
+    let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
       }
-    );
+    });
     if (res.ok) {
       let experience = await res.json();
       dispatch({
         type: GET_EXPERIENCE,
-        payload: experience,
+        payload: experience
       });
     }
   };
@@ -116,23 +129,20 @@ export const getExperienceAction = (id) => {
 export const putFirstPageAction = (props) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        {
-          method: "PUT",
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/", {
+        method: "PUT",
 
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
-          body: JSON.stringify(props),
-        }
-      );
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+        },
+        body: JSON.stringify(props)
+      });
       if (res.ok) {
         let profile = await res.json();
         dispatch({
           type: PUT_PROFILE,
-          payload: props,
+          payload: props
         });
       }
     } catch (error) {
@@ -146,30 +156,24 @@ export const putFirstPageAction = (props) => {
 export const addExperienceAction = (props, idUtente, file) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences`,
-        {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
-          body: JSON.stringify(props),
-        }
-      );
+      let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+        },
+        body: JSON.stringify(props)
+      });
       if (res.ok) {
         let data = await res.json();
-        let res2 = await fetch(
-          `https://striveschool-api.herokuapp.com/api/profile/${idUtente}/${data._id}/picture`,
-          {
-            method: "POST",
-            body: file, //non serve JSON.stringify
-            headers: {
-              //NON serve ContentType :)
-              Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-            },
+        let res2 = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/${data._id}/picture`, {
+          method: "POST",
+          body: file, //non serve JSON.stringify
+          headers: {
+            //NON serve ContentType :)
+            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
           }
-        );
+        });
         if (res2.ok) {
           let data = await res2.json();
           return data;
@@ -179,7 +183,7 @@ export const addExperienceAction = (props, idUtente, file) => {
 
         dispatch({
           type: LAST_EXPERIENCE_ID,
-          payload: data._id,
+          payload: data._id
         });
       }
     } catch (error) {
@@ -191,18 +195,15 @@ export const addExperienceAction = (props, idUtente, file) => {
 export const putExperience = (props, idUtente, id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences/${id}`,
-        {
-          method: "PUT",
+      let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences/${id}`, {
+        method: "PUT",
 
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
-          body: JSON.stringify(props),
-        }
-      );
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+        },
+        body: JSON.stringify(props)
+      });
       if (res.ok) {
         let profile = await res.json();
         console.log("PROFILE PUT EXP", profile);
@@ -216,18 +217,15 @@ export const putExperience = (props, idUtente, id) => {
 export const deleteExperience = (idUtente, _id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences/${_id}`,
-        {
-          method: "DELETE",
+      let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences/${_id}`, {
+        method: "DELETE",
 
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
-          // body: JSON.stringify(props),
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
-      );
+        // body: JSON.stringify(props),
+      });
       if (res.ok) {
         let profile = await res.text();
         console.log("DELETE PROFILE", profile);
@@ -249,15 +247,15 @@ export const getPostAction = () => {
         {
           method: "GET",
           headers: {
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
+            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+          }
         }
       );
       if (res.ok) {
         let data = await res.json();
         dispatch({
           type: GET_POST,
-          payload: data,
+          payload: data
         });
       }
     } catch (error) {
@@ -271,35 +269,29 @@ export const getPostAction = () => {
 export const addPostAction = (props, file) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/",
-        {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
-          body: JSON.stringify(props),
-        }
-      );
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+        },
+        body: JSON.stringify(props)
+      });
       if (res.ok) {
         let data = await res.json();
-        let res2 = await fetch(
-          `https://striveschool-api.herokuapp.com/api/posts/${data._id}`,
-          {
-            method: "POST",
-            body: file, //non serve JSON.stringify
-            headers: {
-              //NON serve ContentType :)
-              Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-            },
+        let res2 = await fetch(`https://striveschool-api.herokuapp.com/api/posts/${data._id}`, {
+          method: "POST",
+          body: file, //non serve JSON.stringify
+          headers: {
+            //NON serve ContentType :)
+            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
           }
-        );
+        });
         if (res2.ok) {
           let post = await res2.json();
           dispatch({
             type: LAST_POST_ID,
-            payload: post._id,
+            payload: post._id
           });
         }
       } else {
@@ -314,18 +306,15 @@ export const addPostAction = (props, file) => {
 export const deletePost = (_id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/" + _id,
-        {
-          method: "DELETE",
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + _id, {
+        method: "DELETE",
 
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
-          // body: JSON.stringify(props),
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
-      );
+        // body: JSON.stringify(props),
+      });
       if (res.ok) {
         let profile = await res.text();
         console.log("DELETE PROFILE", profile);
@@ -339,18 +328,15 @@ export const deletePost = (_id) => {
 export const putPost = (props, _id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/" + _id,
-        {
-          method: "PUT",
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + _id, {
+        method: "PUT",
 
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
-          body: JSON.stringify(props),
-        }
-      );
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+        },
+        body: JSON.stringify(props)
+      });
       if (res.ok) {
         let profile = await res.json();
         console.log("PROFILE PUT EXP", profile);
@@ -366,17 +352,14 @@ export const putPost = (props, _id) => {
 export const putPostEditedAction = (props, id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/" + id,
-        {
-          method: "PUT",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
-          body: JSON.stringify(props),
-        }
-      );
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + id, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+        },
+        body: JSON.stringify(props)
+      });
       if (res.ok) {
         let postToEdit = await res.json();
       }
@@ -391,18 +374,15 @@ export const putPostEditedAction = (props, id) => {
 export const deletePostAction = (id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/" + id,
-        {
-          method: "DELETE",
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + id, {
+        method: "DELETE",
 
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
-          // body: JSON.stringify(props),
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
-      );
+        // body: JSON.stringify(props),
+      });
       if (res.ok) {
         let deletePost = await res.text();
       }
@@ -417,22 +397,19 @@ export const deletePostAction = (id) => {
 export const addFotoProfile = (file, id) => {
   return async (dispatch) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" + id + "/picture",
-        {
-          method: "POST",
-          body: file, //non serve JSON.stringify
-          headers: {
-            //NON serve ContentType :)
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/profile/" + id + "/picture", {
+        method: "POST",
+        body: file, //non serve JSON.stringify
+        headers: {
+          //NON serve ContentType :)
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
-      );
+      });
       if (res.ok) {
         let data = await res.json();
         dispatch({
           type: POST_PROFILE_IMAGE,
-          payload: file,
+          payload: file
         });
         console.log("FOTO INVIATA");
       } else {
@@ -456,8 +433,8 @@ export const addFotoExp = (file, idProfile, idExp) => {
           body: file, //non serve JSON.stringify
           headers: {
             //NON serve ContentType :)
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
+            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+          }
         }
       );
       if (res.ok) {
@@ -476,17 +453,14 @@ export const addFotoExp = (file, idProfile, idExp) => {
 export const addFotoPost = (file, idPost) => {
   return async (dispatch) => {
     try {
-      let res = await fetch(
-        `https://striveschool-api.herokuapp.com/api/posts/${idPost}`,
-        {
-          method: "POST",
-          body: file, //non serve JSON.stringify
-          headers: {
-            //NON serve ContentType :)
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN,
-          },
+      let res = await fetch(`https://striveschool-api.herokuapp.com/api/posts/${idPost}`, {
+        method: "POST",
+        body: file, //non serve JSON.stringify
+        headers: {
+          //NON serve ContentType :)
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
         }
-      );
+      });
       if (res.ok) {
         let data = await res.json();
         return data;
@@ -504,20 +478,17 @@ export const addFotoPost = (file, idPost) => {
 export const getCommentAction = () => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/",
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT,
-          },
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/comments/", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT
         }
-      );
+      });
       if (res.ok) {
         let comments = await res.json();
         dispatch({
           type: GET_COMMENTS,
-          payload: comments,
+          payload: comments
         });
       }
     } catch (error) {
@@ -531,17 +502,14 @@ export const getCommentAction = () => {
 export const postCommentAction = (props) => {
   return async (dispatch) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments",
-        {
-          method: "POST",
-          body: JSON.stringify(props),
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT,
-          },
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/comments", {
+        method: "POST",
+        body: JSON.stringify(props),
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT
         }
-      );
+      });
       if (res.ok) {
         return await res.json();
       } else {
@@ -559,16 +527,13 @@ export const postCommentAction = (props) => {
 export const deleteCommentAction = (props) => {
   return async (dispatch) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/" + props,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT,
-          },
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + props, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT
         }
-      );
+      });
       if (res.ok) {
         let commentToDelet = await res.text();
       } else {
@@ -586,18 +551,15 @@ export const deleteCommentAction = (props) => {
 export const editCommentAction = (props, id) => {
   return async (dispatch) => {
     try {
-      let res = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/" + id,
-        {
-          method: "PUT",
+      let res = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + id, {
+        method: "PUT",
 
-          headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT,
-          },
-          body: JSON.stringify(props),
-        }
-      );
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer " + process.env.REACT_APP_TOKEN_COMMENT
+        },
+        body: JSON.stringify(props)
+      });
       if (res.ok) {
         const editComment = await res.json();
       } else {
@@ -615,17 +577,13 @@ export const editCommentAction = (props, id) => {
 export const getListWorkAction = (query) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(
-        "https://strive-benchmark.herokuapp.com/api/jobs?search=" +
-          query +
-          "&limit=20"
-      );
+      let res = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?search=" + query + "&limit=20");
 
       if (res.ok) {
         let works = await res.json();
         dispatch({
           type: GET_LIST_WORKS,
-          payload: works,
+          payload: works
         });
       }
     } catch (error) {

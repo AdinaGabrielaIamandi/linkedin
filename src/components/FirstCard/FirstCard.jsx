@@ -88,7 +88,7 @@ export const FirstCard = (props) => {
             )}
           </p>
         </Card.Text>
-        <div className="d-flex mb-3 ps-3">
+        <div className="d-flex align-items-center mb-3 ps-3">
           {params.id !== "me" ? (
             friend ? (
               <Button className="cta2 cta3 fw-bold me-2 " onClick={() => dispatch(removeFriend(props.id))}>
@@ -101,11 +101,11 @@ export const FirstCard = (props) => {
             )
           ) : (
             <>
-              <Button className="cta2 fw-bold me-2 ">Disponibile per</Button>
-              <Button className="cta2 cta3 fw-bold me-2 ">Aggiungi sezione del profilo</Button>
+              <Button className="cta2 fw-bold me-2 text-mobile">Disponibile per</Button>
+              <Button className="cta2 cta3 fw-bold me-2 text-mobile">Aggiungi sezione</Button>
             </>
           )}
-          <Button className="cta fw-bold">Altro</Button>
+          <Button className="cta fw-bold text-mobile">Altro</Button>
         </div>
       </Card.Body>
     </Card>

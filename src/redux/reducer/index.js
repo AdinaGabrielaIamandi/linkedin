@@ -14,11 +14,13 @@ import {
   REMOVE_FROM_FRIENDS,
   GET_LIST_WORKS,
   ADD_FAVOURITE_JOBS,
-  REMOVE_FAVOURITE_JOBS
+  REMOVE_FAVOURITE_JOBS,
+  GET_MY_PROFILE
 } from "../action/index";
 
 const initialState = {
   profile: [],
+  myProfile: [],
   experience: [],
   allProfiles: [],
   allPost: [],
@@ -37,6 +39,11 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         profile: action.payload
+      };
+    case GET_MY_PROFILE:
+      return {
+        ...state,
+        myProfile: action.payload
       };
     case GET_EXPERIENCE:
       return {
