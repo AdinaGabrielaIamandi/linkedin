@@ -3,13 +3,12 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { BiRadar } from "react-icons/bi";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getListWorkAction } from "../../../redux/action";
+import { addJobs, getListWorkAction, removeJobs } from "../../../redux/action";
 
 export const WorksList = () => {
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
   const findJobs = useSelector((state) => state.linkedin.jobs);
-  console.log(findJobs);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -20,9 +19,14 @@ export const WorksList = () => {
     dispatch(getListWorkAction(query));
   };
 
+  const favJobs = useSelector((state) => state.linkedin.favJobs);
+  console.log(favJobs);
+  const isFav = favJobs?.includes(findJobs?.data?.company_name);
+  console.log(isFav);
+
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <Form className="mt-2" onSubmit={handleSubmit}>
         <Form.Control type="search" value={query} onChange={handleChange} />
       </Form>
       <Card className="mt-2 allCards p-3">
@@ -56,15 +60,27 @@ export const WorksList = () => {
                       style={{ fontSize: "0.8em" }}
                       className="text-success fw-bold mt-2"
                     >
-                      {el?.publication_date} ore fa
+                      {el?.publication_date
+                        .slice(0, -14)
+                        .split("-")
+                        .reverse()
+                        .join("-")}{" "}
                     </p>
                   </div>
                 </div>
 
                 <div>
-                  <BsFillBookmarkFill
-                    style={{ color: "#666666", fontSize: "1.2em" }}
-                  />
+                  {isFav ? (
+                    <BsFillBookmarkFill
+                      style={{ color: "gold", fontSize: "1.2em" }}
+                      onClick={() => dispatch(removeJobs(el?.company_name))}
+                    />
+                  ) : (
+                    <BsFillBookmarkFill
+                      style={{ color: "#666666", fontSize: "1.2em" }}
+                      onClick={() => dispatch(addJobs(el?.company_name))}
+                    />
+                  )}
                 </div>
               </div>
               <hr />

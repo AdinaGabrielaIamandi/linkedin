@@ -15,6 +15,10 @@ export const GET_COMMENTS = "GET_COMMENTS";
 export const ADD_TO_FRIENDS = "ADD_TO_FRIENDS";
 export const REMOVE_FROM_FRIENDS = "REMOVE_FROM_FRIENDS";
 export const GET_LIST_WORKS = "GET_LIST_WORKS";
+export const ADD_FAVOURITE_JOBS = "ADD_FAVOURITE_JOBS";
+export const REMOVE_FAVOURITE_JOBS = "REMOVE_FAVOURITE_JOBS";
+
+// ADD & REMOVE FRIENDS
 
 export const addFriend = (props) => ({
   type: ADD_TO_FRIENDS,
@@ -23,6 +27,18 @@ export const addFriend = (props) => ({
 
 export const removeFriend = (props) => ({
   type: REMOVE_FROM_FRIENDS,
+  payload: props,
+});
+
+// ADD & REMOVE JOBS
+
+export const addJobs = (props) => ({
+  type: ADD_FAVOURITE_JOBS,
+  payload: props,
+});
+
+export const removeJobs = (props) => ({
+  type: REMOVE_FAVOURITE_JOBS,
   payload: props,
 });
 
