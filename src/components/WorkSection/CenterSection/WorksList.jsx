@@ -33,7 +33,7 @@ export const WorksList = () => {
         {findJobs?.data?.map((el) => {
           return (
             <>
-              <div className="d-flex justify-content-between">
+              <div key={el?._id} className="d-flex justify-content-between">
                 <div className="d-flex">
                   <img
                     style={{ width: "56px", height: "56px" }}
