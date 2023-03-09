@@ -11,7 +11,11 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import "./PostInput.scss";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addFotoPost, addPostAction, getPostAction } from "../../../redux/action";
+import {
+  addFotoPost,
+  addPostAction,
+  getPostAction,
+} from "../../../redux/action";
 
 export const ModalInput = (props) => {
   const dispatch = useDispatch();
@@ -48,12 +52,16 @@ export const ModalInput = (props) => {
               {props.name} {props.surname}
             </h6>
             <Button className="ctaInput py-1 px-3 d-flex align-items-center fw-bold">
-              <BiWorld className="me-1 buttonIcon" /> Chiunque <RxTriangleDown className="ms-1 buttonIcon" />
+              <BiWorld className="me-1 buttonIcon" /> Chiunque{" "}
+              <RxTriangleDown className="ms-1 buttonIcon" />
             </Button>
           </div>
         </div>
         <Form>
-          <Form.Group className="mb-3 mt-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Group
+            className="mb-3 mt-3"
+            controlId="exampleForm.ControlTextarea1"
+          >
             <Form.Control
               placeholder="Di cosa vorresti parlare?"
               className="border-0"
@@ -64,9 +72,9 @@ export const ModalInput = (props) => {
               }}
             />
           </Form.Group>
-          <p>Aggiungi la tua foto di profilo</p>
           <Form.Group onSubmit={handleSubmit}>
             <input
+              className="uploadPic"
               type="file"
               onChange={(e) => {
                 setPost((prev) => ({ ...prev, image: handleFile(e) }));

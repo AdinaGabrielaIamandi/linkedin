@@ -14,16 +14,25 @@ export const PostInput = (props) => {
   return (
     <>
       <Modal show={show} onHide={handleClose}>
-        <ModalInput name={props.name} surname={props.surname} image={props.image} />
+        <ModalInput
+          name={props.name}
+          surname={props.surname}
+          image={props.image}
+        />
       </Modal>
-      <Card className="p-3">
+      <Card className="p-3 mt-2 mt-md-0">
         <div className="d-flex ">
           <div>
             <img id="portraitInput" src={props.image} alt="" />
           </div>
 
           <InputGroup className="mb-3 ms-3 ">
-            <Form.Control className="fw-bold" id="inputPost" placeholder="Avvia un post" onClick={handleShow} />
+            <Form.Control
+              className="fw-bold"
+              id="inputPost"
+              placeholder="Avvia un post"
+              onClick={handleShow}
+            />
           </InputGroup>
         </div>
 

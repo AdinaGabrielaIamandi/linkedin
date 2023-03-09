@@ -145,7 +145,9 @@ export const NavbarTop = () => {
                     {meUser.name} {meUser.surname}
                   </NavDropdown.Item>
                   <NavDropdown.Item className="text-decoration-none bg-transparent">
-                    {meUser.title}
+                    <div style={{ width: "200px" }}>
+                      <p className="text-truncate">{meUser.title}</p>
+                    </div>
                   </NavDropdown.Item>
                 </div>
               </div>
