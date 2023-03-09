@@ -21,6 +21,7 @@ export const PostGet = (props) => {
   const [clickedComment, setClickedComment] = useState(false);
   const myFriends = useSelector((state) => state.linkedin.allfriends);
   const [show, setShow] = useState(false);
+  const allComments = useSelector((state) => state.linkedin.allComments);
 
   useEffect(() => {
     dispatch(getPostAction());
@@ -115,9 +116,20 @@ export const PostGet = (props) => {
                   {Math.floor(Math.random() * 100)}
                 </small>
               </span>
-              <small className="likes num-like text-secondary">
-                {Math.floor(Math.random() * 300)} diffusioni post
-              </small>
+              <div>
+                <small className="likes num-like text-secondary me-2">
+                  {
+                    allComments.filter(
+                      (comment) => comment.elementId === el._id
+                    ).length
+                  }{" "}
+                  commenti
+                </small>
+                <small className="me-2 text-secondary">•</small>
+                <small className="likes num-like text-secondary">
+                  {Math.floor(Math.random() * 300)} diffusioni post
+                </small>
+              </div>
             </div>
           </Card.Body>
           <Card.Body className="d-flex justify-content-between p-0 me-3 ms-3">
@@ -129,7 +141,7 @@ export const PostGet = (props) => {
             </Button>
             <Button
               className="text-secondary bg-transparent border-0 d-flex align-items-center mt-1 mb-1 bottone-hover"
-              onClick={() => setShow(true)}
+              onClick={() => setShow(!show)}
             >
               <FaRegCommentDots className="me-1 fw-bold" />
               <p className="d-none d-md-flex align-items-center m-0">
