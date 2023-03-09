@@ -19,6 +19,7 @@ export const PostGet = () => {
   const dispatch = useDispatch();
   const seePost = useSelector((state) => state.linkedin.allPost);
   const [clickedComment, setClickedComment] = useState(false);
+
   const myFriends = useSelector((state) => state.linkedin.allfriends);
 
   useEffect(() => {
