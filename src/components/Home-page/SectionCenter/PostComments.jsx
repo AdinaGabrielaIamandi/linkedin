@@ -45,7 +45,6 @@ export const PostComments = (props) => {
               style={{ width: "90%" }}
               className="border-0 border-none "
               key={el._id}
-              singolocommento={el.comment}
             >
               {el.comment}
             </ListGroup.Item>
