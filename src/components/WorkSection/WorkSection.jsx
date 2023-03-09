@@ -1,8 +1,8 @@
 import { Col, Container, Row } from "react-bootstrap";
 import LeftSection from "./LeftSection/LeftSection";
 import CenterSection from "./CenterSection/CenterSection";
-import RightSection from "./RightSection/RightSection";
 import { WorksList } from "./CenterSection/WorksList";
+import { FooterHome } from "./../Home-page/FooterHome/FooterHome";
 
 export const WorkSection = () => {
   return (
@@ -16,7 +16,7 @@ export const WorkSection = () => {
           <WorksList />
         </Col>
         <Col className="col-3">
-          <RightSection />
+          <FooterHome />
         </Col>
       </Row>
     </Container>

@@ -8,15 +8,15 @@ export const FooterHome = () => {
       <Col>
         <Row>
           <Col className="d-flex justify-content-around align-items-center text-secondary text-footer mt-2">
-            <small>Informazioni</small>
-            <small>Accessibilità</small>
+            <small className="color">Informazioni</small>
+            <small className="color">Accessibilità</small>
           </Col>
         </Row>
         <Row>
           <Col className="d-flex justify-content-around align-items-center text-secondary text-footer mt-2">
-            <small>Centro assistenza</small>
+            <small className="color">Centro assistenza</small>
             <small>
-              <NavDropdown title="Privacy e condizioni " id="basic-nav-dropdown">
+              <NavDropdown title="Privacy e condizioni" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1" className="dropdown-text">
                   Informazioni sulla privacy
                 </NavDropdown.Item>
@@ -35,12 +35,12 @@ export const FooterHome = () => {
         </Row>
         <Row>
           <Col className="d-flex justify-content-around align-items-center text-secondary text-footer mt-2">
-            <small>Opzioni per gli annunci pubblicitari</small>
+            <small className="color">Opzioni per gli annunci pubblicitari</small>
           </Col>
         </Row>
         <Row>
           <Col className="d-flex justify-content-around align-items-center text-secondary text-footer mt-2">
-            <small>Pubblicità</small>
+            <small className="color">Pubblicità</small>
             <small>
               <NavDropdown title="Servizi alle aziende" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1" className="dropdown-text2">
@@ -70,7 +70,7 @@ export const FooterHome = () => {
                   href="#action/3.4"
                   className="dropdown-text2 d-flex align-items-center text-decoration-none"
                 >
-                  <p className="m-0 text-black">Crea una pagina aziendale</p>
+                  <p className="m-0 text-black color">Crea una pagina aziendale</p>
                   <span>
                     <HiOutlinePlus />
                   </span>
@@ -81,8 +81,8 @@ export const FooterHome = () => {
         </Row>
         <Row>
           <Col className="d-flex justify-content-around align-items-center text-secondary text-footer mt-2">
-            <small>Scarica l'app LinkedIn</small>
-            <small>Altro</small>
+            <small className="color">Scarica l'app LinkedIn</small>
+            <small className="color">Altro</small>
           </Col>
         </Row>
         <Row>

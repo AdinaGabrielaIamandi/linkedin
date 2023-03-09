@@ -7,6 +7,15 @@
   font-size: 0.8em;
 }
 
+.color,
+#basic-nav-dropdown {
+  &:hover {
+    color: #378fe9;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
 .dropdown-text {
   font-size: 0.7em;
   font-weight: bold;

@@ -83,7 +83,12 @@ export const NavbarTop = () => {
             <FaUserFriends className="icons-navbar" />
             <Nav.Link className="d-none d-lg-block text-icons">Rete</Nav.Link>
           </div>
-          <div className="d-none d-md-flex flex-column align-items-center justify-content-center text-secondary me-4">
+          <div
+            className="d-none d-md-flex flex-column align-items-center justify-content-center text-secondary me-4"
+            onClick={() => {
+              goHome("/work");
+            }}
+          >
             <MdWork className="icons-navbar" />
             <Nav.Link className="d-none d-lg-block text-icons">Lavoro</Nav.Link>
           </div>
