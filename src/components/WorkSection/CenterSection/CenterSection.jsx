@@ -9,7 +9,7 @@ const CenterSection = () => {
       <Row>
         <Col className="mt-4">
           <h5 className="fs-5">Ricerche di offerte di lavoro salvate</h5>
-          {favJobs.map((el) => (
+          {favJobs?.map((el) => (
             <p>{el}</p>
           ))}
         </Col>
