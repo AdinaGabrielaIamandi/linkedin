@@ -6,10 +6,16 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   }
 
   return (
-    <ul className="pagination d-flex justify-content-center">
+    <ul className="pagination d-flex justify-content-center mt-3 border-top pt-3">
       {pages.map((page) => (
-        <li key={page} className={`page-item${currentPage === page ? " active" : ""}`}>
-          <Button className="page-link" onClick={() => onPageChange(page)}>
+        <li
+          key={page}
+          className={`page-item${currentPage === page ? " active" : ""}`}
+        >
+          <Button
+            className="page-link text-bg-light bg-white"
+            onClick={() => onPageChange(page)}
+          >
             {page}
           </Button>
         </li>
