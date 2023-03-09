@@ -1,4 +1,4 @@
-import { Nav, Navbar, NavDropdown, Form, Image, Button } from "react-bootstrap";
+import { Nav, Navbar, NavDropdown, Form, Image } from "react-bootstrap";
 import "./navbar.scss";
 import { FaSearch, FaHome, FaUserFriends, FaBell } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
@@ -145,7 +145,7 @@ export const NavbarTop = () => {
                     {meUser.name} {meUser.surname}
                   </NavDropdown.Item>
                   <NavDropdown.Item className="text-decoration-none bg-transparent">
-                    <div style={{ width: "200px" }}>
+                    <div style={{ width: "160px" }}>
                       <p className="text-truncate">{meUser.title}</p>
                     </div>
                   </NavDropdown.Item>
@@ -154,7 +154,8 @@ export const NavbarTop = () => {
               <NavDropdown.Item className="text-decoration-none bg-transparent">
                 <Link
                   to="/profile/me"
-                  className="btn btn-primary cta2 cta3 fw-bold w-100"
+                  style={{ fontSize: "0.8em" }}
+                  className="btn btn-primary cta2 cta3 fw-bold w-100 p-0"
                 >
                   Visualizza profilo
                 </Link>
