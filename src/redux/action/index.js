@@ -596,11 +596,13 @@ export const editCommentAction = (props, id) => {
 
 // GET WORKS
 
-export const getListWorkAction = () => {
+export const getListWorkAction = (query) => {
   return async (dispatch, getState) => {
     try {
       let res = await fetch(
-        "https://strive-benchmark.herokuapp.com/api/jobs?company="
+        "https://strive-benchmark.herokuapp.com/api/jobs?search=" +
+          query +
+          "&limit=20"
       );
 
       if (res.ok) {
