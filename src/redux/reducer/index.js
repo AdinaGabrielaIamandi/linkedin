@@ -70,6 +70,11 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         experience: state.linkedin.experience.concat(action.payload)
       };
+    case LAST_EXPERIENCE_ID:
+      return {
+        ...state,
+        lastExp: action.payload
+      };
     case GET_POST:
       return {
         ...state,
@@ -84,11 +89,6 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         lastPost: action.payload
-      };
-    case LAST_EXPERIENCE_ID:
-      return {
-        ...state,
-        lastExp: action.payload
       };
     case GET_COMMENTS:
       return {

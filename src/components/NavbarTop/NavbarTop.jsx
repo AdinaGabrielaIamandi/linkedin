@@ -44,6 +44,7 @@ export const NavbarTop = () => {
   useEffect(() => {
     // Update the document title using the browser API
     dispatch(getAllProfilesAction());
+    dispatch(getMyProfileAction());
   }, []);
 
   return (

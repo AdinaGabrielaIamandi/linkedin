@@ -166,25 +166,27 @@ export const addExperienceAction = (props, idUtente, file) => {
       });
       if (res.ok) {
         let data = await res.json();
-        let res2 = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/${data._id}/picture`, {
-          method: "POST",
-          body: file, //non serve JSON.stringify
-          headers: {
-            //NON serve ContentType :)
-            Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+        console.log("id exp foto", data._id);
+        let res2 = await fetch(
+          `https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences/${data._id}/picture`,
+          {
+            method: "POST",
+            body: file, //non serve JSON.stringify
+            headers: {
+              //NON serve ContentType :)
+              Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
+            }
           }
-        });
+        );
         if (res2.ok) {
-          let data = await res2.json();
-          return data;
-        } else {
-          console.log("ATTENTION:");
+          let data2 = await res2.json();
+          dispatch({
+            type: LAST_EXPERIENCE_ID,
+            payload: data2._id
+          });
         }
-
-        dispatch({
-          type: LAST_EXPERIENCE_ID,
-          payload: data._id
-        });
+      } else {
+        console.log("ATTENTION:");
       }
     } catch (error) {
       console.log(error);
@@ -214,12 +216,11 @@ export const putExperience = (props, idUtente, id) => {
   };
 };
 
-export const deleteExperience = (idUtente, _id) => {
+export const deleteExperience = (idUtente, id) => {
   return async (dispatch, getState) => {
     try {
-      let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences/${_id}`, {
+      let res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences/${id}`, {
         method: "DELETE",
-
         headers: {
           "Content-type": "application/json",
           Authorization: "Bearer " + process.env.REACT_APP_TOKEN_LINKEDIN
@@ -293,6 +294,8 @@ export const addPostAction = (props, file) => {
             type: LAST_POST_ID,
             payload: post._id
           });
+        } else {
+          console.log("Foto non inviata");
         }
       } else {
         console.log("ATTENTION:");
@@ -463,7 +466,6 @@ export const addFotoPost = (file, idPost) => {
       });
       if (res.ok) {
         let data = await res.json();
-        return data;
       } else {
         console.log("ATTENTION:");
       }

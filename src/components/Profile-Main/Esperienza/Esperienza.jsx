@@ -4,10 +4,12 @@ import { getExperienceAction } from "../../../redux/action";
 import { useEffect } from "react";
 import "./Esperienza.scss";
 import { ModalExperience } from "./ModalExperience";
+import { useParams } from "react-router-dom";
 
 const Esperienza = (prop) => {
   const experiences = useSelector((state) => state.linkedin.experience);
   const dispatch = useDispatch();
+  const params = useParams();
 
   useEffect(() => {
     dispatch(getExperienceAction(prop.id));
@@ -19,7 +21,7 @@ const Esperienza = (prop) => {
         <Col xs={10} className="mb-3 ps-0">
           <h5 className="">Esperienza</h5>
         </Col>
-        {prop.id === "63fcc323f193e60013807f6a" ? (
+        {params.id === "me" ? (
           <Col xs={2}>
             <ModalExperience id="ADDEXP" idProfile={prop.id} allExp={experiences} />
           </Col>
@@ -54,7 +56,7 @@ const Esperienza = (prop) => {
                   </p>
                 </div>
               </Col>
-              {prop.id === "63fcc323f193e60013807f6a" ? (
+              {params.id === "me" ? (
                 <Col xs={2}>
                   <ModalExperience idExp={exp._id} id={exp._id} idProfile={prop.id} />
                 </Col>

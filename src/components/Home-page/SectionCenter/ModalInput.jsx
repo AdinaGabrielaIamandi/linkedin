@@ -3,24 +3,19 @@ import { BiWorld } from "react-icons/bi";
 import { RxTriangleDown } from "react-icons/rx";
 import { FaRegSmile } from "react-icons/fa";
 import { AiFillPicture } from "react-icons/ai";
-import { BsFillPlayBtnFill } from "react-icons/bs";
+import { BsFillPlayBtnFill, BsCameraFill } from "react-icons/bs";
 import { HiDocumentText } from "react-icons/hi";
 import { SlOptions } from "react-icons/sl";
 import { AiFillMessage } from "react-icons/ai";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import "./PostInput.scss";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addFotoPost,
-  addPostAction,
-  getPostAction,
-} from "../../../redux/action";
+import { useDispatch } from "react-redux";
+import { addPostAction, getPostAction } from "../../../redux/action";
 
 export const ModalInput = (props) => {
   const dispatch = useDispatch();
   const [post, setPost] = useState({});
-  const lastPost = useSelector((state) => state.linkedin.lastPost);
   const [fd, setFd] = useState(new FormData());
 
   const handleFile = (ev) => {
@@ -29,11 +24,6 @@ export const ModalInput = (props) => {
       prev.append("post", ev.target?.files[0]);
       return prev;
     });
-  };
-
-  const handleSubmit = (ev) => {
-    ev.preventDefault();
-    dispatch(addFotoPost(fd, lastPost));
   };
 
   return (
@@ -52,16 +42,12 @@ export const ModalInput = (props) => {
               {props.name} {props.surname}
             </h6>
             <Button className="ctaInput py-1 px-3 d-flex align-items-center fw-bold">
-              <BiWorld className="me-1 buttonIcon" /> Chiunque{" "}
-              <RxTriangleDown className="ms-1 buttonIcon" />
+              <BiWorld className="me-1 buttonIcon" /> Chiunque <RxTriangleDown className="ms-1 buttonIcon" />
             </Button>
           </div>
         </div>
         <Form>
-          <Form.Group
-            className="mb-3 mt-3"
-            controlId="exampleForm.ControlTextarea1"
-          >
+          <Form.Group className="mb-3 mt-3" controlId="exampleForm.ControlTextarea1">
             <Form.Control
               placeholder="Di cosa vorresti parlare?"
               className="border-0"
@@ -72,14 +58,19 @@ export const ModalInput = (props) => {
               }}
             />
           </Form.Group>
-          <Form.Group onSubmit={handleSubmit}>
+          <Form.Group>
             <input
-              className="uploadPic"
+              accept="image/*"
+              id="file"
               type="file"
               onChange={(e) => {
                 setPost((prev) => ({ ...prev, image: handleFile(e) }));
               }}
             />
+            <label for="file" className="inputFile">
+              <BsCameraFill />
+              <small>Aggiungi foto</small>
+            </label>
           </Form.Group>
         </Form>
         <div>
@@ -103,8 +94,8 @@ export const ModalInput = (props) => {
               className="pubblicaCta fw-bold"
               onClick={() => {
                 dispatch(addPostAction(post, fd));
-                dispatch(getPostAction());
                 window.location.reload();
+                dispatch(getPostAction());
               }}
             >
               Pubblica
