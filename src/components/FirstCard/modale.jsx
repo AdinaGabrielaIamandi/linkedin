@@ -1,4 +1,4 @@
-import { BsFillInfoSquareFill } from "react-icons/bs";
+import { BsFillInfoSquareFill, BsCameraFill } from "react-icons/bs";
 import { HiPlus } from "react-icons/hi";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
@@ -37,11 +37,13 @@ const Modale = (props) => {
         <Modal.Title id="example-modal-sizes-title-lg">Modifica introduzione</Modal.Title>
       </Modal.Header>
       <Modal.Body className="modale">
+        <p style={{ fontSize: "0.8em" }}>*Indica che è obbligatorio</p>
         <Form>
-          <p>Aggiungi la tua foto di profilo</p>
-          <Form.Group onSubmit={handleSubmit}>
+          <p className="text-black">Aggiungi la tua foto di profilo</p>
+          <Form.Group onSubmit={handleSubmit} className="mb-3">
             <input
               type="file"
+              id="file"
               onChange={(e) => {
                 setProfileInternal((prev) => ({
                   ...prev,
@@ -49,9 +51,12 @@ const Modale = (props) => {
                 }));
               }}
             />
+            <label for="file" className="inputFile">
+              <BsCameraFill />
+              <small>Aggiungi foto</small>
+            </label>
           </Form.Group>
 
-          <p style={{ fontSize: "0.8em" }}>*Indica che è obbligatorio</p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nome*</Form.Label>
             <Form.Control
