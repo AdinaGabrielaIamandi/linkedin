@@ -128,10 +128,10 @@ const Modale = (props) => {
               <HiPlus /> Aggiungi una nuova posizione lavorativa
             </Button>
           </p>
-          <form className="d-flex align-items-center">
+          <form className="d-flex align-items-center me">
             <input type="checkbox" id="check" hidden />
             <label for="check" className="checkmark"></label>
-            <label>Mostra l’azienda attuale nella mia presentazione</label>
+            <label className="ms-1">Mostra l’azienda attuale nella mia presentazione</label>
           </form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Settore*</p>
@@ -159,14 +159,16 @@ const Modale = (props) => {
               <option value="3">Seleziona</option>
             </Form.Select>
           </Form.Group>
-          <p>
+          <div>
             <Button className="ModalButton">
               <HiPlus /> Aggiungi un nuovo grado di formazione
             </Button>
-          </p>
-          <p>
-            <input type="checkbox" /> Mostra la formazione nella mia presentazione
-          </p>
+          </div>
+          <form className="d-flex align-items-center me">
+            <input type="checkbox" id="check1" hidden />
+            <label for="check1" className="checkmark1"></label>
+            <label className="ms-1">Mostra la formazione nella mia presentazione</label>
+          </form>
           <p style={{ fontSize: "1.3em", color: "black" }}>Località</p>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <p>Paese/Area geografica*</p>
